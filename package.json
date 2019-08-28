@@ -1,0 +1,24 @@
+{
+  "name": "vue-press-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwj1426282929/vue-press-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lwj1426282929/vue-press-blog/issues"
+  },
+  "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
+  "devDependencies": {
+    "vuepress": "^1.0.3"
+  }
+}
