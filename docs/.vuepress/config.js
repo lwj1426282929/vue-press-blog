@@ -1,22 +1,36 @@
 module.exports = {
-  title: '个人主页', 
+  port: 80,
+  base: '/blog/',
+  title: '个人主页',
   description: '赖维健的博客',
-  head: [
-      ['link', { rel: 'icon', href: '/img/favicon.png' }]
-  ],
-  themeConfig : {
-    nav : [
-        { text: '接口定义', link: '/apiword' },
-        { text: '接口字段定义', link: '/api' },
-        { text: '附录：错误码', link: '/error' }
+  head: [['link', { rel: 'icon', href: '/img/favicon.png' }]],
+
+  // 仓库地址
+  repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
+
+  // 缓存已访问过的页面内容，用于离线访问
+  serviceWorker: true,
+
+  themeConfig: {
+    // 导航栏
+    nav: [
+      { text: 'GitHub', link: 'https://github.com/lwj1426282929' },
     ],
     sidebar: {
-      '/': [
-        "/", //指的是根目录的md文件 也就是 README.md 里面的内容
-         "apiword", //  根目录创建 apiword.md文件
-         "error" //根目录创建 error.md文件
-      ]
+      '/guide/': [
+        {
+          title: '新手指南',
+          collapsable: true,
+          children: ['/guide/one'],
+        },
+        {
+          title: '知码学院',
+          collapsable: true,
+          children: ['/guide/two'],
+        },
+        ['/error', '404']
+      ],
     },
-    sidebarDepth : 2
-  }
-}
+    sidebarDepth: 2,
+  },
+};
