@@ -1,3 +1,6 @@
+const sidebar = require('./js/sidebar')
+const nav = require('./js/nav')
+
 module.exports = {
   port: 80,
   base: '/blog/',
@@ -13,24 +16,9 @@ module.exports = {
 
   themeConfig: {
     // 导航栏
-    nav: [
-      { text: 'GitHub', link: 'https://github.com/lwj1426282929' },
-    ],
-    sidebar: {
-      '/guide/': [
-        {
-          title: '新手指南',
-          collapsable: true,
-          children: ['/guide/one'],
-        },
-        {
-          title: '知码学院',
-          collapsable: true,
-          children: ['/guide/two'],
-        },
-        ['/error', '404']
-      ],
-    },
+    nav,
+    // 侧边栏
+    sidebar,
     sidebarDepth: 2,
   },
 };
