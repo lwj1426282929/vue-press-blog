@@ -57,24 +57,24 @@ module.exports = {
       children: [],
     },
   ],
-  '/zh-CN/': [
-    {
-      title: 'JavaScript',
-      collapsable: false,
-      children: [['/guide/js/js常用技巧.md', 'js常用技巧']],
-    },
-    {
-      title: 'ES6',
-      collapsable: false,
-      children: [],
-    },
-    {
-      title: 'Vue',
-      collapsable: false,
-      children: [
-        ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
-        ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
-      ],
-    },
-  ],
+  // '/zh-CN/': [
+  //   {
+  //     title: 'JavaScript',
+  //     collapsable: false,
+  //     children: [['/guide/js/js常用技巧.md', 'js常用技巧']],
+  //   },
+  //   {
+  //     title: 'ES6',
+  //     collapsable: false,
+  //     children: [],
+  //   },
+  //   {
+  //     title: 'Vue',
+  //     collapsable: false,
+  //     children: [
+  //       ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
+  //       ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
+  //     ],
+  //   },
+  // ],
 };
