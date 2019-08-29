@@ -1,24 +1,33 @@
 {
   "name": "vue-press-blog",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "blog of VuePress",
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "precommit": "lint-staged",
+    "dev": "vuepress dev docs --temp .temp",
+    "build": "vuepress build docs --temp .temp",
+    "view-info": "vuepress view-info docs --temp .temp",
+    "show-help": "vuepress --help",
+    "lint-md:wording": "textlint ./docs/**/*.md",
+    "lint-md:style": "remark --quiet --frail .",
+    "lint-md": "yarn lint-md:style && yarn lint-md:wording"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lwj1426282929/vue-press-blog.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "blog",
+    "vuepress"
+  ],
+  "author": "Jay",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/lwj1426282929/vue-press-blog/issues"
   },
   "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
   "devDependencies": {
+    "lint-staged": "^9.2.5",
     "vuepress": "^1.0.3"
   }
 }
