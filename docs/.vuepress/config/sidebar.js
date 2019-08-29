@@ -4,28 +4,24 @@ module.exports = {
       title: 'Vue',
       collapsable: false,
       children: [
-        { 
+        {
           collapsable: false,
-          children: [
-            ['/guide/vue/优化Vue项目.md', '优化Vue项目']
-          ]
+          children: [['/guide/vue/优化Vue项目.md', '优化Vue项目']],
         },
-        ['/guide/vue/Vue编码规范.md', 'Vue编码规范']
-      ]
-    }
+        ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
+      ],
+    },
   ],
   '/guide/': [
     {
       title: 'JavaScript',
       collapsable: false,
-      children: [
-        ['/guide/js/js常用技巧.md', 'js常用技巧']
-      ],
+      children: [['/guide/js/js常用技巧.md', 'js常用技巧']],
     },
     {
       title: 'ES6',
       collapsable: false,
-      children: []
+      children: [],
     },
     {
       title: 'Vue',
@@ -33,33 +29,52 @@ module.exports = {
       children: [
         ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
         ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
-      ]
+      ],
     },
     {
       title: 'Angular',
       collapsable: false,
-      children: []
+      children: [],
     },
     {
       title: 'React',
       collapsable: false,
-      children: []
+      children: [],
     },
     {
       title: 'TypeScript',
       collapsable: false,
-      children: []
+      children: [],
     },
     {
       title: 'Node',
       collapsable: false,
-      children: []
+      children: [],
     },
     {
       title: '其他',
       collapsable: false,
-      children: []
-    }
-    // ['/error', '404']
+      children: [],
+    },
   ],
-}
+  '/zh-CN/': [
+    {
+      title: 'JavaScript',
+      collapsable: false,
+      children: [['/guide/js/js常用技巧.md', 'js常用技巧']],
+    },
+    {
+      title: 'ES6',
+      collapsable: false,
+      children: [],
+    },
+    {
+      title: 'Vue',
+      collapsable: false,
+      children: [
+        ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
+        ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
+      ],
+    },
+  ],
+};

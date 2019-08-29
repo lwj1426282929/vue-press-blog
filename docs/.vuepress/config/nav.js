@@ -4,8 +4,8 @@ module.exports = [
   {
     text: '语言',
     items: [
-      { text: '简体中文', link: '/zh-CN/' },
-      { text: 'English', link: '/' },
+      { text: '简体中文', link: '/zh-CN/guide/' },
+      { text: 'English', link: '/guide/' },
     ],
   },
   { text: 'GitHub', link: 'https://github.com/lwj1426282929' },
