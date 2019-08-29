@@ -1,7 +1,5 @@
 module.exports = {
-  title: 'Blog',
   selectText: 'Languages',
-  label: 'English',
   editLinkText: 'Edit this page on GitHub',
   nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
   sidebar: {

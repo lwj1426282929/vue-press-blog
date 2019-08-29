@@ -1,7 +1,5 @@
 module.exports = {
-  title: '博客',
   selectText: '语言',
-  label: '简体中文',
   editLinkText: '在GitHub上编辑此页',
   nav: [
     { text: '首页', link: '/zh-CN/' },
