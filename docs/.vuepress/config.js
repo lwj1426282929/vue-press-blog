@@ -26,11 +26,11 @@ module.exports = {
     // 作为特例，默认语言可以使用 '/' 作为其路径。
     '/': {
       lang: 'en-US', // 将会被设置为 <html> 的 lang 属性
-      label: 'English'
+      label: 'English',
     },
     '/zh-CN/': {
       lang: 'zh-CN',
-      label: '简体中文'
+      label: '简体中文',
     },
   },
 
@@ -73,7 +73,10 @@ module.exports = {
             {
               title: 'Vue',
               collapsable: false,
-              children: [['/zh-CN/guide/vue/优化Vue项目.md', '优化Vue项目']],
+              children: [
+                ['/zh-CN/guide/vue/优化Vue项目.md', '优化Vue项目'],
+                ['/zh-CN/guide/vue/Vue编码规范.md', 'Vue编码规范'],
+              ],
             },
           ],
         },
