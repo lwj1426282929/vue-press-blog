@@ -27,12 +27,6 @@ module.exports = {
 
   // 主题配置
   themeConfig: {
-    editLinks: true,
-
-    repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
-
-    editLinks: true,
-
     // 多语言支持
     locales: {
       '/': require('./config.en'),
