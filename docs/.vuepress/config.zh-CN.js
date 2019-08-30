@@ -14,8 +14,7 @@ module.exports = {
         title: 'Vue',
         collapsable: false,
         children: [
-          'vue/optimizeVue',
-          'vue/optimizeVue copy'
+          'vue/optimizeVue'
         ],
       },
     ],
