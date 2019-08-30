@@ -31,20 +31,52 @@ module.exports = {
 
     // 多语言支持
     locales: {
-      '/': require('./config.en'),
-      '/zh-CN/': require('./config.zh-CN'),
-    }
-  }
+      '/': {
+        selectText: 'Languages',
+        lang: 'en-US',
+        label: 'English',
+        editLinkText: 'Edit this page on GitHub',
+        lastUpdated: 'Last Updated',
+        nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
+        sidebar: {
+          '/zh-CN/guide/': [
+            {
+              title: 'Vue',
+              collapsable: false,
+              children: [['vue/optimizeVue', '123']],
+            },
+          ],
+        },
+      },
+      '/zh-CN/': {
+        selectText: '选择语言',
+        lang: 'zh-CN',
+        label: '简体中文',
+        editLinkText: '在GitHub上编辑此页',
+        nav: [
+          { text: '首页', link: '/zh-CN/' },
+          { text: '博客', link: '/zh-CN/guide/' },
+        ],
+        sidebar: {
+          '/guide/': [
+            {
+              title: 'Vue',
+              collapsable: false,
+              children: [['vue/optimizeVue', '123']],
+            },
+          ],
+        },
+      },
+    },
+  },
 };
 
-function getGuideSidebar (groupA, groupB) {
+function getGuideSidebar(groupA, groupB) {
   return [
     {
       title: 'Vue',
       collapsable: false,
-      children: [
-        ['js/123', '123']
-      ],
+      children: [['js/123', '123']],
     },
     {
       title: 'React',
@@ -53,7 +85,6 @@ function getGuideSidebar (groupA, groupB) {
         ['vue/optimizeVue', '优化Vue项目'],
         ['vue/Vue编码规范', 'Vue编码规范'],
       ],
-    }
-  ]
+    },
+  ];
 }
-
