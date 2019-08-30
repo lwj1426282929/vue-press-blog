@@ -39,11 +39,11 @@ module.exports = {
         lastUpdated: 'Last Updated',
         nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
         sidebar: {
-          '/zh-CN/guide/': [
+          '/guide/': [
             {
               title: 'Vue',
               collapsable: false,
-              children: [['vue/optimizeVue', '123']],
+              children: ['vue/optimizeVue'],
             },
           ],
         },
@@ -58,11 +58,11 @@ module.exports = {
           { text: '博客', link: '/zh-CN/guide/' },
         ],
         sidebar: {
-          '/guide/': [
+          '/zh-CN/guide/': [
             {
               title: 'Vue',
               collapsable: false,
-              children: [['vue/optimizeVue', '123']],
+              children: ['vue/optimizeVue'],
             },
           ],
         },
@@ -70,21 +70,3 @@ module.exports = {
     },
   },
 };
-
-function getGuideSidebar(groupA, groupB) {
-  return [
-    {
-      title: 'Vue',
-      collapsable: false,
-      children: [['js/123', '123']],
-    },
-    {
-      title: 'React',
-      collapsable: false,
-      children: [
-        ['vue/optimizeVue', '优化Vue项目'],
-        ['vue/Vue编码规范', 'Vue编码规范'],
-      ],
-    },
-  ];
-}
