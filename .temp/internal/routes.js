@@ -21,18 +21,6 @@ export const routes = [
     redirect: "/"
   },
   {
-    name: "v-5caf73da",
-    path: "/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-5caf73da").then(next)
-    },
-  },
-  {
-    path: "/guide/vue/优化Vue项目.html",
-    redirect: "/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html"
-  },
-  {
     name: "v-691e23ca",
     path: "/guide/",
     component: GlobalLayout,
@@ -43,30 +31,6 @@ export const routes = [
   {
     path: "/guide/index.html",
     redirect: "/guide/"
-  },
-  {
-    name: "v-6d45aedb",
-    path: "/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6d45aedb").then(next)
-    },
-  },
-  {
-    path: "/guide/js/js常用技巧.html",
-    redirect: "/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html"
-  },
-  {
-    name: "v-fa665cdc",
-    path: "/zh-CN/guide/",
-    component: GlobalLayout,
-    beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-fa665cdc").then(next)
-    },
-  },
-  {
-    path: "/zh-CN/guide/index.html",
-    redirect: "/zh-CN/guide/"
   },
   {
     name: "v-659b7682",
@@ -81,52 +45,40 @@ export const routes = [
     redirect: "/zh-CN/"
   },
   {
-    name: "v-75ada1a6",
-    path: "/zh-CN/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
+    name: "v-7ecaf5ec",
+    path: "/zh-CN/guide/js/123.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-75ada1a6").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-7ecaf5ec").then(next)
     },
   },
   {
-    path: "/zh-CN/guide/vue/优化Vue项目.html",
-    redirect: "/zh-CN/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html"
-  },
-  {
-    name: "v-286764a4",
-    path: "/zh-CN/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
+    name: "v-6be1834e",
+    path: "/guide/vue/optimizeVue.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-286764a4").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-6be1834e").then(next)
     },
   },
   {
-    path: "/zh-CN/guide/js/js常用技巧.html",
-    redirect: "/zh-CN/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html"
-  },
-  {
-    name: "v-6f28570b",
-    path: "/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
+    name: "v-0d1e1c6c",
+    path: "/zh-CN/guide/vue/optimizeVue.html",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-6f28570b").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-0d1e1c6c").then(next)
     },
   },
   {
-    path: "/guide/vue/Vue编码规范.html",
-    redirect: "/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html"
-  },
-  {
-    name: "v-02decf44",
-    path: "/zh-CN/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
+    name: "v-fa665cdc",
+    path: "/zh-CN/guide/",
     component: GlobalLayout,
     beforeEnter: (to, from, next) => {
-      ensureAsyncComponentsLoaded("Layout", "v-02decf44").then(next)
+      ensureAsyncComponentsLoaded("Layout", "v-fa665cdc").then(next)
     },
   },
   {
-    path: "/zh-CN/guide/vue/Vue编码规范.html",
-    redirect: "/zh-CN/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html"
+    path: "/zh-CN/guide/index.html",
+    redirect: "/zh-CN/guide/"
   },
   {
     path: '*',

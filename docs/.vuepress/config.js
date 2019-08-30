@@ -16,13 +16,13 @@ module.exports = {
     '/': {
       lang: 'en-US',
       title: 'Blog Jay',
-      description: 'blog site of Jay'
+      description: 'blog site of Jay',
     },
     '/zh-CN/': {
       lang: 'zh-CN',
       title: '博客',
-      description: '赖维健的个人博客'
-    }
+      description: '赖维健的个人博客',
+    },
   },
 
   // 主题配置
@@ -33,6 +33,27 @@ module.exports = {
     locales: {
       '/': require('./config.en'),
       '/zh-CN/': require('./config.zh-CN'),
-    },
-  },
+    }
+  }
 };
+
+function getGuideSidebar (groupA, groupB) {
+  return [
+    {
+      title: 'Vue',
+      collapsable: false,
+      children: [
+        ['js/123', '123']
+      ],
+    },
+    {
+      title: 'React',
+      collapsable: false,
+      children: [
+        ['vue/optimizeVue', '优化Vue项目'],
+        ['vue/Vue编码规范', 'Vue编码规范'],
+      ],
+    }
+  ]
+}
+

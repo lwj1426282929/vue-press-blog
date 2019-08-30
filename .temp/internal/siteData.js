@@ -18,16 +18,7 @@ export const siteData = {
       "relativePath": "README.md",
       "key": "v-62c2a688",
       "path": "/",
-      "lastUpdated": "8/29/2019, 4:56:00 PM"
-    },
-    {
-      "title": "优化 Vue 项目",
-      "frontmatter": {},
-      "regularPath": "/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
-      "relativePath": "guide/vue/优化Vue项目.md",
-      "key": "v-5caf73da",
-      "path": "/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
-      "lastUpdated": "8/29/2019, 11:17:42 AM"
+      "lastUpdated": "8/29/2019, 8:08:19 PM"
     },
     {
       "frontmatter": {},
@@ -38,13 +29,42 @@ export const siteData = {
       "lastUpdated": "8/28/2019, 6:12:33 PM"
     },
     {
-      "title": "常用的 JS 技巧",
+      "title": "Home",
+      "frontmatter": {
+        "home": true,
+        "heroImage": "/logo.JPG",
+        "actionText": "开始学习 →",
+        "actionLink": "/zh-CN/guide/"
+      },
+      "regularPath": "/zh-CN/",
+      "relativePath": "zh-CN/README.md",
+      "key": "v-659b7682",
+      "path": "/zh-CN/",
+      "lastUpdated": "2019-8-29 4:56:00 PM"
+    },
+    {
+      "title": "123 zh-CN",
       "frontmatter": {},
-      "regularPath": "/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
-      "relativePath": "guide/js/js常用技巧.md",
-      "key": "v-6d45aedb",
-      "path": "/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
-      "lastUpdated": "8/29/2019, 11:17:42 AM"
+      "regularPath": "/zh-CN/guide/js/123.html",
+      "relativePath": "zh-CN/guide/js/123.md",
+      "key": "v-7ecaf5ec",
+      "path": "/zh-CN/guide/js/123.html"
+    },
+    {
+      "title": "优化 Vue 项目 英文",
+      "frontmatter": {},
+      "regularPath": "/guide/vue/optimizeVue.html",
+      "relativePath": "guide/vue/optimizeVue.md",
+      "key": "v-6be1834e",
+      "path": "/guide/vue/optimizeVue.html"
+    },
+    {
+      "title": "优化 Vue 项目 中文",
+      "frontmatter": {},
+      "regularPath": "/zh-CN/guide/vue/optimizeVue.html",
+      "relativePath": "zh-CN/guide/vue/optimizeVue.md",
+      "key": "v-0d1e1c6c",
+      "path": "/zh-CN/guide/vue/optimizeVue.html"
     },
     {
       "title": "zh-CN",
@@ -54,71 +74,6 @@ export const siteData = {
       "key": "v-fa665cdc",
       "path": "/zh-CN/guide/",
       "lastUpdated": "2019-8-29 4:56:00 PM"
-    },
-    {
-      "title": "Home",
-      "frontmatter": {
-        "home": true,
-        "heroImage": "/img/favicon.png",
-        "actionText": "开始学习 →",
-        "actionLink": "/zh-CN/guide/",
-        "features": [
-          {
-            "title": "简洁至上",
-            "details": "以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。"
-          },
-          {
-            "title": "Vue驱动",
-            "details": "享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。"
-          },
-          {
-            "title": "高性能",
-            "details": "VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。"
-          }
-        ],
-        "footer": "MIT Licensed | Copyright © 2018-present Evan You"
-      },
-      "regularPath": "/zh-CN/",
-      "relativePath": "zh-CN/README.md",
-      "key": "v-659b7682",
-      "path": "/zh-CN/",
-      "lastUpdated": "2019-8-29 4:56:00 PM"
-    },
-    {
-      "title": "优化 Vue 项目 中文",
-      "frontmatter": {},
-      "regularPath": "/zh-CN/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
-      "relativePath": "zh-CN/guide/vue/优化Vue项目.md",
-      "key": "v-75ada1a6",
-      "path": "/zh-CN/guide/vue/%E4%BC%98%E5%8C%96Vue%E9%A1%B9%E7%9B%AE.html",
-      "lastUpdated": "2019-8-29 4:58:48 PM"
-    },
-    {
-      "title": "常用的 JS 技巧",
-      "frontmatter": {},
-      "regularPath": "/zh-CN/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
-      "relativePath": "zh-CN/guide/js/js常用技巧.md",
-      "key": "v-286764a4",
-      "path": "/zh-CN/guide/js/js%E5%B8%B8%E7%94%A8%E6%8A%80%E5%B7%A7.html",
-      "lastUpdated": "2019-8-29 2:20:54 PM"
-    },
-    {
-      "title": "Vue编码规范",
-      "frontmatter": {},
-      "regularPath": "/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
-      "relativePath": "guide/vue/Vue编码规范.md",
-      "key": "v-6f28570b",
-      "path": "/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
-      "lastUpdated": "8/29/2019, 11:17:42 AM"
-    },
-    {
-      "title": "Vue编码规范 中文",
-      "frontmatter": {},
-      "regularPath": "/zh-CN/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
-      "relativePath": "zh-CN/guide/vue/Vue编码规范.md",
-      "key": "v-02decf44",
-      "path": "/zh-CN/guide/vue/Vue%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83.html",
-      "lastUpdated": "2019-8-29 4:58:48 PM"
     }
   ],
   "themeConfig": {

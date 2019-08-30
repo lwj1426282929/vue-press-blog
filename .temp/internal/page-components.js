@@ -3,13 +3,10 @@
  */
 export default {
   "v-62c2a688": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\README.md"),
-  "v-5caf73da": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\guide\\vue\\优化Vue项目.md"),
   "v-691e23ca": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\guide\\README.md"),
-  "v-6d45aedb": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\guide\\js\\js常用技巧.md"),
-  "v-fa665cdc": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\README.md"),
   "v-659b7682": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\README.md"),
-  "v-75ada1a6": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\vue\\优化Vue项目.md"),
-  "v-286764a4": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\js\\js常用技巧.md"),
-  "v-6f28570b": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\guide\\vue\\Vue编码规范.md"),
-  "v-02decf44": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\vue\\Vue编码规范.md") 
+  "v-7ecaf5ec": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\js\\123.md"),
+  "v-6be1834e": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\guide\\vue\\optimizeVue.md"),
+  "v-0d1e1c6c": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\vue\\optimizeVue.md"),
+  "v-fa665cdc": () => import("e:\\personal_code\\GitHub\\vue-press-blog\\docs\\zh-CN\\guide\\README.md") 
 }

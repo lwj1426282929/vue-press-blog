@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "blog of VuePress",
   "scripts": {
-    "dev": "vuepress dev docs --temp .temp"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "repository": {
     "type": "git",
@@ -20,7 +21,6 @@
   },
   "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
   "devDependencies": {
-    "lint-staged": "^9.2.5",
     "vuepress": "^1.0.3"
   }
 }
