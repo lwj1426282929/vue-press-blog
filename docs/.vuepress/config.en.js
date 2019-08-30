@@ -11,18 +11,10 @@ module.exports = {
         title: 'Vue',
         collapsable: false,
         children: [
-          ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
-          ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
+          'vue/optimizeVue',
+          'vue/optimizeVue copy'
         ],
       },
-      {
-        title: 'React',
-        collapsable: false,
-        children: [
-          ['/guide/vue/优化Vue项目.md', '优化Vue项目'],
-          ['/guide/vue/Vue编码规范.md', 'Vue编码规范'],
-        ],
-      }
     ],
   },
-};
+}
