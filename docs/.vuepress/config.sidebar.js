@@ -22,7 +22,10 @@ const menus = [
   {
     title: 'Vue',
     collapsable: false,
-    children: ['Vue/optimizeVue'],
+    children: [
+      'Vue/optimizeVue',
+      'Vue/code-style'
+    ],
   },
   {
     title: 'Angular',
