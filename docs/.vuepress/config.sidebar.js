@@ -45,7 +45,7 @@ const menus = [
     children: [],
   },
   {
-    title: '其他',
+    title: 'Others',
     collapsable: false,
     children: [],
   },
@@ -58,13 +58,10 @@ class Sidebar {
         return item.title === name;
       });
       let children = menu.children.map(item => {
-        item = item.replace(name + '/', '')
-        return item
+        return item.replace(name + '/', '')
       });
       return [{ ...menu, children }];
     }
-
-    console.log(menus)
     return menus;
   }
 }
