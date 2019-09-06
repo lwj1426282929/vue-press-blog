@@ -1,3 +1,5 @@
+const Sidebar = require('./config.sidebar')
+
 module.exports = {
   // 端口， 默认8080
   port: 80,
@@ -28,9 +30,33 @@ module.exports = {
   // 主题配置
   themeConfig: {
     // 多语言支持
+    sidebarDepth: 2,  // 显示 h1, h2, h3
     locales: {
-      '/': require('./config.en'),
-      '/zh-CN/': require('./config.zh-CN')
+      '/': {
+        selectText: 'Languages',
+        lang: 'en-US',
+        label: 'English',
+        lastUpdated: 'Last Updated',
+        nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
+        sidebar: {
+          '/guide/': Sidebar.getMenus()
+        },
+      },
+      '/zh-CN/': {
+        selectText: '选择语言',
+        lang: 'zh-CN',
+        label: '简体中文',
+        editLinkText: '在GitHub上编辑此页',
+        lastUpdated: '上次更新',
+        nav: [
+          { text: '首页', link: '/zh-CN/' },
+          { text: '博客', link: '/zh-CN/guide/' },
+        ],
+        sidebar: {
+          '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/zh-CN/guide/': Sidebar.getMenus(),
+        },
+      },
     },
   },
 };

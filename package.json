@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "vuepress": "^1.0.3"
   }
 }
