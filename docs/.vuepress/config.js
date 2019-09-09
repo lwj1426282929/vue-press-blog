@@ -26,7 +26,7 @@ module.exports = {
     '/zh-CN/': {
       lang: 'zh-CN',
       title: '博客',
-      description: '赖维健的个人博客'
+      description: '赖维健的个人博客',
     },
   },
 
@@ -35,7 +35,6 @@ module.exports = {
     // 多语言支持
     sidebarDepth: 2, // 显示 h1, h2, h3
     repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
-    lastUpdated: true,
     locales: {
       '/': {
         selectText: 'Languages',
