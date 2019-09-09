@@ -14,7 +14,7 @@
 
 ### Prettier
 
-格式化代码, 需要在 setting.json 中配置：
+格式化代码, 需要在 <code>setting.json</code> 中配置：
 
 ```json
 {
@@ -31,7 +31,7 @@
 
 ### Vetur
 
-高亮格式化 Vue 代码。在 setting.json 中配置：
+高亮格式化 Vue 代码。在 <code>setting.json</code> 中配置：
 
 ```json
 {
@@ -114,7 +114,7 @@ SVG 预览
 
 ### vscode-fileheader
 
-添加文件头部注释, 需要在 setting.json 中设置作者、最近更新日期等信息：
+添加文件头部注释, 需要在 <code>setting.json</code> 中设置作者、最近更新日期等信息：
 
 ```json
 {

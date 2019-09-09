@@ -1,14 +1,14 @@
 # Eslint 常用配置
 
-官方文档：https://cn.eslint.org/
+官方文档：[https://cn.eslint.org/](https://cn.eslint.org/)
 
 
 
-#### rules
+## rules
 
 rules 的表达式为：
 
-```js
+```
 rules: {
     "规则名": [规则值, 规则配置]
 }
@@ -16,15 +16,15 @@ rules: {
 
 规则值：
 
-```js
+```
 0 或者 "off"    // 关闭该规则
 1 或者 "warn"   // 在打开的规则作为警告提示
 2 或者 "error"  // 把打开的规则作为错误提示
 ```
 
-所有的规则默认都是禁用的。在配置文件中，使用 "extends": "eslint:recommended" 来启用推荐的规则，报告一些常见的问题。
+所有的规则默认都是禁用的。在配置文件中，使用 <code>"extends": "eslint:recommended" </code> 来启用推荐的规则，报告一些常见的问题。
 
-##### 推荐规则
+### 推荐规则
 
 ```js
 rules: {
@@ -86,7 +86,7 @@ rules: {
 }
 ```
 
-#### 个人常用 ESLint 配置
+### 个人常用 ESLint 配置
 
 ```js
 module.exports = {
