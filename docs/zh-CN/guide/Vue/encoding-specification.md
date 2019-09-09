@@ -138,7 +138,7 @@ export default {
 ```js
 // eslint 规则
 rules: {
-  "no-multiple-empty-lines": [1, {"max": 2}], //空行最多不能超过2行
+  "no-multiple-empty-lines": [1, { "max": 2 }], //空行最多不能超过2行
 }
 ```
 
