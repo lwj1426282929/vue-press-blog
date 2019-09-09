@@ -23,8 +23,7 @@ const menus = [
     title: 'Vue',
     collapsable: false,
     children: [
-      'Vue/optimizeVue',
-      'Vue/code-style'
+      'Vue/encoding-specification'
     ],
   },
   {

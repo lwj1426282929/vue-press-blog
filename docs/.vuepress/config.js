@@ -33,7 +33,7 @@ module.exports = {
   // 主题配置
   themeConfig: {
     // 多语言支持
-    sidebarDepth: 2, // 显示 h1, h2, h3
+    // sidebarDepth: 2, // 显示 h1, h2, h3
     repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
     locales: {
       '/': {
