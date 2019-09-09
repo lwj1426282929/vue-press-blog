@@ -1,0 +1,27 @@
+{
+  "name": "vue-press-blog",
+  "version": "1.0.0",
+  "description": "blog of VuePress",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwj1426282929/vue-press-blog.git"
+  },
+  "keywords": [
+    "blog",
+    "vuepress"
+  ],
+  "author": "Jay.L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lwj1426282929/vue-press-blog/issues"
+  },
+  "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
+  "devDependencies": {
+    "babel-register": "^6.26.0",
+    "vuepress": "^1.0.3"
+  }
+}
