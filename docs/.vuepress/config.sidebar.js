@@ -12,7 +12,9 @@ const menus = [
   {
     title: 'JavaScript',
     collapsable: false,
-    children: [],
+    children: [
+      'JavaScript/common-skills',
+    ],
   },
   {
     title: 'ES6',
@@ -23,7 +25,8 @@ const menus = [
     title: 'Vue',
     collapsable: false,
     children: [
-      'Vue/encoding-specification'
+      'Vue/encoding-specification',
+      'Vue/project-optimization'
     ],
   },
   {
@@ -47,9 +50,12 @@ const menus = [
     children: [],
   },
   {
-    title: 'Others',
+    title: 'Other',
     collapsable: false,
-    children: [],
+    children: [
+      'Other/eslint-config',
+      'Other/vscode-plugin'
+    ],
   },
 ];
 

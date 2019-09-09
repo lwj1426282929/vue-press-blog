@@ -32,8 +32,7 @@ module.exports = {
 
   // 主题配置
   themeConfig: {
-    // 多语言支持
-    // sidebarDepth: 2, // 显示 h1, h2, h3
+    sidebarDepth: 2, // 显示 h1, h2, h3
     repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
     locales: {
       '/': {
@@ -44,6 +43,8 @@ module.exports = {
         nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
         sidebar: {
           '/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          '/guide/Other/': Sidebar.getMenus('Other'),
           '/guide/': Sidebar.getMenus(),
         },
       },
@@ -58,6 +59,8 @@ module.exports = {
         ],
         sidebar: {
           '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/zh-CN/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          '/zh-CN/guide/Other/': Sidebar.getMenus('Other'),
           '/zh-CN/guide/': Sidebar.getMenus(),
         },
       },
