@@ -1,4 +1,4 @@
-const Sidebar = require('./config.sidebar')
+const Sidebar = require('./config.sidebar');
 
 module.exports = {
   // 端口， 默认8080
@@ -13,24 +13,29 @@ module.exports = {
   // 仓库地址
   repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
 
+  // 离线访问
+  serviceWorker: true,
+
   // 多语言支持
   locales: {
     '/': {
       lang: 'en-US',
       title: 'Blog Jay',
-      description: 'blog site of Jay',
+      description: 'blog site of Jay'
     },
     '/zh-CN/': {
       lang: 'zh-CN',
       title: '博客',
-      description: '赖维健的个人博客',
+      description: '赖维健的个人博客'
     },
   },
 
   // 主题配置
   themeConfig: {
     // 多语言支持
-    sidebarDepth: 2,  // 显示 h1, h2, h3
+    sidebarDepth: 2, // 显示 h1, h2, h3
+    repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
+    lastUpdated: true,
     locales: {
       '/': {
         selectText: 'Languages',
@@ -39,14 +44,14 @@ module.exports = {
         lastUpdated: 'Last Updated',
         nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
         sidebar: {
-          '/guide/': Sidebar.getMenus()
+          '/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/guide/': Sidebar.getMenus(),
         },
       },
       '/zh-CN/': {
         selectText: '选择语言',
         lang: 'zh-CN',
         label: '简体中文',
-        editLinkText: '在GitHub上编辑此页',
         lastUpdated: '上次更新',
         nav: [
           { text: '首页', link: '/zh-CN/' },
