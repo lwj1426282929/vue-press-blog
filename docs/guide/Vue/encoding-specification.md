@@ -6,7 +6,7 @@
 
 We personally recommend <code>kebab-case</code> style, because of the superiority that it's easier be found when index.vue or index.js has been created in each folder. Also it can avoid problems in case-insensitive file systems.
 
-Officials say single-file components should be named after <code>PascalCase</code>, That is, it always begins with a capital word ( <code>PascalCase</code> ). This is most friendly for code editor auto-completion because this way makes it as consistent as possible to reference components in JS(X) and templates.
+Officials say single-file components should be named after <code>PascalCase</code>, That is, it always begins with a capital word ( big hump ). This is most friendly for code editor auto-completion because this way makes it as consistent as possible to reference components in JS(X) and templates.
 
 However, mixing file naming can sometimes cause problems with case-insensitive file systems. This is why horizontal join naming ( <code>kebab-case</code> ) is also entirely desirable.
 
@@ -64,7 +64,7 @@ Component names should prefer full words over abbreviations. Uncommon abbreviati
 
 ## Component Names Casing In JS/JSX
 
-Component names in JS/JSX should always be <code>PascalCase</code>, but it should be <code>kebab-case</code> in other scenes , and that it it just only be <code>kebab-case</code> in DOM.
+Component names in JS/[JSX](https://vuejs.org/v2/guide/render-function.html#JSX) should always be <code>PascalCase</code>, but it should be <code>kebab-case</code> in other scenes , and that it it just only be <code>kebab-case</code> in DOM.
 
 ```html
 <my-component />
@@ -163,7 +163,7 @@ function funA () {}
 function funB () {}         // between functions
 ```
 
-The number of each empty lines should not more than 2, we can set it up by [eslint](http://eslint.cn/) at <code>.eslintrc</code> or <code>.eslintrc.js</code>, for example:
+The number of each empty lines should not more than 2, we can set it up by [eslint](https://eslint.org/) at <code>.eslintrc</code> or <code>.eslintrc.js</code>, for example:
 
 ```js
 // eslint rules
@@ -176,7 +176,7 @@ rules: {
 
 ### Self-close element
 
-Empty element should be self-close in single-file components 、string template and JSX.
+Empty element should be self-close in single-file components 、string template and [JSX](https://vuejs.org/v2/guide/render-function.html#JSX).
 
 Components that self-close communicate that they not only have no content, but are meant to have no content.
 Unfortunately, HTML doesn’t allow custom elements to be self-closing - only official “void” elements.
@@ -185,9 +185,9 @@ Unfortunately, HTML doesn’t allow custom elements to be self-closing - only of
 
 Elements with multiple attributes should span multiple lines, with one attribute per line.
 
-In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it’s much easier to read. Our templates and JSX deserve the same consideration.
+In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it’s much easier to read. Our templates and [JSX](https://vuejs.org/v2/guide/render-function.html#JSX) deserve the same consideration.
 
-if you encoding by vscode, you can format your code by <code>vetur</code> plugin, the setting as following:
+if you encoding by <code>vscode</code>, you can format your code by [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) plugin, the setting as following:
 
 ```js
 "vetur.format.defaultFormatter.html": "js-beautify-html",
@@ -237,13 +237,13 @@ props: {
 
 ### Prop names casing
 
-Prop names should always use <code>camelCase</code> during declaration, but <code>kebab-case</code> in templates and JSX.
+Prop names should always use <code>camelCase</code> during declaration, but <code>kebab-case</code> in templates and [JSX](https://vuejs.org/v2/guide/render-function.html#JSX).
 
 ### Prop define
 
-The Prop definition should be as detailed as possible. At least you need to specify its type.
+The [Prop definition](https://vuejs.org/v2/guide/components-props.html#Prop-Validation) should be as detailed as possible. At least you need to specify its type.
 
-A detailed prop definition has two benefits:
+A detailed [Prop definition](https://vuejs.org/v2/guide/components-props.html#Prop-Validation) has two benefits:
 - They specify the API of the component, so it's easy to understand the usage of the component;
 - In a development environment, if you provide a malformed prop to a component, Vue will alert you to capture the source of the potential error.
 
@@ -263,7 +263,7 @@ The code should be as consistent as possible in the project. If directive shorth
 
 ### Pay attention to use directive shorthands
 
-#### Keyed the <code>v-for</code>
+#### <code>key</code> with <code>v-for</code>
 
 <code>key</code> with <code>v-for</code> is always required on components, in order to maintain internal component state down the subtree. 
 
@@ -295,7 +295,7 @@ computed: {
 
 #### <code>v-if</code> / <code>v-else-if</code> / <code>v-else</code> with <code>key</code>
 
-It’s usually best to use key with <code>v-if</code> + <code>v-else</code>, if they are the same element type (e.g. both \<div> elements).
+It’s usually best to use <code>key</code> with <code>v-if</code> + <code>v-else</code>, if they are the same element type (e.g. both \<div> elements).
 
 ```html
 <div v-if="showTemplate" 
@@ -328,7 +328,7 @@ if the prop is a reference, that it is a array or a object, Then the child compo
 
 ### Vuex
 
-Vuex should be preferred for global state management, instead of this.$root or a global event bus.
+[Vuex](https://vuex.vuejs.org/) should be preferred for global state management, instead of <code>this.$root</code> or a global event bus.
 
 ## Style
 
@@ -373,7 +373,7 @@ However, some class-name is global, it is not use to set style in the scoped sty
 }
 </style>
 ```
-We can also use <code>css module</code> if our application is installed <code>css-loader</code> .
+We can also use <code>css module</code> if our application is installed [css-loader](https://github.com/webpack-contrib/css-loader) .
 
 ```html
 <style lang="less" module>
@@ -383,8 +383,8 @@ We can also use <code>css module</code> if our application is installed <code>cs
 
 ### Try to use the class selector
 
-Prefer class selectors over element selectors in scoped styles, because large numbers of element selectors are slow.
+Prefer class selectors over element selectors in <code>scoped</code> styles, because large numbers of element selectors are slow.
 
-To scope styles, Vue adds a unique attribute to component elements, such as data-v-f3f3eg9. Then selectors are modified so that only matching elements with this attribute are selected (e.g. button[data-v-f3f3eg9]).
+To scope styles, Vue adds a unique attribute to component elements, such as <code>data-v-f3f3eg9</code>. Then selectors are modified so that only matching elements with this attribute are selected (e.g. <code>button[data-v-f3f3eg9]</code>).
 
-The problem is that large numbers of element-attribute selectors (e.g. button[data-v-f3f3eg9]) will be considerably slower than class-attribute selectors (e.g. .btn-close[data-v-f3f3eg9]), so class selectors should be preferred whenever possible.
+The problem is that large numbers of element-attribute selectors (e.g. <code>button[data-v-f3f3eg9]</code>) will be considerably slower than class-attribute selectors (e.g. <code>.btn-close[data-v-f3f3eg9]</code>), so class selectors should be preferred whenever possible.

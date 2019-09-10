@@ -64,7 +64,7 @@ components/
 
 ## 在模板中使用组件
 
-在 JS/JSX 中使用 <code>PascalCase</code>， 但是在其他地方比如 template 中使用 <code>kebab-case</code>，在 DOM 中只能使用 <code>kebab-case</code> 。
+在 JS/[JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 中使用 <code>PascalCase</code>， 但是在其他地方比如 template 中使用 <code>kebab-case</code>，在 DOM 中只能使用 <code>kebab-case</code> 。
 
 ```html
 <my-component />
@@ -176,7 +176,7 @@ rules: {
 
 ### 自闭合
 
-在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的。
+在单文件组件、字符串模板和 [JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 中没有内容的组件应该是自闭合的。
 
 自闭合组件表示它们不仅没有内容，而且刻意没有内容。但是 HTML 并不支持自闭合的自定义元素。
 
@@ -184,9 +184,9 @@ rules: {
 
 多个特性的元素应该分多行撰写，每个特性一行。
 
-在 JavaScript 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 JSX 值得我们做相同的考虑。
+在 JavaScript 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 [JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 值得我们做相同的考虑。
 
-如果使用 vscode, 可以使用 <code>vetur</code> 插件格式化 vue 代码， 设置如下：
+如果使用 <code>vscode</code>, 可以使用 [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) 插件格式化 Vue 代码， 设置如下：
 
 ```js
 "vetur.format.defaultFormatter.html": "js-beautify-html",
@@ -236,13 +236,13 @@ props: {
 
 ### Prop 大小写
 
-在组件内申明 Prop 的时候， 其命名应该始终使用 <code>camelCase</code>，而在模板和 JSX 中应该始终使用 <code>kebab-case</code>。
+在组件内申明 Prop 的时候， 其命名应该始终使用 <code>camelCase</code>，而在模板和 [JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 中应该始终使用 <code>kebab-case</code>。
 
 ### Prop 定义
 
-Prop 定义应该尽量详细。至少需要指定其类型。
+[Prop 定义](https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81) 应该尽量详细。至少需要指定其类型。
 
-细致的 prop 定义有两个好处：
+细致的 [Prop 定义](https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81) 有两个好处：
 - 它们写明了组件的 API，所以很容易看懂组件的用法；
 - 在开发环境下，如果向一个组件提供格式不正确的 prop ， Vue 将会告警，以帮助你捕获潜在的错误来源。
 
@@ -327,7 +327,7 @@ this.$emit('change-on-select', value)
 
 ### vuex
 
-应该优先通过 <code>Vuex</code> 管理全局状态，而不是通过 <code>this.$root</code> 或一个全局事件总线。
+应该优先通过 [Vuex](https://vuex.vuejs.org/zh/) 管理全局状态，而不是通过 <code>this.$root</code> 或一个全局事件总线。
 
 ## style 样式
 
@@ -371,7 +371,7 @@ this.$emit('change-on-select', value)
 </style>
 ```
 
-或者使用 <code>css module</code>。但是项目必须安装使用 <code>css-loader</code> 。
+或者使用 <code>css module</code>。但是项目必须安装使用 [css-loader](https://github.com/webpack-contrib/css-loader) 。
 
 ```html
 <style lang="less" module>
@@ -383,6 +383,6 @@ this.$emit('change-on-select', value)
 
 在样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。 特别是在 <code>scoped</code> 样式中。
 
-为了给样式设置作用域，Vue 会为元素添加一个独一无二的特性，例如 data-v-f3f3eg9。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性才会真正生效 (比如 <code>button[data-v-f3f3eg9]</code> )。
+为了给样式设置作用域，Vue 会为元素添加一个独一无二的特性，例如 <code>data-v-f3f3eg9</code>。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性才会真正生效 (比如 <code>button[data-v-f3f3eg9]</code> )。
 
 问题在于大量的元素和特性组合的选择器 (比如 <code>button[data-v-f3f3eg9]</code> ) 会比类和特性组合的选择器慢，所以应该尽可能选用类选择器。
