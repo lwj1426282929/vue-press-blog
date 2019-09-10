@@ -31,7 +31,7 @@ presets: [
 ]
 ```
 ::: tip
-[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 是一个有关环境变量的包，这个包在你使用 [vue-cli 3.0](https://cli.vuejs.org/) 创建项目时就会自带这个包了，所以是不需要下载的，最后在 <code>main.js</code> 中引入我们之前下载的包就可以了。
+[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 是一个有关环境变量的包，这个包在你使用 [vue-cli 3.0](https://cli.vuejs.org/zh/) 创建项目时就会自带这个包了，所以是不需要下载的，最后在 <code>main.js</code> 中引入我们之前下载的包就可以了。
 :::
 
 ```js
