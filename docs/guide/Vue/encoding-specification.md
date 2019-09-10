@@ -1,68 +1,70 @@
-# Vue编码规范
+# Encoding Specification of Vue
 
-## 文件/文件夹命名
+## File/Folder Naming
 
-### 单文件组件
+### Single File Components
 
-个人推荐 <code>kebab-case</code>。因为在每个文件夹下有 index.vue 或 index.js时更容易查找。
+Pfz personally recommend <code>kebab-case</code> style, because of the superiority that it's easier be found when index.vue or index.js has been created in each folder. Also it can avoid problems in case-insensitive file systems.
 
-官方认为单文件组件应以 <code>PascalCase</code> 方式命名，即始终是单词大写开头(大驼峰)。单词大写开头对于代码编辑器的自动补全最为友好，因为这使得我们在 JS(X)和模板中引用组件的方式尽可能一致。
+Officials say single-file components should be named after <code>PascalCase</code>, That is, it always begins with a capital word ( <code>PascalCase</code> ). This is most friendly for code editor auto-completion because this way makes it as consistent as possible to reference components in JS(X) and templates.
 
-然而，混用文件命名方式有的时候会导致大小写不敏感的文件系统的问题，例如这也是横线连接命名( <code>kebab-case</code> )同样完全可取的原因。
+However, mixing file naming can sometimes cause problems with case-insensitive file systems. This is why horizontal join naming ( <code>kebab-case</code> ) is also entirely desirable.
 
-例如： Base.vue 和 base.vue 在 Linux 系统上是两个不同的文件， 但在 windows 上因为大小写不敏感， 会被认为是同一个文件。
+::: tip
+Example:  Base.vue is different from base.vue on Linux, but the same on Windows.
+:::
 
-文件夹与文件类似， 推荐使用 <code>kebab-case</code> 或 <code>PascalCase</code>。
-
-```
-components/
-    |- MyComponent.vue          # 官方推荐写法
-
-components/
-    |- my-component.vue         # 个人更推荐该写法, 可以避免系统大小写敏感问题
-
-components/
-    |- myComponent.vue          # 不推荐
-
-components/
-    |- mycomponent.vue          # 极不推荐
-```
-
-### 紧密耦合的组件
-
-和父组件紧密耦合的子组件应该以父组件名作为前缀命名。
-
-如果一个组件只在某个父组件的场景下有意义，这层关系应该体现在其名字上。因为编辑器通常会按字母顺序组织文件，所以这样做可以把相关联的文件排在一起。或者通过不通的文件夹关联在一起。
+Folder names recommend <code>kebab-case</code> or <code>PascalCase</code> style are similar to files.
 
 ```
 components/
-    |- todo-list/
-       |- index.vue
-       |- todo-list-button.vue
-       |- todo-list-item.vue
+  |- MyComponent.vue      # PascalCase Official recommendation
+
+components/
+  |- my-component.vue     # kebab-case I recommend this method to avoid problems with case-sensitive system 
+
+components/
+  |- myComponent.vue      # camelCase not recommend
+
+components/
+  |- mycomponent.vue      # extremely not recommended
 ```
 
-## 组件名中的单词顺序
+### Tightly Coupled Component
 
-组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。
+#### Child components that are tightly coupled with their parent should include the parent component name as a prefix.
+
+If a component only makes sense in the context of a single parent component, that relationship should be evident in its name. Since editors typically organize files alphabetically, this also keeps these related files next to each other.
 
 ```
 components/
-    |- search-button-clear.vue
-    |- search-button-run.vue
-    |- search-input-query.vue
-    |- search-input-exclude-glob.vue
-    |- settings-checkbox-terms.vue
-    |- settings-checkbox-launch-on-startup.vue
+  |- todo-list/
+    |- index.vue
+    |- todo-list-button.vue
+    |- todo-list-item.vue
 ```
 
-## 组件名应倾向于完整单词
+## Order of words in component names
 
-组件名应该倾向于完整单词而不是缩写。不常用的缩写尤其应该避免。
+Component names should start with the highest-level (often most general) words and end with descriptive modifying words.
 
-## 在模板中使用组件
+```
+components/
+  |- search-button-clear.vue
+  |- search-button-run.vue
+  |- search-input-query.vue
+  |- search-input-exclude-glob.vue
+  |- settings-checkbox-terms.vue
+  |- settings-checkbox-launch-on-startup.vue
+```
 
-在 JS/JSX 中使用 <code>PascalCase</code>， 但是在其他地方比如 template 中使用 <code>kebab-case</code>，在 DOM 中只能使用 <code>kebab-case</code> 。
+## Component names should prefer full words over abbreviations.
+
+Component names should prefer full words over abbreviations. Uncommon abbreviations, in particular, should always be avoided.
+
+## Component name casing in JS/JSX
+
+Component names in JS/JSX should always be <code>PascalCase</code>, but it should be <code>kebab-case</code> in other scenes , and that it it just only be <code>kebab-case</code> in DOM.
 
 ```html
 <my-component />
@@ -72,16 +74,16 @@ components/
 import MyComponent from '@/components/my-component'
 
 export default {
-    components: {
-        MyComponent
-    }
+  components: {
+    MyComponent
+  }
 }
 ```
 
 
-## 组件内部顺序
+## Element Order in Compnent
 
-组件由 template 、 script 、 style 组成。可以有多个 style 。顺序按 template、script、style scoped 、style 排序。
+A Component is make up of template 、 script & style, a component has one or more style element, but has only one template or javascript at most. there is orderd by template 、script 、style scoped 、style.
 
 ```html
 <template></template>
@@ -93,59 +95,52 @@ export default {
 <style></style>
 ```
 
-### script 顺序
+### Component/instance options order
 
 ```js
 export default {
-    name: '',
-    
-    components: {},
-    
-    props: {},
-    
-    data () {},
-    
-    beforeCreate () {},
-    
-    created () {},
-    
-    beforeMount () {},
-    
-    mounted () {},
-    
-    methods: {},
-    
-    beforeUpdate () {},
-    
-    updated () {},
-    
-    activated () {},
-    
-    deactivated () {},
-    
-    beforeDestroy () {},
-    
-    destroyed () {},
-    
-    watch: {}
+  name: '',
+  
+  components: {},
+  
+  props: {},
+  
+  data () {},
+  
+  beforeCreate () {},
+  
+  created () {},
+  
+  beforeMount () {},
+  
+  mounted () {},
+  
+  methods: {},
+  
+  beforeUpdate () {},
+  
+  updated () {},
+  
+  activated () {},
+  
+  deactivated () {},
+  
+  beforeDestroy () {},
+  
+  destroyed () {},
+  
+  watch: {}
 }
 ```
 
-## 空行
+## Empty Line
 
-为了便于阅读， 应在 template 中的模块之间、或多行属性或函数之间适当空行。但单处空行数不宜过多， 推荐单处空行数不超过两行， 可以通过 [eslint](http://eslint.cn/) 设置
-
-```js
-// eslint 规则
-rules: {
-  "no-multiple-empty-lines": [1, {"max": 2}], //空行最多不能超过2行
-}
-```
+There is should have empty lines between modules in template 、Multi-line properties and functions for ease of reading. But numbers of empty lines not be too much.
 
 ```html
 <template>
 
-    <!--大的template模块之间应空行-->
+    <!--Between Multi-line template modules shuold be empty-->
     <module-a />
 
     <module-b />
@@ -156,7 +151,7 @@ rules: {
 
 ```js
 {
-    attr_1: {           // 属性过大应空行
+    attr_1: {           // Multi-line properties
         ...
     },
     
@@ -165,39 +160,50 @@ rules: {
 
 function funA () {}
 
-function funB () {}         // 多个函数之间应适当空行
+function funB () {}         // between functions
 ```
 
-## 元素
+The number of each empty lines should not more than 2, we can set it up by [eslint](http://eslint.cn/) at <code>.eslintrc</code> or <code>.eslintrc.js</code>, for example:
 
-### 自闭合
+```js
+// eslint rules
+rules: {
+  "no-multiple-empty-lines": [1, { "max": 2 }], // multiple-empty-lines
+}
+```
 
-在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的。
+## Element
 
-自闭合组件表示它们不仅没有内容，而且刻意没有内容。但是 HTML 并不支持自闭合的自定义元素。
+### Self-close Element
 
-### 多特性元素
+Empty element should be self-close in single-file components 、string template and JSX.
 
-多个特性的元素应该分多行撰写，每个特性一行。
+Components that self-close communicate that they not only have no content, but are meant to have no content.
+Unfortunately, HTML doesn’t allow custom elements to be self-closing - only official “void” elements.
 
-在 JavaScript 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 JSX 值得我们做相同的考虑。
+### Multi-attribute elements
 
-如果使用 vscode, 可以使用 <code>vetur</code> 插件格式化 vue 代码， 设置如下：
+Elements with multiple attributes should span multiple lines, with one attribute per line.
+
+In JavaScript, splitting objects with multiple properties over multiple lines is widely considered a good convention, because it’s much easier to read. Our templates and JSX deserve the same consideration.
+
+if you encoding by vscode, you can format your code by <code>vetur</code> plugin, the setting as following:
+
 ```js
 "vetur.format.defaultFormatter.html": "js-beautify-html",
 
 "vetur.format.defaultFormatterOptions": {
-    "wrap_attributes": "force-aligned"          // 属性强制折行对齐, auto为一行展示
+  "wrap_attributes": "force-aligned"          // attributes is forced aligned by fold line, auto is means aligned in one line
 }
 ```
 
-### 元素特性顺序
+### Element attribute order
 
-元素 (包括组件) 的特性应该有统一的顺序。尽管顺序并不能影响代码的实际运行效果， 但为了在开发过程中保持统一的风格， 应尽量保持顺序的一致， 便于代码的维护和阅读。
+The attributes of elements (including components) should be ordered consistently. Although the order does not affect the actual running effect of the code, in order to maintain a uniform style during the development process, the order should be kept as consistent as possible to facilitate the maintenance and reading of the code.
 
-- 按照指令、属性、事件名来排序，指令放在最前， 属性在指令后面， 事件名在最后。
-- 指令、属性和事件名内部按照字段长短排序， 字段越长越靠后。
-- 布尔值为true的属性可以简写为属性名， 放在其他属性之前。
+- Sort by instruction, attribute, event name;
+- Instructions, attributes, and event names are sorted internally by field length, and the longer the field, the later;
+- An attribute with a boolean value of true can be abbreviated as the attribute name and placed before other attributes.
 
 ```html
 <my-component v-show="showTemplate"
@@ -209,68 +215,68 @@ function funB () {}         // 多个函数之间应适当空行
 
 ```js
 props: {
-    changeOnSelect: {
-        type: Boolean,
-        default: false
-    }，
-    
-    color: {
-        type: String,
-        required: true,
-        default: 'red'
-        validator: (val) => {
-            let colors = ['red', 'yellow', 'orange', 'green', 'black']
-            if(colors.indexOf(val) > -1) return val
-            return 'red'
-        }
+  changeOnSelect: {
+    type: Boolean,
+    default: false
+  }，
+  
+  color: {
+    type: String,
+    required: true,
+    default: 'red'
+    validator: (val) => {
+      let colors = ['red', 'yellow', 'orange', 'green', 'black']
+      if(colors.indexOf(val) > -1) return val
+      return 'red'
     }
+  }
 }
 ```
 
+## Prop
 
-## 组件属性 Props
+### Prop Name Casing
 
-### Props 大小写
+Prop names should always use <code>camelCase</code> during declaration, but <code>kebab-case</code> in templates and JSX.
 
-在组件内申明Props的时候， 其命名应该始终使用 <code>camelCase</code>，而在模板和 JSX 中应该始终使用 <code>kebab-case</code>。
+### Prop Define
 
-### Props 定义
+The Prop definition should be as detailed as possible. At least you need to specify its type.
 
-Prop 定义应该尽量详细。至少需要指定其类型。
+A detailed prop definition has two benefits:
+- They specify the API of the component, so it's easy to understand the usage of the component;
+- In a development environment, if you provide a malformed prop to a component, Vue will alert you to capture the source of the potential error.
 
-细致的 prop 定义有两个好处：
-- 它们写明了组件的 API，所以很容易看懂组件的用法；
-- 在开发环境下，如果向一个组件提供格式不正确的 prop，Vue 将会告警，以帮助你捕获潜在的错误来源。
+## Directive
 
+### Directive shorthands
 
-## 指令
-
-### 缩写
-
-以指令请尽量使用缩写形式。
-
-| 指令 | 缩写 |
+| directive name | shorthands |
 | :-: | :-: |
 | v-bind | : |
 | v-on | @ |
 | v-slot | # |
 
-### 指令使用注意
+::: tip
+The code should be as consistent as possible in the project. If directive shorthands are used, the directive shorthands should be kept as much as possible elsewhere in the project.
+:::
 
-#### key 必须配合 v-for 使用。
+### Pay attention to use directive shorthands
 
-在组件上总是必须用 <code>key</code> 配合 <code>v-for</code>，以便维护内部组件及其子树的状态。
+#### keyed the <code>v-for</code>
+
+<code>key</code> with <code>v-for</code> is always required on components, in order to maintain internal component state down the subtree. 
 
 ```html
 <card v-for="(card, index) in cards"
       :key="index" />
 ```
 
-#### 避免 v-if 和 v-for 用在一起
+#### Avoid <code>v-if</code> with <code>v-for</code>
 
-当 Vue 处理指令时，<code>v-for</code> 比 <code>v-if</code> 具有更高的优先级, 所以 <code>v-for</code> 和 <code>v-if</code> 是可以在一起使用的。
+When Vue processes directives, <code>v-for</code> has a higher priority than <code>v-if</code>, so we can use <code>v-for</code> with <code>v-if</code> actually.
 
-但是这样会造成不必要的消耗， 只要有一项变了， 哪怕是不需要展示的， Vue 也会重新遍历整个数组， 重新计算渲染。所以一般要自己手动过滤出需要显示的数据在遍历展示。
+But it will cause unnecessary consumption to do like that, As long as one has changed, even if it doesn't need to be render, Vue will traverse the entire array again. So, in general, you have to manually filter out the data you want to display and then re-render the computed data.
 
 ```html
 <card v-for="(card, index) in cards"
@@ -279,17 +285,17 @@ Prop 定义应该尽量详细。至少需要指定其类型。
 
 ```js
 computed: {
-    cards () {
-        return this.data.filter((item) => {
-            return item.show
-        })
-    }
+  cards () {
+    return this.data.filter((item) => {
+      return item.show
+    })
+  }
 }
 ```
 
-#### 在一组 v-if / v-else-if / v-else 中使用 key
+#### <code>v-if</code> / <code>v-else-if</code> / <code>v-else</code> with <code>key</code>
 
-如果是一组判断 <code>v-if</code> 、 <code>v-else</code> ； 或者 <code>v-if</code> 、 <code>v-else-if</code> 、 <code>v-else</code> ， 并且它们的元素类型相同， 最好使用 <code>key</code> 。
+It’s usually best to use key with <code>v-if</code> + <code>v-else</code>, if they are the same element type (e.g. both \<div> elements).
 
 ```html
 <div v-if="showTemplate" 
@@ -299,13 +305,15 @@ computed: {
      key="hide" />
 ```
 
-## 组件通信
+## Communication between Components
 
-### 单向数据流
+### One-Way Data Flow
 
-数据流应是单项的， 即父组件应通过 prop 向子组件传递消息，子组件不能修改 prop ， 而应该通过 emit 向父组件发送一个事件，父组件接收该事件后作出相应操作。
+The data stream should be One-Way, that is the parent component should pass the message to the child component via prop, and the child component can read but cannot modify the prop. Also the child component can dispatch a event-name by <code>$emit</code> and then the parent component can response the message after accepted the signal emited by the child component.
 
-ps: emit的事件名应使用 <code>kebab-case</code>
+::: tip
+emit event-name should be <code>kebab-case</code> .
+:::
 
 ```js
 this.$emit('change-on-select', value)
@@ -314,54 +322,69 @@ this.$emit('change-on-select', value)
 <my-component @change-on-celect="handleChangeOnSelect" />
 ```
 
-### 使用引用属性
+### use reference type prop
 
-如果传递的 prop 是一个引用， 即对象或数组， 那么子组件可以对数组或者对象里面的属性进行更改， 数据会同步到父组件， 无需 emit， 因为 prop 传递的是一个引用， 引用其实并没有变化。但是要谨慎使用， 容易造成数据混乱， 不符合单向数据流原则。
+if the prop is a reference, that it is a array or a object, Then the child component can change the properties in the array or object, and the data will be synchronized to the parent component not to emit. because the prop is a reference, the pointer to true data is not change. However this way should be use carefully because it is easy to cause data confusion, also it does not meet the one-way data flow principle.
 
 ### vuex
 
-应该优先通过 <code>Vuex</code> 管理全局状态，而不是通过 this.$root 或一个全局事件总线。
+Vuex should be preferred for global state management, instead of this.$root or a global event bus.
 
-## style 样式
+## Style
 
-### 为组件样式设置作用域
+### Component style scoping
 
-为了避免和其他组件的样式冲突， 需要设置作用域， 一般在 style 标签里直接加 <code>scoped</code> 属性即可。
+For applications, styles in a top-level App component and in layout components may be global, but all other components should always be scoped.
+
+In order to avoid conflicts with other components, you need to set the scope. Generally, you can add the <code>scoped</code> property directly to the style tag.
 
 ```html
 <style lang="less" scoped>
-    /* 具体样式 */
+  /* ... */
 </style>
 ```
 
-但是， 有些 class 类名是全局中的， 设置了 <code>scoped</code> 属性后并不能改变外面的全局样式， 这是需要去掉 <code>scoped</code> 属性， 但是为了避免和其他样式冲突， 需要在 template 里加一个 class 包裹该元素， 在 style 中使用包裹的类名作用于目标元素。
+但是， 有些 class 类名是全局中的， 设置了 <code>scoped</code> 属性后并不能改变外面的全局样式， 这时可以：
+
+However, some class-name is global, it is not use to set style in the scoped style tag, in this condition, we can:
+
+- remove <code>scoped</code>, but in order to avoid conflicts with other components' style. we need to add a class name to the target container element. it's better to add root-class name to root element.
 
 ```html
 <template>
- <div class="my-conponent-container">
-    <!-- 具体内容 -->
- </div>
+ <div class="my-conponent-container"></div>
 </template>
 
 <style lang="less">
 .my-conponent-container {
-    /* 具体样式 */
+  /* ... */
 }
 </style>
 ```
 
-或者使用 <code>css module</code>。但是项目必须安装使用 <code>css-loader</code> 。
+- use <code>deep</code> , but you'd better do not like this。
+
+```html
+<style lang="less" scoped>
+.my-conponent-container {
+  /deep/ .el-table__header {
+    /* ... */
+  }
+}
+</style>
+```
+We can also use <code>css module</code> if our application is installed <code>css-loader</code> .
 
 ```html
 <style lang="less" module>
-    /* 具体样式 */
+    /* ... */
 </style>
 ```
 
-### 尽量使用类选择器
+### Try to use the class selector
 
-在样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。 特别是在 <code>scoped</code> 样式中。
+Prefer class selectors over element selectors in scoped styles, because large numbers of element selectors are slow.
 
-为了给样式设置作用域，Vue 会为元素添加一个独一无二的特性，例如 data-v-f3f3eg9。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性才会真正生效 (比如 button[data-v-f3f3eg9])。
+To scope styles, Vue adds a unique attribute to component elements, such as data-v-f3f3eg9. Then selectors are modified so that only matching elements with this attribute are selected (e.g. button[data-v-f3f3eg9]).
 
-问题在于大量的元素和特性组合的选择器 (比如 button[data-v-f3f3eg9]) 会比类和特性组合的选择器 慢，所以应该尽可能选用类选择器。
+The problem is that large numbers of element-attribute selectors (e.g. button[data-v-f3f3eg9]) will be considerably slower than class-attribute selectors (e.g. .btn-close[data-v-f3f3eg9]), so class selectors should be preferred whenever possible.
