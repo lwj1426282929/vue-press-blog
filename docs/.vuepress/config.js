@@ -66,4 +66,9 @@ module.exports = {
       },
     },
   },
+
+  // 插件
+  plugins: [
+    ['@vuepress/back-to-top', true]
+  ]
 };
