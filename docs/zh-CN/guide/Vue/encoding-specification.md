@@ -4,28 +4,28 @@
 
 ### 单文件组件
 
-个人推荐 <code>kebab-case</code>。因为在每个文件夹下有 index.vue 或 index.js时更容易查找。
+个人推荐 <code>kebab-case</code> , 因为在每个文件夹下有 index.vue 或 index.js 时更容易查找, 而且可以有效避免大小写敏感问题。
 
 官方认为单文件组件应以 <code>PascalCase</code> 方式命名，即始终是单词大写开头(大驼峰)。单词大写开头对于代码编辑器的自动补全最为友好，因为这使得我们在 JS(X)和模板中引用组件的方式尽可能一致。
 
-然而，混用文件命名方式有的时候会导致大小写不敏感的文件系统的问题，例如这也是横线连接命名( <code>kebab-case</code> )同样完全可取的原因。
+然而，混用文件命名方式有的时候会导致大小写不敏感的文件系统的问题，例如这也是横线连接命名 ( <code>kebab-case</code> ) 同样完全可取的原因。
 
 例如： Base.vue 和 base.vue 在 Linux 系统上是两个不同的文件， 但在 windows 上因为大小写不敏感， 会被认为是同一个文件。
 
-文件夹与文件类似， 推荐使用 <code>kebab-case</code> 或 <code>PascalCase</code>。
+文件夹与文件类似， 推荐使用 <code>kebab-case</code> 或 <code>PascalCase</code> 。
 
 ```
 components/
-    |- MyComponent.vue          # 官方推荐写法
+  |- MyComponent.vue          # PascalCase 官方推荐写法
 
 components/
-    |- my-component.vue         # 个人更推荐该写法, 可以避免系统大小写敏感问题
+  |- my-component.vue         # kebab-case 个人更推荐该写法, 可以避免系统大小写敏感问题
 
 components/
-    |- myComponent.vue          # 不推荐
+  |- myComponent.vue          # camelCase 不推荐
 
 components/
-    |- mycomponent.vue          # 极不推荐
+  |- mycomponent.vue          # 极不推荐
 ```
 
 ### 紧密耦合的组件
@@ -36,10 +36,10 @@ components/
 
 ```
 components/
-    |- todo-list/
-       |- index.vue
-       |- todo-list-button.vue
-       |- todo-list-item.vue
+  |- todo-list/
+    |- index.vue
+    |- todo-list-button.vue
+    |- todo-list-item.vue
 ```
 
 ## 组件名中的单词顺序
@@ -48,12 +48,12 @@ components/
 
 ```
 components/
-    |- search-button-clear.vue
-    |- search-button-run.vue
-    |- search-input-query.vue
-    |- search-input-exclude-glob.vue
-    |- settings-checkbox-terms.vue
-    |- settings-checkbox-launch-on-startup.vue
+  |- search-button-clear.vue
+  |- search-button-run.vue
+  |- search-input-query.vue
+  |- search-input-exclude-glob.vue
+  |- settings-checkbox-terms.vue
+  |- settings-checkbox-launch-on-startup.vue
 ```
 
 ## 组件名应倾向于完整单词
@@ -72,16 +72,16 @@ components/
 import MyComponent from '@/components/my-component'
 
 export default {
-    components: {
-        MyComponent
-    }
+  components: {
+    MyComponent
+  }
 }
 ```
 
 
 ## 组件内部顺序
 
-组件由 template 、 script 、 style 组成。可以有多个 style 。顺序按 template、script、style scoped 、style 排序。
+组件由 template 、 script 、 style 组成。可以有多个 style 。顺序按 template 、script 、style scoped 、style 排序。
 
 ```html
 <template></template>
@@ -97,50 +97,43 @@ export default {
 
 ```js
 export default {
-    name: '',
-    
-    components: {},
-    
-    props: {},
-    
-    data () {},
-    
-    beforeCreate () {},
-    
-    created () {},
-    
-    beforeMount () {},
-    
-    mounted () {},
-    
-    methods: {},
-    
-    beforeUpdate () {},
-    
-    updated () {},
-    
-    activated () {},
-    
-    deactivated () {},
-    
-    beforeDestroy () {},
-    
-    destroyed () {},
-    
-    watch: {}
+  name: '',
+  
+  components: {},
+  
+  props: {},
+  
+  data () {},
+  
+  beforeCreate () {},
+  
+  created () {},
+  
+  beforeMount () {},
+  
+  mounted () {},
+  
+  methods: {},
+  
+  beforeUpdate () {},
+  
+  updated () {},
+  
+  activated () {},
+  
+  deactivated () {},
+  
+  beforeDestroy () {},
+  
+  destroyed () {},
+  
+  watch: {}
 }
 ```
 
 ## 空行
 
-为了便于阅读， 应在 template 中的模块之间、或多行属性或函数之间适当空行。但单处空行数不宜过多， 推荐单处空行数不超过两行， 可以通过 [eslint](http://eslint.cn/) 设置
-
-```js
-// eslint 规则
-rules: {
-  "no-multiple-empty-lines": [1, { "max": 2 }], //空行最多不能超过2行
-}
-```
+为了便于阅读， 应在 template 中的模块之间、或多行属性或函数之间适当空行。但单处空行数不宜过多。
 
 ```html
 <template>
@@ -168,6 +161,15 @@ function funA () {}
 function funB () {}         // 多个函数之间应适当空行
 ```
 
+推荐单处空行数不超过两行，可以通过 [eslint](http://eslint.cn/) 设置。在 <code>.eslintrc</code> 或 <code>.eslintrc.js</code> 文件中配置如下：
+
+```js
+// eslint 规则
+rules: {
+  "no-multiple-empty-lines": [1, { "max": 2 }], //空行最多不能超过2行
+}
+```
+
 ## 元素
 
 ### 自闭合
@@ -183,6 +185,7 @@ function funB () {}         // 多个函数之间应适当空行
 在 JavaScript 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 JSX 值得我们做相同的考虑。
 
 如果使用 vscode, 可以使用 <code>vetur</code> 插件格式化 vue 代码， 设置如下：
+
 ```js
 "vetur.format.defaultFormatter.html": "js-beautify-html",
 
@@ -209,24 +212,23 @@ function funB () {}         // 多个函数之间应适当空行
 
 ```js
 props: {
-    changeOnSelect: {
-        type: Boolean,
-        default: false
-    }，
-    
-    color: {
-        type: String,
-        required: true,
-        default: 'red'
-        validator: (val) => {
-            let colors = ['red', 'yellow', 'orange', 'green', 'black']
-            if(colors.indexOf(val) > -1) return val
-            return 'red'
-        }
+  changeOnSelect: {
+    type: Boolean,
+    default: false
+  }，
+  
+  color: {
+    type: String,
+    required: true,
+    default: 'red'
+    validator: (val) => {
+      let colors = ['red', 'yellow', 'orange', 'green', 'black']
+      if(colors.indexOf(val) > -1) return val
+      return 'red'
     }
+  }
 }
 ```
-
 
 ## 组件属性 Props
 
@@ -240,8 +242,7 @@ Prop 定义应该尽量详细。至少需要指定其类型。
 
 细致的 prop 定义有两个好处：
 - 它们写明了组件的 API，所以很容易看懂组件的用法；
-- 在开发环境下，如果向一个组件提供格式不正确的 prop，Vue 将会告警，以帮助你捕获潜在的错误来源。
-
+- 在开发环境下，如果向一个组件提供格式不正确的 prop ， Vue 将会告警，以帮助你捕获潜在的错误来源。
 
 ## 指令
 
@@ -255,9 +256,13 @@ Prop 定义应该尽量详细。至少需要指定其类型。
 | v-on | @ |
 | v-slot | # |
 
+::: tip
+在项目中代码应尽量保持一致， 如果使用了缩写， 则在项目其他地方也应尽量保持缩写形式。
+:::
+
 ### 指令使用注意
 
-#### key 必须配合 v-for 使用。
+#### <code>key</code> 必须配合 <code>v-for</code> 使用。
 
 在组件上总是必须用 <code>key</code> 配合 <code>v-for</code>，以便维护内部组件及其子树的状态。
 
@@ -266,7 +271,7 @@ Prop 定义应该尽量详细。至少需要指定其类型。
       :key="index" />
 ```
 
-#### 避免 v-if 和 v-for 用在一起
+#### 避免 <code>v-if</code> 和 <code>v-for</code> 用在一起
 
 当 Vue 处理指令时，<code>v-for</code> 比 <code>v-if</code> 具有更高的优先级, 所以 <code>v-for</code> 和 <code>v-if</code> 是可以在一起使用的。
 
@@ -279,15 +284,15 @@ Prop 定义应该尽量详细。至少需要指定其类型。
 
 ```js
 computed: {
-    cards () {
-        return this.data.filter((item) => {
-            return item.show
-        })
-    }
+  cards () {
+    return this.data.filter((item) => {
+      return item.show
+    })
+  }
 }
 ```
 
-#### 在一组 v-if / v-else-if / v-else 中使用 key
+#### 在一组 <code>v-if</code> / <code>v-else-if</code> / <code>v-else</code> 中使用 <code>key</code>
 
 如果是一组判断 <code>v-if</code> 、 <code>v-else</code> ； 或者 <code>v-if</code> 、 <code>v-else-if</code> 、 <code>v-else</code> ， 并且它们的元素类型相同， 最好使用 <code>key</code> 。
 
@@ -305,7 +310,9 @@ computed: {
 
 数据流应是单项的， 即父组件应通过 prop 向子组件传递消息，子组件不能修改 prop ， 而应该通过 emit 向父组件发送一个事件，父组件接收该事件后作出相应操作。
 
-ps: emit的事件名应使用 <code>kebab-case</code>
+::: tip
+emit 的事件名应使用 <code>kebab-case</code>
+:::
 
 ```js
 this.$emit('change-on-select', value)
@@ -320,7 +327,7 @@ this.$emit('change-on-select', value)
 
 ### vuex
 
-应该优先通过 <code>Vuex</code> 管理全局状态，而不是通过 this.$root 或一个全局事件总线。
+应该优先通过 <code>Vuex</code> 管理全局状态，而不是通过 <code>this.$root</code> 或一个全局事件总线。
 
 ## style 样式
 
@@ -330,22 +337,34 @@ this.$emit('change-on-select', value)
 
 ```html
 <style lang="less" scoped>
-    /* 具体样式 */
+  /* ... */
 </style>
 ```
 
-但是， 有些 class 类名是全局中的， 设置了 <code>scoped</code> 属性后并不能改变外面的全局样式， 这是需要去掉 <code>scoped</code> 属性， 但是为了避免和其他样式冲突， 需要在 template 里加一个 class 包裹该元素， 在 style 中使用包裹的类名作用于目标元素。
+但是， 有些 class 类名是全局中的， 设置了 <code>scoped</code> 属性后并不能改变外面的全局样式， 这时可以：
+
+- 去掉 <code>scoped</code> 属性， 但是为了避免和其他样式冲突， 需要在 template 里加一个 class 包裹该元素， 在 style 中使用包裹的类名作用于目标元素。推荐在一开始的根元素就添加class
 
 ```html
 <template>
- <div class="my-conponent-container">
-    <!-- 具体内容 -->
- </div>
+ <div class="my-conponent-container"></div>
 </template>
 
 <style lang="less">
 .my-conponent-container {
-    /* 具体样式 */
+  /* ... */
+}
+</style>
+```
+
+- 使用 <code>deep</code> , 但是不推荐这种用法。
+
+```html
+<style lang="less" scoped>
+.my-conponent-container {
+  /deep/ .el-table__header {
+    /* ... */
+  }
 }
 </style>
 ```
@@ -354,7 +373,7 @@ this.$emit('change-on-select', value)
 
 ```html
 <style lang="less" module>
-    /* 具体样式 */
+    /* ... */
 </style>
 ```
 
@@ -362,6 +381,6 @@ this.$emit('change-on-select', value)
 
 在样式中，类选择器比元素选择器更好，因为大量使用元素选择器是很慢的。 特别是在 <code>scoped</code> 样式中。
 
-为了给样式设置作用域，Vue 会为元素添加一个独一无二的特性，例如 data-v-f3f3eg9。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性才会真正生效 (比如 button[data-v-f3f3eg9])。
+为了给样式设置作用域，Vue 会为元素添加一个独一无二的特性，例如 data-v-f3f3eg9。然后修改选择器，使得在匹配选择器的元素中，只有带这个特性才会真正生效 (比如 <code>button[data-v-f3f3eg9]</code> )。
 
-问题在于大量的元素和特性组合的选择器 (比如 button[data-v-f3f3eg9]) 会比类和特性组合的选择器 慢，所以应该尽可能选用类选择器。
+问题在于大量的元素和特性组合的选择器 (比如 <code>button[data-v-f3f3eg9]</code> ) 会比类和特性组合的选择器慢，所以应该尽可能选用类选择器。
