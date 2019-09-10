@@ -1,10 +1,10 @@
-# Encoding Specification of Vue
+# Encoding Specification Of Vue
 
 ## File/Folder Naming
 
-### Single File Components
+### Single file components
 
-Pfz personally recommend <code>kebab-case</code> style, because of the superiority that it's easier be found when index.vue or index.js has been created in each folder. Also it can avoid problems in case-insensitive file systems.
+We personally recommend <code>kebab-case</code> style, because of the superiority that it's easier be found when index.vue or index.js has been created in each folder. Also it can avoid problems in case-insensitive file systems.
 
 Officials say single-file components should be named after <code>PascalCase</code>, That is, it always begins with a capital word ( <code>PascalCase</code> ). This is most friendly for code editor auto-completion because this way makes it as consistent as possible to reference components in JS(X) and templates.
 
@@ -30,7 +30,7 @@ components/
   |- mycomponent.vue      # extremely not recommended
 ```
 
-### Tightly Coupled Component
+### Tightly coupled component
 
 #### Child components that are tightly coupled with their parent should include the parent component name as a prefix.
 
@@ -44,7 +44,7 @@ components/
     |- todo-list-item.vue
 ```
 
-## Order of words in component names
+## Order Of Words In Component Names
 
 Component names should start with the highest-level (often most general) words and end with descriptive modifying words.
 
@@ -58,11 +58,11 @@ components/
   |- settings-checkbox-launch-on-startup.vue
 ```
 
-## Component names should prefer full words over abbreviations.
+## Component Names Should Prefer Full Words Over Abbreviations
 
 Component names should prefer full words over abbreviations. Uncommon abbreviations, in particular, should always be avoided.
 
-## Component name casing in JS/JSX
+## Component Names Casing In JS/JSX
 
 Component names in JS/JSX should always be <code>PascalCase</code>, but it should be <code>kebab-case</code> in other scenes , and that it it just only be <code>kebab-case</code> in DOM.
 
@@ -81,7 +81,7 @@ export default {
 ```
 
 
-## Element Order in Compnent
+## Element Order In Compnent
 
 A Component is make up of template 、 script & style, a component has one or more style element, but has only one template or javascript at most. there is orderd by template 、script 、style scoped 、style.
 
@@ -174,7 +174,7 @@ rules: {
 
 ## Element
 
-### Self-close Element
+### Self-close element
 
 Empty element should be self-close in single-file components 、string template and JSX.
 
@@ -235,11 +235,11 @@ props: {
 
 ## Prop
 
-### Prop Name Casing
+### Prop names casing
 
 Prop names should always use <code>camelCase</code> during declaration, but <code>kebab-case</code> in templates and JSX.
 
-### Prop Define
+### Prop define
 
 The Prop definition should be as detailed as possible. At least you need to specify its type.
 
@@ -263,7 +263,7 @@ The code should be as consistent as possible in the project. If directive shorth
 
 ### Pay attention to use directive shorthands
 
-#### keyed the <code>v-for</code>
+#### Keyed the <code>v-for</code>
 
 <code>key</code> with <code>v-for</code> is always required on components, in order to maintain internal component state down the subtree. 
 
@@ -305,9 +305,9 @@ It’s usually best to use key with <code>v-if</code> + <code>v-else</code>, if 
      key="hide" />
 ```
 
-## Communication between Components
+## Communication Between Components
 
-### One-Way Data Flow
+### One-Way data flow
 
 The data stream should be One-Way, that is the parent component should pass the message to the child component via prop, and the child component can read but cannot modify the prop. Also the child component can dispatch a event-name by <code>$emit</code> and then the parent component can response the message after accepted the signal emited by the child component.
 
@@ -322,11 +322,11 @@ this.$emit('change-on-select', value)
 <my-component @change-on-celect="handleChangeOnSelect" />
 ```
 
-### use reference type prop
+### Use reference type prop
 
 if the prop is a reference, that it is a array or a object, Then the child component can change the properties in the array or object, and the data will be synchronized to the parent component not to emit. because the prop is a reference, the pointer to true data is not change. However this way should be use carefully because it is easy to cause data confusion, also it does not meet the one-way data flow principle.
 
-### vuex
+### Vuex
 
 Vuex should be preferred for global state management, instead of this.$root or a global event bus.
 
