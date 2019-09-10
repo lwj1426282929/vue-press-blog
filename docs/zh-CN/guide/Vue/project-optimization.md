@@ -3,7 +3,7 @@
 ## 兼容性
 
 Vue 是可以兼容到 IE9 的， 但并不是说我们写一个项目打包后就可以在 IE9 上直接兼容， 是需要用工具进行代码转换的。将一些 ES6、ES7 的语法进行转译。可以使用 [babel-polyfill](https://babeljs.io/docs/en/6.26.3/babel-polyfill)。
-使用时直接在 main.js 中直接引入即可。
+使用时直接在 <code>main.js</code> 中直接引入即可。
 
 ```js
 import 'babel-polyfill'
@@ -11,7 +11,7 @@ import 'babel-polyfill'
 
 但是这样引入的话，在打包的时候，包可能会比较大，会影响到前端页面的打开速度，所以又出现了一种按需转译的用法，即当我们需要用到转译代码的时候，会替我们转译，并不是一次转译所有的代码。
 
-首先下载的是一个[@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill/)的包，这个包的话也是一个翻译代码的作用，但是可以进行配置来实现按需加载。
+首先下载的是一个 [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill/) 的包，这个包的话也是一个翻译代码的作用，但是可以进行配置来实现按需加载。
 
 ```bash
 npm i @babel/polyfill -D
@@ -21,17 +21,18 @@ npm i @babel/polyfill -D
 
 ```js
 presets: [
-    '@vue/app',
-    [
-      '@babel/preset-env',
-      {
-        'useBuiltIns': 'entry'
-      }
-    ]
+  '@vue/app',
+  [
+    '@babel/preset-env',
+    {
+      'useBuiltIns': 'entry'
+    }
+  ]
 ]
 ```
-
-注意这个[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)是一个有关环境变量的包，这个包在你使用vue脚手架3.0创建项目时就会自带这个包了，所以是不需要下载的，最后在 main.js 中引入我们之前下载的包就可以了。
+::: tip
+[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) 是一个有关环境变量的包，这个包在你使用 [vue-cli 3.0](https://cli.vuejs.org/) 创建项目时就会自带这个包了，所以是不需要下载的，最后在 <code>main.js</code> 中引入我们之前下载的包就可以了。
+:::
 
 ```js
 import '@babel/polyfill'
@@ -40,6 +41,8 @@ import '@babel/polyfill'
 这样打包后的文件明显要比之前体积小， 但是打出来的主文件要比之前大很多，即首页加载速度过慢。所以需要按需加载组件。
 
 ## 按需加载组件
+
+以 [element-ui](https://element.eleme.cn/#/zh-CN) 为例：
 
 ```bash
 npm i babel-plugin-import -D
@@ -62,7 +65,7 @@ npm i babel-plugin-import -D
 }
 ```
 
-然后在 main.js 文件中就不能全局使用 element-ui 了。
+然后在 <code>main.js</code> 文件中就不能全局使用 [element-ui](https://element.eleme.cn/#/zh-CN) 了。
 
 ```js
 import Vue from 'vue';
