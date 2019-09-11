@@ -1,23 +1,21 @@
-# 优化 Vue 项目
+# Optimize The Vue Project
 
-## 兼容性
+## Compatibility
 
-Vue 是可以兼容到 IE9 的， 但并不是说我们写一个项目打包后就可以在 IE9 上直接兼容， 是需要用工具进行代码转换的。将一些 ES6、ES7 的语法进行转译。可以使用 [babel-polyfill](https://babeljs.io/docs/en/6.26.3/babel-polyfill)。
-使用时直接在 main.js 中直接引入即可。
+Vue is compatible with IE9, but it does not mean that we can build a project and it can be directly compatible with IE9. It needs to be compiled by tools. We can compile ES6、ES7 with [babel-polyfill](https://babeljs.io/docs/en/6.26.3/babel-polyfill). It can be directly imported in <code>main.js</code> when you use it.
 
 ```js
 import 'babel-polyfill'
 ```
 
-但是这样引入的话，在打包的时候，包可能会比较大，会影响到前端页面的打开速度，所以又出现了一种按需转译的用法，即当我们需要用到转译代码的时候，会替我们转译，并不是一次转译所有的代码。
+However, the dist folder was build by procject that imported it like that would be larger than usual, it might affect the opening speed of the page. So there is an on-demand translation usage. That is, when we need to use the translation code, we will translate it for us, not all the code.
 
-首先下载的是一个[@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill/)的包，这个包的话也是一个翻译代码的作用，但是可以进行配置来实现按需加载。
+Firstly, we need install [@babel/polyfill](https://babeljs.io/docs/en/babel-polyfill/) package into devDependencies, it used to compiled codes but can be configured to achieve on-demand loading.
 
 ```bash
 npm i @babel/polyfill -D
 ```
-
-然后需要在 <code>babel.config.js</code> 中进行按需加载的配置:
+Then you need to do the on-demand loading configuration in <code>babel.config.js</code> :
 
 ```js
 presets: [
@@ -30,22 +28,24 @@ presets: [
     ]
 ]
 ```
-
-注意这个[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env)是一个有关环境变量的包，这个包在你使用vue脚手架3.0创建项目时就会自带这个包了，所以是不需要下载的，最后在 main.js 中引入我们之前下载的包就可以了。
+:::tip
+[@babel/preset-env](https://babeljs.io/docs/en/babel-preset-env) is a package for environment variables. It will be included when you create a project using [vue-cli 3.0](https://cli.vuejs.org/) , So, we don't need to install this package before building the project, just import it in <code>main.js</code>.
+:::
 
 ```js
 import '@babel/polyfill'
 ```
 
-这样打包后的文件明显要比之前体积小， 但是打出来的主文件要比之前大很多，即首页加载速度过慢。所以需要按需加载组件。
+The packaged file is obviously smaller than the previous one, but the main file is much larger than before, that is, the home page loading speed is too slow. So you need to load the components as needed.
 
-## 按需加载组件
+## Load components on demand
+
+Take [element-ui](https://element.eleme.cn/#/en-US) as an example:
 
 ```bash
 npm i babel-plugin-import -D
 ```
-
-下载 [babel-plugin-import](https://github.com/ant-design/babel-plugin-import) 插件， 然后需要在 <code>babel.config.js</code> 中进行如下配置：
+Config as follows in <code>babel.config.js</code> after Install package [babel-plugin-import](https://github.com/ant-design/babel-plugin-import).
 
 ```js
 {
@@ -61,8 +61,7 @@ npm i babel-plugin-import -D
   ]
 }
 ```
-
-然后在 main.js 文件中就不能全局使用 element-ui 了。
+If we do it like this, then the [element-ui](https://element.eleme.cn/#/en-US) is not be allow to use as global in <code>main.js</code>.
 
 ```js
 import Vue from 'vue';
@@ -71,7 +70,7 @@ import App from './App.vue';
 
 Vue.component(Button.name, Button);
 Vue.component(Select.name, Select);
-/* 或写为
+/* or code it like this
  * Vue.use(Button)
  * Vue.use(Select)
  */
