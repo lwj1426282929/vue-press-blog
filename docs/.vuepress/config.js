@@ -43,8 +43,8 @@ module.exports = {
         nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
         sidebar: {
           '/guide/Vue/': Sidebar.getMenus('Vue'),
-          '/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
-          '/guide/Other/': Sidebar.getMenus('Other'),
+          // '/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          // '/guide/Other/': Sidebar.getMenus('Other'),
           '/guide/': Sidebar.getMenus(),
         },
       },
@@ -59,8 +59,8 @@ module.exports = {
         ],
         sidebar: {
           '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
-          '/zh-CN/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
-          '/zh-CN/guide/Other/': Sidebar.getMenus('Other'),
+          // '/zh-CN/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          // '/zh-CN/guide/Other/': Sidebar.getMenus('Other'),
           '/zh-CN/guide/': Sidebar.getMenus(),
         },
       },
