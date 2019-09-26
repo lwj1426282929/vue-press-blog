@@ -1,4 +1,4 @@
-const menus = [
+let menus = [
   // {
   //   title: 'HTML & H5',
   //   collapsable: false,
@@ -25,8 +25,7 @@ const menus = [
     title: 'Vue',
     collapsable: false,
     children: [
-      'Vue/encoding-specification',
-      'Vue/project-optimization'
+      'code-style',
     ],
   },
   // {
@@ -65,12 +64,18 @@ class Sidebar {
       let menu = menus.find(item => {
         return item.title === name;
       });
-      let children = menu.children.map(item => {
-        return item.replace(name + '/', '')
-      });
-      return [{ ...menu, children }];
+      return [menu];
     }
-    return menus;
+
+    let menus_ = menus.map(menu => {
+      let children = menu.children.map(child => {
+        return child = menu.title + '/' + child
+      })
+
+      return Object.assign({}, menu, { children })
+    })
+
+    return menus_;
   }
 }
 
