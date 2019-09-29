@@ -1,4 +1,4 @@
-# NPM 私库搭建
+# npm 私库搭建
 
 :::tip
 <code>npm</code> 是随同的 [Node.js](http://nodejs.cn/) 一起安装的包管理工具，能够解决 [Node.js](http://nodejs.cn/) 代码部署上的很多问题，主要应用于以下场景：
