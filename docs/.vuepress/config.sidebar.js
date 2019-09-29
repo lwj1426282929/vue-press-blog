@@ -11,7 +11,8 @@ let menus = [
     collapsable: false,
     children: [
       'install',
-      'verdaccio'
+      'verdaccio',
+      'commands'
     ],
   }
 ];
