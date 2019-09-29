@@ -12,7 +12,10 @@ let menus = [
     children: [
       'install',
       'verdaccio',
-      'commands'
+      'commands',
+      'problems',
+      'publish',
+      'packages'
     ],
   }
 ];

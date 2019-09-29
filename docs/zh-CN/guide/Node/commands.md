@@ -1,9 +1,7 @@
 # npm 常用命令
 
-:::tip
-[npm](https://docs.npmjs.com/) 的全称是 <code>Node Package Manager</code>，是随同 [Node.js](http://nodejs.cn/) 一起安装的包管理和分发工具，
+> [npm](https://docs.npmjs.com/) 的全称是 <code>Node Package Manager</code>，是随同 [Node.js](http://nodejs.cn/) 一起安装的包管理和分发工具，
 它很方便让 <code>JavaScript</code> 开发者下载、安装、上传以及管理已经安装的包。
-:::
 
 ## 安装模块
 
