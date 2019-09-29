@@ -1,26 +1,4 @@
 let menus = [
-  // {
-  //   title: 'HTML & H5',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'CSS & CSS3',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'JavaScript',
-  //   collapsable: false,
-  //   children: [
-  //     'JavaScript/common-skills',
-  //   ],
-  // },
-  // {
-  //   title: 'ES6',
-  //   collapsable: false,
-  //   children: [],
-  // },
   {
     title: 'Vue',
     collapsable: false,
@@ -28,34 +6,14 @@ let menus = [
       'code-style',
     ],
   },
-  // {
-  //   title: 'Angular',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'React',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'Node',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'Git',
-  //   collapsable: false,
-  //   children: [],
-  // },
-  // {
-  //   title: 'Other',
-  //   collapsable: false,
-  //   children: [
-  //     'Other/eslint-config',
-  //     'Other/vscode-plugin'
-  //   ],
-  // },
+  {
+    title: 'Node',
+    collapsable: false,
+    children: [
+      'install',
+      'verdaccio'
+    ],
+  }
 ];
 
 class Sidebar {
