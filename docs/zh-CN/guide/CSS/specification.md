@@ -2,13 +2,13 @@
 
 ## 属性顺序
 
-1. 位置属性(<code>position</code> , <code>top</code> , <code>right</code> , <code>z-index</code> , <code>display</code> , <code>float</code> 等)；
-2. 大小(<code>width</code> , <code>height</code> , <code>margin</code>, <code>padding</code>);
-3. 文字系列(<code>font</code> , <code>line-height</code> , <code>letter-spacing</code> , <code>color</code> , <code>text-align</code> 等);
-4. 边框背景(<code>background</code> , <code>border</code> 等);
-5. 其他(<code>animation</code> , <code>transition</code> 等)。
+1. 位置属性(position, top, right, z-index, display, float等)；
+2. 大小(width, height, margin, padding);
+3. 文字系列(font, line-height, letter-spacing, color, text-align等);
+4. 边框背景(background, border等);
+5. 其他(animation, transition等)。
 
-属性顺序一般不做要求。但最好是一类的属性尽量放在一块， 比如宽高位置 、颜色背景 、<code>margin</code> 、 <code>padding</code> 等。
+属性顺序一般不做要求。但最好是一类的属性尽量放在一块，比如宽高位置、颜色背景、margin、padding 等。
 
 ```css
 .box {
@@ -34,7 +34,7 @@
 
 ## 尽量使用CSS缩写属性
 
-<code>CSS</code> 有些属性是可以缩写的，比如 <code>padding</code> , <code>margin</code> , <code>font</code> 等等，这样精简代码同时又能提高用户的阅读体验。
+CSS有些属性是可以缩写的，比如 padding, margin, font 等等，这样精简代码同时又能提高用户的阅读体验。
 
 ```css
 .box {

@@ -1,7 +1,7 @@
 # Linux 下安装 Node.js
 
 :::tip
-<code>Windeos</code> 系统的安装就不说了， 直接下载安装包安装就行。
+Windows 系统的安装就不说了， 直接下载安装包安装就行。
 :::
 
 **系统环境**

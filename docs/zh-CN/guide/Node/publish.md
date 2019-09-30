@@ -4,7 +4,7 @@
 
 **step 1: 准备好npm包**
 
-这里代码需要自己写， 但必须要有 package.json 。具体参考文档 [package.json 文件](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc0)
+这里代码需要自己写， 但必须要有 package.json 。具体参考文档 [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc0)
 
 **step 2: 确保当前镜像是否为 npm 官方镜像**
 
@@ -36,7 +36,7 @@ npm login
 npm publish
 ```
 
-发布成功后就可以在 [npm](https://www.npmjs.com/) 中查到了， <code>npm</code> 的包名就是 <code>package.json</code> 中的 <code>name</code> 值。
+发布成功后就可以在 [npmjs.com](https://www.npmjs.com/) 中查到了， npm 的包名就是 <code>package.json</code> 中的 <code>name</code> 值。
 
 **step 6: 更新版本**
 
@@ -44,7 +44,7 @@ npm publish
 
 **step 7: 撤销发布**
 
-为了不影响其他已经使用了该包的人, <code>npm</code> 官方镜像支持在2分钟内删除已发布的包， 2分钟后不能删除, 只能弃用该包， 即弃用版本及之后版本不再维护，也不能使用， 但是之前的版本不受影响。其他人在安装该包时会有启用警告出现。
+为了不影响其他已经使用了该包的人, npm 官方镜像支持在2分钟内删除已发布的包， 2分钟后不能删除, 只能弃用该包， 即弃用版本及之后版本不再维护，也不能使用， 但是之前的版本不受影响。其他人在安装该包时会有启用警告出现。
 
 ```bash
 # 撤销发布（2分钟内该命令有效）

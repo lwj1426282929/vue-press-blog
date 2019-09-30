@@ -11,8 +11,8 @@
 
 ### 样式顺序
 
-- <code>a:hover</code> 放置在 <code>a:link</code> 与 <code>a:visited</code> 之后
-- <code>a:active</code> 放置在 <code>a:hover</code> 之后
+- a:hover 放置在 a:link 与 a:visited 之后
+- a:active 放置在 a:hover 之后
 
 ```
 // a:link 与 a:visited 可以互换， 但最好 a:link 放在最前面
@@ -24,9 +24,9 @@ a:link  a:visited   a:hover    a:active
 ### button 状态
 
 - 普通状态
-- hover 鼠标悬停状态
-- active 点击状态
-- focus 取得焦点状态
+- <code>hover</code> 鼠标悬停状态
+- <code>active</code> 点击状态
+- <code>focus</code> 取得焦点状态
 
 ### 普通状态
 

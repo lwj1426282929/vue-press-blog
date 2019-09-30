@@ -29,7 +29,7 @@ npm install --save-dev pre-commit
 "pre-commit": "lint"
 ```
 
-在执行 <code>git commit</code> 命令的时候就会检测所有代码是否符合 [Eslint](https://eslint.org/) 规范， 若不符合则会提示并且不能提交代码。
+在执行 <code>git commit</code> 命令的时候就会检测所有代码是否符合 [Eslint 规则](https://eslint.org/)， 若不符合则会提示并且不能提交代码。
 
 ## [nodemon](https://github.com/remy/nodemon)
 
