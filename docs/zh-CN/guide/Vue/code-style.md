@@ -33,7 +33,7 @@ function funA () {}
 function funB () {}         // 多个函数之间应适当空行
 ```
 
-推荐单处空行数不超过两行，可以通过 [eslint](http://eslint.cn/) 设置。在 <code>.eslintrc</code> 或 <code>.eslintrc.js</code> 文件中配置如下：
+推荐单处空行数不超过两行，可以启用 [Eslint](http://eslint.cn/) 并配置规则。在 <code>.eslintrc</code> 或 <code>.eslintrc.js</code> 文件中配置如下：
 
 ```js
 // eslint 规则
@@ -49,7 +49,7 @@ rules: {
 推荐使用 <code>kebab-case</code> , 因为在每个文件夹下有 <code>index.vue</code> 或 <code>index.js</code> 时更容易查找，而且可以有效避免大小写敏感问题。
 
 ::: tip
-例如： <code>MyComponent.vue</code> 和 <code>myComponent.vue</code> 在 <code>Linux</code> 系统上是两个不同的文件， 但在 <code>Windows</code> 上因为系统对大小写不敏感， 会被认为是同一个文件。
+例如： MyComponent.vue 和 myComponent.vue 在 Linux 系统上是两个不同的文件， 但在 Windows 上因为系统对大小写不敏感， 会被认为是同一个文件。
 :::
 
 ```
@@ -91,7 +91,7 @@ components/
 
 ### 变量
 
-变量命名应遵循 <code>JavaScript</code> 命名规范，应使用 <code>camelCase</code> 或 <code>snake_case</code>。
+变量命名应遵循 JavaScript 命名规范，应使用 <code>camelCase</code> 或 <code>snake_case</code>。
 
 :::tip
 <code>snake_case</code> 的可读性要比 <code>camelCase</code> 强一些。
@@ -123,7 +123,7 @@ components/
 
 多个特性的元素应该分多行撰写，每个特性一行。
 
-在 <code>JavaScript</code> 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 [JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 值得我们做相同的考虑。
+在 JavaScript 中，用多行分隔对象的多个属性是很常见的最佳实践，因为这样更易读。模板和 [JSX](https://cn.vuejs.org/v2/guide/render-function.html#JSX) 值得我们做相同的考虑。
 
 如果使用 <code>vscode</code> 书写代码，可以使用 [vetur](https://marketplace.visualstudio.com/items?itemName=octref.vetur) 插件格式化 [Vue](https://cn.vuejs.org/) 代码， 在 <code>setting.json</code> 中设置如下：
 
@@ -167,7 +167,7 @@ components/
 
 ### 元素特性大小写
 
-元素的特性应采用 <code>kebab-case</code> 。 即在 <code>template</code> 中不应出现大写字符， 因为 <code>HTML</code> 会忽略大小写.
+元素的特性应采用 <code>kebab-case</code> 。 即在 template 中不应出现大写字符， 因为 HTML 会忽略大小写.
 
 ### 指令
 
@@ -261,9 +261,9 @@ export default {
 细致的 [Prop 定义](https://cn.vuejs.org/v2/guide/components-props.html#Prop-%E9%AA%8C%E8%AF%81) 有两个好处：
 
 - 它们写明了组件的 API，所以很容易看懂组件的用法；
-- 在开发环境下，如果向一个组件提供格式不正确的 <code>prop</code> ， [Vue](https://cn.vuejs.org/) 将会告警，以帮助你捕获潜在的错误来源。
+- 在开发环境下，如果向一个组件提供格式不正确的 prop ， [Vue](https://cn.vuejs.org/) 将会告警，以帮助你捕获潜在的错误来源。
 
-Props 在定义时应使用 <code>camelCase</code> 在 <code>template</code> 中传值时应使用 <code>kebab-case</code> . <code>template</code> 中的布尔为 <code>true</code> 的属性可以省略 </code>ture</code> .
+Props 在定义时应使用 <code>camelCase</code> 在 <code>template</code> 中传值时应使用 <code>kebab-case</code> . template 中的布尔为 true 的属性可以省略 </code>ture</code> .
 
 ```html
 <el-form inline></el-form>
@@ -274,7 +274,7 @@ Props 在定义时应使用 <code>camelCase</code> 在 <code>template</code> 中
 
 #### 单向数据流
 
-数据流应是单项的， 即父组件应通过 <code>prop</code> 向子组件传递消息，子组件不能修改 <code>prop</code> (引用属性除外)， 而应该通过 <code>$emit</code> 向父组件发送一个事件，父组件接收该事件后作出相应操作。
+数据流应是单项的， 即父组件应通过 prop 向子组件传递消息，子组件不能修改 prop (引用属性除外)， 而应该通过 <code>$emit</code> 向父组件发送一个事件，父组件接收该事件后作出相应操作。
 
 ::: tip
 emit 的事件名应使用 <code>kebab-case</code> 。
@@ -289,7 +289,7 @@ this.$emit('change-on-select', value)
 
 #### 使用引用属性
 
-如果传递的 <code>prop</code> 是一个引用， 即对象或数组， 那么子组件可以对数组或者对象里面的属性进行更改， 数据会同步到父组件， 无需 <code>emit</code> ， 因为 <code>prop</code> 传递的是一个引用， 引用其实并没有变化。但是要谨慎使用， 容易造成数据混乱， 不符合单向数据流原则。
+如果传递的 prop 是一个引用， 即对象或数组， 那么子组件可以对数组或者对象里面的属性进行更改， 数据会同步到父组件， 无需 <code>emit</code> ， 因为 prop 传递的是一个引用， 引用其实并没有变化。但是要谨慎使用， 容易造成数据混乱， 不符合单向数据流原则。
 
 #### vuex
 
