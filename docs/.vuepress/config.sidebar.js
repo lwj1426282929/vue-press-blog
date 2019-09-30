@@ -1,5 +1,13 @@
 let menus = [
   {
+    title: 'CSS',
+    collapsable: false,
+    children: [
+      'specification',
+      'html-style'
+    ],
+  },
+  {
     title: 'Vue',
     collapsable: false,
     children: [

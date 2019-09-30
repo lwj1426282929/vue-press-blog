@@ -9,17 +9,17 @@
 > 2. 安全性，由于公司内部开发的模块和一些内容并不希望其他无关人员能够看到，但是又希望内部能方便使用；
 > 3. 加速,自己搭建 <code>npm</code> 服务器，本身可以自带常用package的缓存，而 <code>npm</code> 的速度有些感人，自建的服务器会缓存下载过的包，能节省时间。
 
-## Sinopia
+## [Sinopia](https://github.com/rlidwka/sinopia)
 
 一个用来做 <code>npm</code> 的 <code>registry</code> 的私有 + 缓存镜像的开源组件，拥有零配置的本地 <code>npm</code> 注册表。 不必安装和复制整个 <code>CouchDB</code> 数据库。
 
 [Sinopia](https://github.com/rlidwka/sinopia) 保留了自己的小型数据库，如果那里不存在包，它会询问 [npmjs.org](https://npmjs.org)。它只保留你使用的那些包。但是 [Sinopia](https://github.com/rlidwka/sinopia) 不能下载以 <code>@</code> 开头的 <code>npm</code> 包， 并且作者已经不再维护。
 
-## Verdaccio
+## [Verdaccio](https://verdaccio.org/zh-CN/)
 
 [Verdaccio](https://verdaccio.org/zh-CN/) 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一种新的 <code>web</code> <code>React</code> 端的实现形式，并且目前一直在维护中。 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一个分支。
 
-## Verdaccio 安装
+### Verdaccio 安装
 
 ```bash
 npm install --global verdaccio
@@ -29,7 +29,7 @@ npm install --global verdaccio
 
 ![image](/img/verdaccio_install.png)
 
-## Verdaccio 启动
+### Verdaccio 启动
 
 安装完成后，就可以在命令行中 输入 <code>verdaccio</code> 命令运行。
 
@@ -39,7 +39,7 @@ verdaccio
 
 ![image](/img/verdaccio_start.png)
 
-## 远程访问
+### 配置远程访问
 
 [Verdaccio](https://verdaccio.org/zh-CN/) 默认是 <code>localhost:4873</code> ，只能本地访问， 需要修改配置文件：
 
@@ -52,7 +52,7 @@ vi /root/.config/verdaccio/config.yaml
 listen: 0.0.0.0:4873
 ```
 
-## pm2
+## [pm2](http://pm2.keymetrics.io/)
 
 <code>verdaccio</code> 命令只能临时启动，远程连接一旦关闭或者结束该命令 <code>verdaccio</code> 进程就会关闭。需要借助进程管理工具进行管理。常见的有 [pm2](http://pm2.keymetrics.io/)。
 
@@ -74,7 +74,7 @@ pm2 stop which verdaccio
 pm2 show verdaccio 
 ```
 
-## nrm
+## [nrm](https://github.com/Pana/nrm)
 
 [nrm](https://github.com/Pana/nrm) 是一个 <code>npm</code> 源管理器，允许你快速地在 <code>npm</code> 源间切换。
 

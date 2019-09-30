@@ -58,9 +58,9 @@ module.exports = {
           { text: '博客', link: '/zh-CN/guide/' },
         ],
         sidebar: {
+          '/zh-CN/guide/CSS/': Sidebar.getMenus('CSS'),
           '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
-          // '/zh-CN/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
-          // '/zh-CN/guide/Other/': Sidebar.getMenus('Other'),
+          '/zh-CN/guide/Node/': Sidebar.getMenus('Node'),
           '/zh-CN/guide/': Sidebar.getMenus(),
         },
       },
