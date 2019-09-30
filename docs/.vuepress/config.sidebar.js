@@ -25,6 +25,13 @@ let menus = [
       'publish',
       'packages'
     ],
+  },
+  {
+    title: 'Others',
+    collapsable: false,
+    children: [
+      'git-commands',
+    ],
   }
 ];
 

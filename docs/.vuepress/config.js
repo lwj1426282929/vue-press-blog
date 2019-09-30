@@ -61,6 +61,7 @@ module.exports = {
           '/zh-CN/guide/CSS/': Sidebar.getMenus('CSS'),
           '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
           '/zh-CN/guide/Node/': Sidebar.getMenus('Node'),
+          '/zh-CN/guide/Others/': Sidebar.getMenus('Others'),
           '/zh-CN/guide/': Sidebar.getMenus(),
         },
       },
