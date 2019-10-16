@@ -8,6 +8,13 @@ let menus = [
     ],
   },
   {
+    title: 'JS',
+    collapsable: false,
+    children: [
+      'array'
+    ],
+  },
+  {
     title: 'Vue',
     collapsable: false,
     children: [
