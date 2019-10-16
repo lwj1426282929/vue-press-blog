@@ -78,7 +78,7 @@ arr.unshift(4, 5, 6)  // [4, 5, 6, 1, 2, 3]
 
 往数组起始位置添加元素, 可以 <code>一次添加多个</code> 。
 
-### 9. [splice()]()
+### 9. [splice()](#_9-splice)
 
 ```js
 const arr = [1, 2, 3, 4]
@@ -97,7 +97,7 @@ arr.reverse()  // [5, 4, 3, 2, 1]
 
 对数组进行翻转，返回 <code>翻转后的数组</code> 。
 
-### 11. [sort()]()
+### 11. [sort()](#_11-sort)
 
 ```js
 const arr = ['d', 'a', 'b', 'c']
@@ -115,7 +115,7 @@ arr.sort((num1, num2) => {
 
 自定义排序方法。
 
-### 12. [forEach()]()
+### 12. [forEach()](#_12-foreach)
 
 ```js
 let arr = [1, 2, 3, 4, 5]
@@ -171,7 +171,7 @@ arr.reduceRight((str, item) => {
 
 与 reduce() 一致， 但是顺序是从右至左执行。
 
-### 17. [map()]()
+### 17. [map()](#_17-map)
 
 ```js
 const arr = [1, 2, 3, 4]
@@ -182,7 +182,7 @@ const arr_ = arr.map(item => {
 
 与 forEach() 类似， 但是 map() 会返回一个 <code>新数组</code>， 原数组不变, 新数组元素时原数组元素调用函数返回的结果。
 
-### 18. [filter()]()
+### 18. [filter()](#_18-filter)
 
 ```js
 const arr = [1, 2, 3, 4, 5]
