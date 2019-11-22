@@ -34,11 +34,11 @@ let menus = [
     title: 'Node',
     children: [
       'install',
-      // 'verdaccio',
       'commands',
-      // 'problems',
-      // 'publish',
-      // 'packages',
+      'publish',
+      'verdaccio',
+      'problems',
+      'packages',
     ],
   },
   {
