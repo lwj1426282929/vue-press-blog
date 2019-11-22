@@ -1,6 +1,6 @@
 ---
 home: true
 heroImage: /logo.JPG
-actionText: Get Started →
+actionText: 开始学习 →
 actionLink: /guide/
 ---

@@ -19,14 +19,14 @@ module.exports = {
   // 多语言支持
   locales: {
     '/': {
-      lang: 'en-US',
-      title: 'Blog Jay',
-      description: 'blog site of Jay'
-    },
-    '/zh-CN/': {
       lang: 'zh-CN',
       title: '博客',
       description: '赖维健的个人博客',
+    },
+    '/en-US/': {
+      lang: 'en-US',
+      title: 'Blog Jay',
+      description: 'blog site of Jay',
     },
   },
 
@@ -36,41 +36,50 @@ module.exports = {
     repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
     locales: {
       '/': {
-        selectText: 'Languages',
-        lang: 'en-US',
-        label: 'English',
-        lastUpdated: 'Last Updated',
-        nav: [{ text: 'home', link: '/' }, { text: 'blog', link: '/guide/' }],
-        sidebar: {
-          '/guide/Vue/': Sidebar.getMenus('Vue'),
-          // '/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
-          // '/guide/Other/': Sidebar.getMenus('Other'),
-          '/guide/': Sidebar.getMenus(),
-        },
-      },
-      '/zh-CN/': {
         selectText: '选择语言',
         lang: 'zh-CN',
         label: '简体中文',
         lastUpdated: '上次更新',
         nav: [
-          { text: '首页', link: '/zh-CN/' },
-          { text: '博客', link: '/zh-CN/guide/' },
+          { text: '首页', link: '/' },
+          { text: '博客', link: '/guide/' },
         ],
         sidebar: {
-          '/zh-CN/guide/CSS/': Sidebar.getMenus('CSS'),
-          '/zh-CN/guide/JS/': Sidebar.getMenus('JS'),
-          '/zh-CN/guide/Vue/': Sidebar.getMenus('Vue'),
-          '/zh-CN/guide/Node/': Sidebar.getMenus('Node'),
-          '/zh-CN/guide/Others/': Sidebar.getMenus('Others'),
-          '/zh-CN/guide/': Sidebar.getMenus(),
+          '/guide/HTML/': Sidebar.getMenus('HTML'),
+          '/guide/CSS/': Sidebar.getMenus('CSS'),
+          '/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          '/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/guide/React/': Sidebar.getMenus('React'),
+          '/guide/Angular/': Sidebar.getMenus('Angular'),
+          '/guide/Node/': Sidebar.getMenus('Node'),
+          '/guide/Others/': Sidebar.getMenus('Others'),
+          '/guide/': Sidebar.getMenus(),
+        },
+      },
+      '/en-US/': {
+        selectText: 'Languages',
+        lang: 'en-US',
+        label: 'English',
+        lastUpdated: 'Last Updated',
+        nav: [
+          { text: 'home', link: '/en-US/' },
+          { text: 'blog', link: '/en-US/guide/' },
+        ],
+        sidebar: {
+          '/en-US/guide/HTML/': Sidebar.getMenus('HTML'),
+          '/en-US/guide/CSS/': Sidebar.getMenus('CSS'),
+          '/en-US/guide/JavaScript/': Sidebar.getMenus('JavaScript'),
+          '/en-US/guide/Vue/': Sidebar.getMenus('Vue'),
+          '/en-US/guide/React/': Sidebar.getMenus('React'),
+          '/en-US/guide/Angular/': Sidebar.getMenus('Angular'),
+          '/en-US/guide/Node/': Sidebar.getMenus('Node'),
+          '/en-US/guide/Others/': Sidebar.getMenus('Others'),
+          '/en-US/guide/': Sidebar.getMenus(),
         },
       },
     },
   },
 
   // 插件
-  plugins: [
-    ['@vuepress/back-to-top', true]
-  ]
+  plugins: [['@vuepress/back-to-top', true]],
 };

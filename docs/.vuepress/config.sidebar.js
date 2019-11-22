@@ -1,63 +1,71 @@
 let menus = [
   {
+    title: 'HTML',
+    children: [],
+  },
+  {
     title: 'CSS',
-    collapsable: false,
     children: [
-      'specification',
-      'html-style'
+      // 'specification',
+      //  'html-style'
     ],
   },
   {
-    title: 'JS',
-    collapsable: false,
+    title: 'JavaScript',
     children: [
-      'array'
+      // 'array'
     ],
   },
   {
     title: 'Vue',
-    collapsable: false,
     children: [
-      'code-style',
+      // 'code-style'
     ],
   },
   {
+    title: 'React',
+    children: [],
+  },
+  {
+    title: 'Angular',
+    children: [],
+  },
+  {
     title: 'Node',
-    collapsable: false,
     children: [
       'install',
-      'verdaccio',
+      // 'verdaccio',
       'commands',
-      'problems',
-      'publish',
-      'packages'
+      // 'problems',
+      // 'publish',
+      // 'packages',
     ],
   },
   {
     title: 'Others',
-    collapsable: false,
     children: [
-      'git-commands',
+      // 'git-commands'
     ],
-  }
+  },
 ];
 
 class Sidebar {
   getMenus(name) {
     if (name) {
-      let menu = menus.find(item => {
+      let item = menus.find(item => {
         return item.title === name;
       });
+      let menu = Object.assign({}, item, { collapsable: false });
       return [menu];
     }
 
     let menus_ = menus.map(menu => {
       let children = menu.children.map(child => {
-        return child = menu.title + '/' + child
-      })
+        return (child = menu.title + '/' + child);
+      });
 
-      return Object.assign({}, menu, { children })
-    })
+      return Object.assign({}, menu, { children });
+    });
 
     return menus_;
   }
