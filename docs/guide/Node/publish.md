@@ -4,7 +4,7 @@
 
 **step 1: 准备好npm包**
 
-这里代码需要自己写， 但必须要有 package.json 。具体参考文档 [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc0)
+准备好一个项目工程, <code>package.json</code> 具体参考文档 [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc0)
 
 **step 2: 确保当前镜像是否为 npm 官方镜像**
 
@@ -32,7 +32,7 @@ npm login
 **step 5: 发布**
 
 ```bash
-# 发布成功后就可以在
+# 发布
 npm publish
 ```
 

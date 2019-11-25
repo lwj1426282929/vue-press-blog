@@ -1,4 +1,4 @@
-# Install Node.js On The Linux OS
+# Install Node.js on The Linux OS
 
 :::tip
 Ignore the Windows OS directly download installation package installation.
