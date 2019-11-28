@@ -1,24 +1,38 @@
-# 好用的 npm 工具包
+# 好用的 npm 包
+
+## [Axios](http://www.axios-js.com/)
+
+::: tip
+易用、简洁且高效的 http 库
+:::
+
+axios 就不用说了， 基本上发送 <code>ajax</code> 请求都是用 axios.
 
 ## [Eslint](http://eslint.cn/)
 
-> 基于AST的模式检测器，用作代码错误、风格检测工具
+::: tip
+基于AST的模式检测器，用作代码错误、风格检测工具
+:::
 
 ## [moment](http://momentjs.cn/)
 
-> JavaScript 日期处理类库
+::: tip
+JavaScript 日期处理类库
+:::
 
 ## [pre-commit](https://github.com/observing/pre-commit)
 
-> git的预提交钩子安装程序, 一般用来检测代码是否符合规范。若不符合则不提交。
+::: tip
+git的预提交钩子安装程序, 一般用来检测代码是否符合规范。若不符合则阻止提交。
+:::
 
-**安装**
+### 安装
 
 ```bash
 npm install --save-dev pre-commit
 ```
 
-**使用**
+### 使用
 
 在 <code>package.json</code> 中配置：
 
@@ -33,15 +47,17 @@ npm install --save-dev pre-commit
 
 ## [nodemon](https://github.com/remy/nodemon)
 
-> 通过在检测到目录中的文件更改时自动重新启动节点应用程序来帮助开发基于 <code>node.js</code> 的应用程序
+::: tip
+通过在检测到目录中的文件更改时自动重新启动节点应用程序来帮助开发基于 <code>node.js</code> 的应用程序
+:::
 
-**安装**
+### 安装
 
 ```bash
 npm install --save-dev nodemon
 ```
 
-**使用**
+### 使用
 
 在 <code>package.json</code> 中配置：
 
@@ -50,3 +66,4 @@ npm install --save-dev nodemon
   "dev": "nodemon ./index.js --exec babel-node"
 }
  ```
+

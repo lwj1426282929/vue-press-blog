@@ -56,7 +56,7 @@ module.exports = {
           '/guide/Angular/': Sidebar.getMenus('Angular'),
           '/guide/Node/': Sidebar.getMenus('Node'),
           '/guide/Others/': Sidebar.getMenus('其他'),
-          '/guide/English-essay/': Sidebar.getMenus('English Essay'),
+          '/guide/EnglishEssay/': Sidebar.getMenus('English Essay'),
           '/guide/': Sidebar.getMenus(),
         },
       },

@@ -1,26 +1,22 @@
 let menus = [
   {
     title: 'HTML',
-    children: [],
+    children: [
+      'meta',
+      'anchor'
+    ],
   },
   {
     title: 'CSS',
-    children: [
-      // 'specification',
-      //  'html-style'
-    ],
+    children: [],
   },
   {
     title: 'JavaScript',
-    children: [
-      // 'array'
-    ],
+    children: [],
   },
   {
     title: 'Vue',
-    children: [
-      // 'code-style'
-    ],
+    children: [],
   },
   {
     title: 'React',
@@ -43,14 +39,15 @@ let menus = [
   },
   {
     title: '其他',
-    children: [
-      // 'git-commands'
-    ],
+    children: [],
   },
   {
     title: 'English Essay',
-    children: []
-  }
+    children: [
+      'essay-1',
+      'essay-2',
+    ],
+  },
 ];
 
 class Sidebar {
@@ -65,7 +62,7 @@ class Sidebar {
 
     let menus_ = menus.map(menu => {
       let children = menu.children.map(child => {
-        return (child = menu.title + '/' + child);
+        return (child = menu.title.replace(' ', '') + '/' + child);
       });
 
       return Object.assign({}, menu, { children });

@@ -1,12 +1,8 @@
 # Linux 下安装 Node.js
 
-:::tip
-Windows 系统的安装就不说了， 直接下载安装包安装就行。
-:::
-
 **系统环境**
 
-<code> CentOs 7 </code>  x86_64 bbr
+<code>CentOs 7 x86_64 bbr</code>  
 
 **安装依赖**
 
