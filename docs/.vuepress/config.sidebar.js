@@ -42,11 +42,15 @@ let menus = [
     ],
   },
   {
-    title: 'Others',
+    title: '其他',
     children: [
       // 'git-commands'
     ],
   },
+  {
+    title: 'English Essay',
+    children: []
+  }
 ];
 
 class Sidebar {
