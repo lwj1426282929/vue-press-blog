@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>如果有一天</h1>
     <div class="en">
       <p>If one day you feel like crying</p>
       <p>Call me</p>

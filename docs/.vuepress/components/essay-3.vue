@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>-- by William Butler Yeats</p>
+    <p class="auth-info">-- by William Butler Yeats</p>
     <div class="en">
       <p>When you are old and grey and full of sleep</p>
       <p>And nodding by the fire, take down this book</p>
@@ -17,6 +17,7 @@
     </div>
     
     <h1>当你老了</h1>
+    <p>-- 冰心 【译】</p>
     <div class="zh">
       <p>当你老了，头发花白，睡意沉沉</p>
       <p>倦坐在炉边，取下这本书来</p>

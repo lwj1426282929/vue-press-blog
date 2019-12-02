@@ -50,6 +50,9 @@ let menus = [
       'essay-4',
       'essay-5',
       'essay-6',
+      'essay-7',
+      'essay-8',
+      'essay-9',
     ],
   },
 ];
