@@ -2,7 +2,7 @@
 sidebarDepth: 0
 ---
 
-# You say that you love rain
+# You Say That You Love Rain
 
 <ClientOnly>
   <essay-container title="essay-1"/>

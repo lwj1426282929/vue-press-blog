@@ -46,6 +46,10 @@ let menus = [
     children: [
       'essay-1',
       'essay-2',
+      'essay-3',
+      'essay-4',
+      'essay-5',
+      'essay-6',
     ],
   },
 ];
