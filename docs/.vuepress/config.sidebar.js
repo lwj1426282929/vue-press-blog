@@ -12,7 +12,10 @@ let menus = [
   },
   {
     title: 'JavaScript',
-    children: [],
+    children: [
+      'tips',
+      'typeof-array'
+    ],
   },
   {
     title: 'Vue',

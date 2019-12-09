@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # 好用的 npm 包
 
 ## [Axios](http://www.axios-js.com/)
@@ -5,8 +9,6 @@
 ::: tip
 易用、简洁且高效的 http 库
 :::
-
-axios 就不用说了， 基本上发送 <code>ajax</code> 请求都是用 axios.
 
 ## [Eslint](http://eslint.cn/)
 

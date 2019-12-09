@@ -1,3 +1,7 @@
+---
+sidebarDepth: 1
+---
+
 # npm 私库搭建
 
 ::: tip

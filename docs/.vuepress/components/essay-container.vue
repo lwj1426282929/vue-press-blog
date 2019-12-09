@@ -17,14 +17,11 @@ export default {
 <style lang="stylus">
 .essay-bg {
   position: fixed;
-  top: 0;
+  top: 57px;
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: cover;
-  background-repeat: no-repeat;
   z-index: 0;
-  background-position: bottom right;
 }
 
 .essay-container {

@@ -42,6 +42,7 @@
 
 <style lang="stylus" scoped>
 .essay-bg {
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(251, 215, 134, 0.75), rgba(247,121,125, 0.25)), url('/img/bg/essay-9.jpg');
+  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.5), rgba(251, 215, 134, 0.75), rgba(247, 121, 125, 0.25)), url('/img/bg/essay-9.jpg') no-repeat bottom right;
+  background-size: cover;
 }
 </style>
