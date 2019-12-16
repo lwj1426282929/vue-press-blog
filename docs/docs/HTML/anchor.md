@@ -69,6 +69,25 @@ anchor(锚)，在网页中一般用来定义一个超链接或锚点、邮箱，
 ```html
 <a href="tel:13266419102">13266419102</a>
 ```
+:::tip
+tel 协议在浏览器中可以实现点击调用手机拨号键盘进行拨号， 但是在 Android 的 webview 内需要先在加载 url 之前进行判断 url 是否是 tel 协议开头，然后进行加载。即可打开拨号盘，否则会自洁跳转至一个错误页面。
+:::
+
+```java
+mWebView.setWebViewClient(new WebViewClient() {
+  @Override
+  public boolean shouldOverrideUrlLoading(WebView webView, String url) {
+    if (url.startsWith("tel:")) {
+      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+      startActivity(intent);
+      return true;
+    }
+
+    webView.loadUrl(url);
+    return true;
+  }
+});
+```
 
 ### 协议限定符
 

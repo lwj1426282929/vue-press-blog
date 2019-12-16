@@ -2,7 +2,7 @@
 home: true
 heroImage: /logo.png
 actionText: 快速了解 →
-actionLink: /guide/
+actionLink: /docs/
 description: 记录工作和学习过程中的笔记：前端开发、Nginx、Node.js、Linux笔记、英语学习...
 features:
 - title: 个人介绍
