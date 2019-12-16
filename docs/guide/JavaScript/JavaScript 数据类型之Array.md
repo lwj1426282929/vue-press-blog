@@ -1,4 +1,4 @@
-# 数据类型之Array
+# JavaScript 数据类型之Array
 
 ## Methods
 

@@ -13,8 +13,8 @@ let menus = [
   {
     title: 'JavaScript',
     children: [
-      'tips',
-      'typeof-array'
+      '常用的 JS 技巧',
+      'JavaScript 数据类型之Array'
     ],
   },
   {
@@ -32,17 +32,22 @@ let menus = [
   {
     title: 'Node',
     children: [
-      'install',
-      'commands',
-      'publish',
-      'verdaccio',
-      'problems',
-      'packages',
+      'Linux 下安装 Node.js',
+      'npm 常用命令',
+      'npm 发布属于自己的依赖包',
+      'npm 私库搭建',
+      'npm 常见问题',
+      '好用的 npm 依赖包',
     ],
   },
   {
     title: '其他',
-    children: [],
+    children: [
+      'Eslint 常用配置',
+      'Markdown代码块支持高亮的语言',
+      '好用的 vscode 插件',
+      'iOS webview加载H5页面点击2次会上移问题'
+    ],
   },
   {
     title: 'English Essay',
@@ -72,7 +77,7 @@ class Sidebar {
 
     let menus_ = menus.map(menu => {
       let children = menu.children.map(child => {
-        return (child = menu.title.replace(' ', '') + '/' + child);
+        return (child =  menu.title === '其他' ? 'Others'.replace(' ', '') + '/' + child : menu.title.replace(' ', '') + '/' + child);
       });
 
       return Object.assign({}, menu, { children });
