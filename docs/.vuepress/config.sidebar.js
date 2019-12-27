@@ -3,7 +3,7 @@ let menus = [
     title: 'HTML',
     children: [
       'meta',
-      'anchor'
+      'a'
     ],
   },
   {

@@ -6,8 +6,7 @@ ES6 引入了 Set 对象和延展（spread）语法…，我们可以用它们�
 
 ```js
 const array = [1, 1, 2, 3, 5, 5, 1]
-const uniqueArray = [...new Set(array)]
-console.log(uniqueArray) // Result: [1, 2, 3, 5]
+const uniqueArray = [...new Set(array)] // Result: [1, 2, 3, 5]
 ```
 
 该方法支持包含原始类型的数组：undefined、null、boolean、string 和 number。
@@ -18,7 +17,9 @@ console.log(uniqueArray) // Result: [1, 2, 3, 5]
 
 ```js
 for (let i = 0; i < array.length; i++) {
- console.log(i);
+ /*
+  do something
+ */
 }
 ```
 
@@ -27,7 +28,9 @@ for (let i = 0; i < array.length; i++) {
 ```js
 let len = arr.length
 for (let i = 0; i < len; i++) {
-    console.log(i)
+  /*
+    do something
+  */
 }
 ```
 
@@ -35,7 +38,9 @@ for (let i = 0; i < len; i++) {
 
 ```js
 for (let i = 0, length = array.length; i < length; i++) {
-    console.log(i)
+  /*
+    do something
+  */
 }
 ```
 
@@ -56,55 +61,47 @@ return (foo || []).length
 
 ## 转换成布尔值
 
-在 JavaScript 中，除了 0、“”、null、undefined、NaN 和 false 是假值之外，其他的都是真值。
+在 JavaScript 中，除了 <code>0</code> 、 <code>''</code> 、 <code>null</code> 、 <code>undefined<code> 、 <code>NaN</code> 和 <code>false</code> 是假值之外，其他的都是真值。
 
-我们可以使用 ! 来切换 true 和 false。
+我们可以使用 <code>!</code> 来切换 true 和 false。
 
 ```js
-const isTrue = !0
-const isFalse = !1
-const alsoFalse = !!0
-console.log(true)           // Result: true
-console.log(typeof true)    // Result: "boolean"
+const isTrue = !0     // true
+const isFalse = !1    // false
+const alsoFalse = !!0 // false
 ```
 
 ## 转换成字符串
 
-要快速将数字转换成字符串，我们可以使用 + 运算符，然后在后面跟上一个空字符串。
+要快速将数字转换成字符串，我们可以使用 <code>+</code> 运算符，然后在后面跟上一个空字符串。
 
 ```js
-const val = 1 + ''
-console.log(val)            // Result: "1"
-console.log(typeof val)     // Result: "string"
+const val = 1 + ''      // string
 ```
 
 ## 转换成数字
 
-要把字符串转成数字，也可以使用 + 运算符。
+要把字符串转成数字，也可以使用 <code>+</code> 运算符。
 
 ```js
-let int = '15'
-int = +int
-console.log(int)            // Result: 15
-console.log(typeof int)     // Result: "number"
+let int = '15'      // string
+int = +int          // number
 ```
 
 也可以使用这种方式将布尔值转成数字，例如：
 
 ```js
-console.log(+true)       // Return: 1
-console.log(+false)      // Return: 0
++true       // 1
++false      // 0
 ```
 
-在某些情况下，+ 运算符会被解析成连接操作，而不是加法操作。对于这种情况，可以使用两个波浪号：~~。
+在某些情况下，<code>+</code> 运算符会被解析成连接操作，而不是加法操作。对于这种情况，可以使用两个波浪号：<code>~~</code>。
 
 一个波浪号表示按位取反操作，例如，~15 等于 -16。
 两个波浪号~~表示去反再取反， 即自己。
 
 ```js
 const int = ~~'15'
-console.log(int)            // Result: 15
-console.log(typeof int)     // Result: "number"
 ```
 
 ## 快速幂运算
