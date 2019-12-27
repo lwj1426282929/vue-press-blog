@@ -19,7 +19,9 @@ let menus = [
   },
   {
     title: 'Vue',
-    children: [],
+    children: [
+        'v-if 与 v-show 的区别'
+    ],
   },
   {
     title: 'React',
@@ -46,23 +48,24 @@ let menus = [
       'Eslint 常用配置',
       'Markdown代码块支持高亮的语言',
       '好用的 vscode 插件',
-      'iOS webview加载H5页面点击2次会上移问题'
+      'iOS webview加载H5页面点击2次会上移问题',
+      '常用的正则表达式'
     ],
   },
-  {
-    title: 'English Essay',
-    children: [
-      'essay-1',
-      'essay-2',
-      'essay-3',
-      'essay-4',
-      'essay-5',
-      'essay-6',
-      'essay-7',
-      'essay-8',
-      'essay-9',
-    ],
-  },
+//   {
+//     title: 'English Essay',
+//     children: [
+//       'essay-1',
+//       'essay-2',
+//       'essay-3',
+//       'essay-4',
+//       'essay-5',
+//       'essay-6',
+//       'essay-7',
+//       'essay-8',
+//       'essay-9',
+//     ],
+//   },
 ];
 
 class Sidebar {
