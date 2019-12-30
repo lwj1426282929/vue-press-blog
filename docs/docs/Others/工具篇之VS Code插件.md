@@ -1,4 +1,8 @@
-# 好用的 vscode 插件
+---
+sidebarDepth: 0
+---
+
+# 工具篇之VS Code插件
 
 ## Eslint
 

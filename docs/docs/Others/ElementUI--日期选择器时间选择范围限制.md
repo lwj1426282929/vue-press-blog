@@ -2,7 +2,7 @@
 sidebarDepth: 0
 ---
 
-# 【ElementUI】日期选择器时间选择范围限制
+# ElementUI--日期选择器时间选择范围限制
 
 :::tip
 官方文档中使用<code>picker-options</code>属性来限制可选择的日期。
@@ -84,6 +84,22 @@ data (){
 ```
 
 6. 设置选择xx-xx之间的日期
+
+```js
+data (){
+   return {
+       pickerOptions0: {
+          disabledDate(time) {
+            let startDate = moment(start);
+            let three = 90 * 24 * 3600 * 1000;
+            let threeMonths = curDate - three;
+            return time.getTime() > Date.now() || time.getTime() < threeMonths;
+          }
+        },  
+   }     
+} 
+```
+
 7. 设置选择xx-xx之间的日期（不能选择临界时间）
 8. 设置选择xx-xx之外的时间
 9. 设置选择xx-xx之外的时间（不能选择临界时间）

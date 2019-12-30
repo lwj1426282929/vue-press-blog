@@ -47,10 +47,11 @@ let menus = [
     children: [
       'Eslint 常用配置',
       'Markdown代码块支持高亮的语言',
-      '好用的 vscode 插件',
       'iOS webview加载H5页面点击2次会上移问题',
       '常用的正则表达式',
-      '【ElementUI】日期选择器时间选择范围限制'
+      'ElementUI--日期选择器时间选择范围限制',
+      '工具篇之Chrome插件',
+      '工具篇之VS Code插件'
     ],
   },
 //   {
