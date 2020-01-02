@@ -6,6 +6,8 @@
 
 解决方案：
 
+监听 <code>touchend</code> 事件， 记录时间， 通过判断两次手指离开屏幕的时间差来阻止双击事件， 如果时间差过短（< 500ms） 则阻止第二次点击行为。
+
 ```js
 (function(){
   var agent = navigator.userAgent.toLowerCase();
