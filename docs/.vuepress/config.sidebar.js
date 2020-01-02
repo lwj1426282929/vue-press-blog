@@ -15,7 +15,8 @@ let menus = [
     children: [
       '常用的JS技巧',
       'JavaScript数据类型之Array',
-      '混合开发之JSBridge的JS封装'
+      '混合开发之JSBridge的JS封装',
+      '混合开发之解决iOS webview加载H5页面点击2次会上移问题'
     ],
   },
   {
@@ -48,7 +49,6 @@ let menus = [
     children: [
       'Eslint常用配置',
       'Markdown代码块支持高亮的语言',
-      'iOS webview加载H5页面点击2次会上移问题',
       '常用的正则表达式',
       'ElementUI--日期选择器时间选择范围限制',
       '工具篇之Chrome插件',
