@@ -35,7 +35,7 @@ npm install --global verdaccio
 
 如果在安装过程中报 <code>grywarn</code> 的权限错的话，那么需要加上 <code>--unsafe-perm</code> 。
 
-![image](/img/verdaccio_install.png)
+![image](/note/img/verdaccio_install.png)
 
 ### Verdaccio 启动
 
@@ -45,7 +45,7 @@ npm install --global verdaccio
 verdaccio
 ```
 
-![image](/img/verdaccio_start.png)
+![image](/note/img/verdaccio_start.png)
 
 ### 配置远程访问
 
@@ -72,7 +72,7 @@ npm install -g pm2
 pm2 start which verdaccio 
 ```
 
-![image](/img/pm2_install.png)
+![image](/note/img/pm2_install.png)
 
 ```sh
 # 停止verdaccio服务
@@ -96,13 +96,13 @@ npm install -g nrm
 nrm add verdaccio http://154.211.2.124:4873
 ```
 
-![image](/img/nrm.png)
+![image](/note/img/nrm.png)
 
 ```sh
 ## 查看全部镜像源
 nrm ls
 ```
-![image](/img/nrm_ls.png)
+![image](/note/img/nrm_ls.png)
 
 ```sh
 # 切换镜像

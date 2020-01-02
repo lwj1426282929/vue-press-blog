@@ -31,7 +31,8 @@ export NODE_HOME=/usr/src/node-v8.2.1-linux-x86
 export PATH=$PATH:$NODE_HOME/bin
 export NODE_PATH=$NODE_HOME/lib/node_modules
 ```
-![image](/img/node_install.png)
+
+![image](/note/img/node_install.png)
 
 **保存文件后刷新配置**
 
@@ -48,4 +49,4 @@ npm -v
 
 **安装结果**
 
-![image](/img/node_version.jpg)
+![image](/note/img/node_version.jpg)
