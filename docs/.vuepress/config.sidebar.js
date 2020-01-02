@@ -13,14 +13,15 @@ let menus = [
   {
     title: 'JavaScript',
     children: [
-      '常用的 JS 技巧',
-      'JavaScript 数据类型之Array'
+      '常用的JS技巧',
+      'JavaScript数据类型之Array',
+      '混合开发之JSBridge的JS封装'
     ],
   },
   {
     title: 'Vue',
     children: [
-        'v-if 与 v-show 的区别'
+        'v-if与v-show的区别'
     ],
   },
   {
@@ -34,18 +35,18 @@ let menus = [
   {
     title: 'Node',
     children: [
-      'Linux 下安装 Node.js',
-      'npm 常用命令',
-      'npm 发布属于自己的依赖包',
-      'npm 私库搭建',
-      'npm 常见问题',
-      '好用的 npm 依赖包',
+      'Linux下安装Node.js',
+      'npm常用命令',
+      'npm发布属于自己的依赖包',
+      'npm私库搭建',
+      'npm常见问题',
+      '好用的npm依赖包',
     ],
   },
   {
     title: '其他',
     children: [
-      'Eslint 常用配置',
+      'Eslint常用配置',
       'Markdown代码块支持高亮的语言',
       'iOS webview加载H5页面点击2次会上移问题',
       '常用的正则表达式',
