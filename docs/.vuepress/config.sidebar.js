@@ -17,7 +17,7 @@ let menus = [
       '常用的JS技巧',
       'JavaScript数据类型之Array',
       '混合开发之JSBridge的JS封装',
-      '混合开发之解决iOS webview加载H5页面点击2次会上移问题',
+      '混合开发之解决iOS-webview加载H5页面点击2次会上移问题',
       '移动开发之解决click事件延迟300ms问题'
     ],
   },
