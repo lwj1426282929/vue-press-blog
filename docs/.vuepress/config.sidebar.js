@@ -54,7 +54,8 @@ let menus = [
       '常用的正则表达式',
       'ElementUI--日期选择器时间选择范围限制',
       '工具篇之Chrome插件',
-      '工具篇之VS Code插件'
+      '工具篇之VS Code插件',
+      'Chrome无法调用preventDefault阻止touch事件解决办法'
     ],
   },
   // {
