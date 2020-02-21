@@ -2,7 +2,7 @@
 sidebarDepth: 0
 ---
 
-# 工具篇之VS Code插件
+# 工具篇之 VS Code 插件
 
 ## Eslint
 

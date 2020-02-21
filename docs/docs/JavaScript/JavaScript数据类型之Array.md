@@ -1,10 +1,10 @@
-# JavaScript 数据类型之Array
+# JavaScript 数据类型之 Array
 
 ## Methods
 
 ### indexOf()
 
-返回str在数组中 <code>第一次</code> 出现的索引， 没有返回 <code>-1</code> 。
+返回 str 在数组中 <code>第一次</code> 出现的索引， 没有返回 <code>-1</code> 。
 
 ### toString()
 
@@ -21,8 +21,8 @@
 ### push()
 
 ```js
-let arr = []
-arr.push(1, 2, 3)  // [1, 2, 3]
+let arr = [];
+arr.push(1, 2, 3); // [1, 2, 3]
 ```
 
 往数组末尾中添加元素，可以一次添加多个。
@@ -42,12 +42,12 @@ arr.push(1, 2, 3)  // [1, 2, 3]
 ### splice()
 
 ```js
-let arr = [1, 2, 3, 4]
-arr.splice(0, 2)  // [1, 2]  arr = [3, 4]
-arr.splice(1, 0, [4, 5, 6])  // []  arr = [3, [4, 5, 6], 4]
+let arr = [1, 2, 3, 4];
+arr.splice(0, 2); // [1, 2]  arr = [3, 4]
+arr.splice(1, 0, [4, 5, 6]); // []  arr = [3, [4, 5, 6], 4]
 ```
 
-删除或者添加元素，返回被删除的元素组成的数组， 添加元素时返回空数组。参数：起始位置， 需要删除的元素的个数（添加元素时为0），需要添加的元素。
+删除或者添加元素，返回被删除的元素组成的数组， 添加元素时返回空数组。参数：起始位置， 需要删除的元素的个数（添加元素时为 0），需要添加的元素。
 
 ### reverse()
 
@@ -60,10 +60,10 @@ arr.splice(1, 0, [4, 5, 6])  // []  arr = [3, [4, 5, 6], 4]
 ### forEach()
 
 ```js
-let arr = [1, 2, 3, 4, 5]
+let arr = [1, 2, 3, 4, 5];
 arr.forEach((item, index) => {
   /* do something */
-})
+});
 ```
 
 遍历数组， 可以修改数组元素。
@@ -71,47 +71,47 @@ arr.forEach((item, index) => {
 ### map()
 
 ```js
-let arr = [1, 2, 3, 4]
+let arr = [1, 2, 3, 4];
 arr.map(item => {
-  return item + 1
-})  // [2, 3, 4, 5]  arr = [1, 2, 3, 4]
+  return item + 1;
+}); // [2, 3, 4, 5]  arr = [1, 2, 3, 4]
 ```
 
-与forEach()类似， 但是map会返回一个新数组， 原数组不变（不能修改数组元素）, 新数组元素时原数组元素调用函数返回的结果。
+与 forEach()类似， 但是 map 会返回一个新数组， 原数组不变（不能修改数组元素）, 新数组元素时原数组元素调用函数返回的结果。
 
 ### filter()
 
 ```js
-let arr = [1, 2, 3, 4, 5]
+let arr = [1, 2, 3, 4, 5];
 arr.filter(item => {
-return item % 2 == 0
-})  // [2, 4]  arr = [1, 2, 3, 4, 5]
+  return item % 2 == 0;
+}); // [2, 4]  arr = [1, 2, 3, 4, 5]
 ```
 
-接收一个返回值为Boolean类型的函数， 返回一个新数组， 新数组中的元素均为原数组中每一项元素调用该函数返回为true的元素。
+接收一个返回值为 Boolean 类型的函数， 返回一个新数组， 新数组中的元素均为原数组中每一项元素调用该函数返回为 true 的元素。
 
 ### every()
 
 ```js
-let arr = [1, 2, 3, 4, 5]
+let arr = [1, 2, 3, 4, 5];
 arr.every(item => {
-  return item % 2 == 0
-})  // false
+  return item % 2 == 0;
+}); // false
 ```
 
-遍历数组，接收一个返回值为Boolean类型的函数，对数组中的每个元素使用该函数，如果对于所有元素该函数返回true，则该方法返回true， 否则返回false。
+遍历数组，接收一个返回值为 Boolean 类型的函数，对数组中的每个元素使用该函数，如果对于所有元素该函数返回 true，则该方法返回 true， 否则返回 false。
 
 ### some()
 
-与every类似， 接收一个返回值为Boolean类型的函数，对数组中的每个元素使用该函数，如果对于某一元素该函数返回true，则该方法返回true，若都返回false， 则返回false。
+与 every 类似， 接收一个返回值为 Boolean 类型的函数，对数组中的每个元素使用该函数，如果对于某一元素该函数返回 true，则该方法返回 true，若都返回 false， 则返回 false。
 
 ### reduce()
 
-接收一个函数，返回一个值， 该方法从一个累加值开始， 不断对累加值he数组中的后续元素调用该函数，最后返回累加值。
+接收一个函数，返回一个值， 该方法从一个累加值开始， 不断对累加值 he 数组中的后续元素调用该函数，最后返回累加值。
 
 ### reduceRight()
 
-与reduce一致， 但是顺序是从右至左执行。
+与 reduce 一致， 但是顺序是从右至左执行。
 
 ## 数组去重
 
@@ -122,10 +122,10 @@ arr.every(item => {
 let uniqueArray = arr => {
   for (let i = 0; i < arr.length - 1; i++) {
     let item = arr[i];
-    for(let j = i + 1; j < arr.length; j++) {
+    for (let j = i + 1; j < arr.length; j++) {
       item === arr[j] && (arr.splice(j, 1), j--);
     }
-  };
+  }
   return arr;
 };
 ```
@@ -135,9 +135,11 @@ let uniqueArray = arr => {
 ```js
 // 判断对象属性
 let uniqueArray = arr => {
-  let v, r = [], o = {};
-  for(let i = 0; (v = arr[i]) !== undefined; i++) {
-    !o[v] && (r.push(v), o[v] = true);
+  let v,
+    r = [],
+    o = {};
+  for (let i = 0; (v = arr[i]) !== undefined; i++) {
+    !o[v] && (r.push(v), (o[v] = true));
   }
   return r;
 };
@@ -156,6 +158,7 @@ let uniqueArray = arr => {
 ```
 
 通过 ES6 的 <code>Set</code> 数据结构过滤数组重复项。
+
 ```js
 let uniqueArray = Array.from(new Set(arr));
 ```
@@ -179,14 +182,14 @@ arr.sort((a, b) => {
 两两比较顺序,如果顺序错误则交换位置。
 
 ```js
-function bubbleSort(arr){
+function bubbleSort(arr) {
   let i = arr.length - 1,
-      j;
+    j;
 
   for (; i >= 0; i--) {
     for (j = i - 1; j >= 0; j--) {
-      if (arr[j] > arr[j+1]) {
-        arr[j] = [ arr[j+1], arr[j+1]=arr[j] ][0];
+      if (arr[j] > arr[j + 1]) {
+        arr[j] = [arr[j + 1], (arr[j + 1] = arr[j])][0];
       }
     }
   }
@@ -197,22 +200,23 @@ function bubbleSort(arr){
 
 ### 选择排序
 
-在未排序的序列中找到最大（小）的元素与第1个元素交换，在剩余元素中继续找最大（小）的元素与第2个元素交换，以此类推，直到排序完毕。
+在未排序的序列中找到最大（小）的元素与第 1 个元素交换，在剩余元素中继续找最大（小）的元素与第 2 个元素交换，以此类推，直到排序完毕。
+
 ```js
 function selectionSort(arr) {
   let i = arr.length - 1,
-      j,
-      buffer,
-      special;
-  
+    j,
+    buffer,
+    special;
+
   // 采用倒序，提高查找性能
-  for(; i >= 0; i--){
+  for (; i >= 0; i--) {
     special = i;
     buffer = arr[i];
 
     for (j = i - 1; j >= 0; j--) {
       // 正序与倒序取决于这里的判断,max or min
-      if(buffer < arr[j]){
+      if (buffer < arr[j]) {
         // 当前的最值位置
         special = j;
         buffer = arr[j];
@@ -220,7 +224,7 @@ function selectionSort(arr) {
     }
 
     // 最值与当前位置的值交换位置
-    arr[special] = [ arr[i], arr[i]=buffer ][0];
+    arr[special] = [arr[i], (arr[i] = buffer)][0];
 
     return arr;
   }
@@ -233,18 +237,18 @@ function selectionSort(arr) {
 
 2.若新元素（当前元素的前面）大于当前元素，将新元素移到下一位置
 
-3.重复2，直到在有序区找到大于或等于新元素的位置
+3.重复 2，直到在有序区找到大于或等于新元素的位置
 
 4.将当前元素插到上面找到的位置
 
-5.重复2~4
+5.重复 2~4
 
 ```js
-function insertionSort(arr){
+function insertionSort(arr) {
   let len = arr.length,
-      i = 1,
-      j,
-      buffer;
+    i = 1,
+    j,
+    buffer;
 
   for (; i < len; i++) {
     buffer = arr[i];
@@ -252,13 +256,13 @@ function insertionSort(arr){
     // 在当前元素从后向前遍历,
     // 一旦找到比当前元素大的就进行“元素加位”
     for (j = i - 1; j >= 0 && arr[j] > buffer; j--) {
-      arr[j+1] = arr[j];
+      arr[j + 1] = arr[j];
     }
 
     //找到的位置替换为当前元素，比它大的在上面已经“加位”了
-    arr[j+1] = buffer;
+    arr[j + 1] = buffer;
   }
-  
+
   return arr;
 }
 ```

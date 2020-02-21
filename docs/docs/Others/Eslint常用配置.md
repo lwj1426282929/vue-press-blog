@@ -2,7 +2,6 @@
 
 官方文档：[https://cn.eslint.org/](https://cn.eslint.org/)
 
-
 ## rules
 
 rules 的表达式为：
@@ -57,7 +56,7 @@ rules: {
     'no-unsafe-finally': 'error',           // 禁止在 finally 语句块中出现控制流语句
     'no-unsafe-negation': 'error',          // 禁止对关系运算符的左操作数使用否定操作符
     'require-atomic-updates': 'error',      // 禁止由于 await 或 yield的使用而可能导致出现竞态条件的赋值
-    'use-isnan': 'error',                   // 要求调用 isNaN() 检查 NaN 
+    'use-isnan': 'error',                   // 要求调用 isNaN() 检查 NaN
     'valid-typeof': 'error',                // 强制 typeof 表达式与有效的字符串进行比较
     'no-case-declarations': 'error',        // 不允许在 case 子句中使用词法声明
     'no-empty-pattern': 'error',            // 禁止使用空解构模式
@@ -90,48 +89,48 @@ rules: {
 ```js
 module.exports = {
     // 当你想对一个项目的不同部分的使用不同配置，或当你希望别人能够直接使用 ESLint，而无需记住要在配置文件中传递什么时可以配置该属性
-    root: true, 
-    
+    root: true,
+
     parserOptions: {
         parser: 'babel-eslint'
     },
-    
+
     env: {
         browser: true,
     },
-    
+
     extends: ['plugin:vue/essential', 'standard'],
-    
+
     // 全局变量， 添加后不会报该变量 undefined 的错误
-    globals: {  
+    globals: {
         moment: true,
         Vue: true
     },
-    
+
     // 规则
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
-        
+
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn'
-        
+
         // 允许空行， 但最多不超过两行
         'no-multiple-empty-lines': ['error', { 'max': 2 }]
-        
+
         // 不强制使用 === 和 !==
-        eqeqeq: 'off',    
-        
+        eqeqeq: 'off',
+
         // 强制使用单引号
         quotes: [
             'error',
             'single',   // 强制使用单引号
-            { 
+            {
                 avoidEscape: true,  // 只要字符串中包含了一个其它引号，否则需要转义
                 allowTemplateLiterals: true     // 允许字符串使用反勾号 ``
             }
         ],
-        
+
         // 函数括号前强制空格
-        'space-before-function-paren': ['error', 'always'],   
+        'space-before-function-paren': ['error', 'always'],
     }
 }
 ```

@@ -2,7 +2,7 @@
 sidebarDepth: 0
 ---
 
-# 工具篇之npm
+# 工具篇之 npm
 
 ## [vue](https://github.com/vuejs/vue)
 

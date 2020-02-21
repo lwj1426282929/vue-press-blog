@@ -10,11 +10,11 @@
 ```bash
 npm install [<@scope>/]<name>@<version range>... [-S|--save|-D|--save-dev|-O|--save-optional] [-E|--save-exact] [--dry-run]
 
-npm i               
+npm i
 npm install                         # 根据项目中的 package.json 安装依赖
 
-npm install <pkg> 
-npm install <pkg> --S 
+npm install <pkg>
+npm install <pkg> --S
 npm install <pkg> --save            # 安装模块到项目中并添加到 package.json 的 dependencies , 默认安装最新版本
 
 npm install <pkg> -D
@@ -23,7 +23,7 @@ npm install <pkg> --save-dev        # 安装模块到项目中并添加到 packa
 npm install <pkg> -O
 npm install <pkg> --save-optional   # 安装模块到项目中并添加到 package.json 的 optionalDependencies
 
-npm install <pkg> -E 
+npm install <pkg> -E
 npm install <pkg> --save-exact      # 精确安装模块的版本，不会有 ^ 出现
 
 npm install <pkg> -g
@@ -53,8 +53,8 @@ npm uninstall [<@scope>/]<pkg>[@<version>]... [-S|--save|-D|--save-dev|-O|--save
 
 npm uninstall                           # 卸载项目中的所有模块
 
-npm uninstall <pkg> 
-npm uninstall <pkg> --S 
+npm uninstall <pkg>
+npm uninstall <pkg> --S
 npm uninstall <pkg> --save              # 卸载项目中的 dependencies 中的模块
 
 npm uninstall <pkg> -D
@@ -148,7 +148,7 @@ npm config set registry https://registry.npm.taobao.org
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
-6. 下载包时， 可以看到所有的http请求
+6. 下载包时， 可以看到所有的 http 请求
 
 ```bash
 npm config set loglevel=http
@@ -170,10 +170,10 @@ npm i
 ```
 
 或者关闭 <code>ssl</code> ， 清除缓存， 再重新安装
-    
+
 ```bash
 npm cache clean --force
-git config --global http.sslverify "false" 
+git config --global http.sslverify "false"
 npm cache clear
 npm i
 ```

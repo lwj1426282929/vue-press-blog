@@ -2,7 +2,7 @@
 
 ## 发布到 npm
 
-**step 1: 准备好npm包**
+**step 1: 准备好 npm 包**
 
 准备好一个项目工程, <code>package.json</code> 具体参考文档 [package.json](http://javascript.ruanyifeng.com/nodejs/packagejson.html#toc0)
 
@@ -10,7 +10,7 @@
 
 ```bash
 # 查看当前镜像
-npm get registry    
+npm get registry
 
 # 若不是npm官方镜像则需要设置
 npm config set registry https://registry.npmjs.org/
@@ -19,6 +19,7 @@ npm config set registry https://registry.npmjs.org/
 **step 3: 注册用户**
 
 如果之前没有用户， 需要注册， 注册过了的可以直接登录
+
 ```bash
 # 添加镜像用户， 需要 username 、password 以及 email
 npm adduser
@@ -29,6 +30,7 @@ npm adduser
 ```bash
 npm login
 ```
+
 **step 5: 发布**
 
 ```bash
@@ -44,7 +46,7 @@ npm publish
 
 **step 7: 撤销发布**
 
-为了不影响其他已经使用了该包的人, npm 官方镜像支持在2分钟内删除已发布的包， 2分钟后不能删除, 只能弃用该包， 即弃用版本及之后版本不再维护，也不能使用， 但是之前的版本不受影响。其他人在安装该包时会有启用警告出现。
+为了不影响其他已经使用了该包的人, npm 官方镜像支持在 2 分钟内删除已发布的包， 2 分钟后不能删除, 只能弃用该包， 即弃用版本及之后版本不再维护，也不能使用， 但是之前的版本不受影响。其他人在安装该包时会有启用警告出现。
 
 ```bash
 # 撤销发布（2分钟内该命令有效）
@@ -58,7 +60,7 @@ npm deprecate <pkg>[@<version>] <message>
 
 私库与官方镜像没有区别， 只是将镜像地址换成私库地址而已。为了确保的确使用的是私库地址， 最好在命令后面加上镜像地址 <code>--registry url </code>。
 
-**step 1: 准备好npm包**
+**step 1: 准备好 npm 包**
 
 **step 2: 确保当前镜像是否为 npm 私库镜像**
 
@@ -88,7 +90,7 @@ npm publish --registry <url>
 
 **step 7: 撤销发布**
 
-[Verdaccio](https://verdaccio.org/zh-CN/)  没有2分钟后不能删除包的限制， 所以我们可以使用 <code>npm unpublish pkg --force --registry url</code> 来删除已经发布的包， 也可以使用 <code>npm deprecate pkg @version message --registry url</code> 来弃用包。
+[Verdaccio](https://verdaccio.org/zh-CN/) 没有 2 分钟后不能删除包的限制， 所以我们可以使用 <code>npm unpublish pkg --force --registry url</code> 来删除已经发布的包， 也可以使用 <code>npm deprecate pkg @version message --registry url</code> 来弃用包。
 
 ```bash
 # 删除包

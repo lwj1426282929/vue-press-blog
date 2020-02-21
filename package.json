@@ -24,5 +24,9 @@
     "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
     "babel-register": "^6.26.0",
     "vuepress": "^1.0.3"
+  },
+  "dependencies": {
+    "element-ui": "^2.13.0",
+    "vue-easytable": "^1.7.2"
   }
 }

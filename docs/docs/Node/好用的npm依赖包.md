@@ -13,7 +13,7 @@ sidebarDepth: 1
 ## [Eslint](http://eslint.cn/)
 
 ::: tip
-基于AST的模式检测器，用作代码错误、风格检测工具
+基于 AST 的模式检测器，用作代码错误、风格检测工具
 :::
 
 ## [moment](http://momentjs.cn/)
@@ -25,7 +25,7 @@ JavaScript 日期处理类库
 ## [pre-commit](https://github.com/observing/pre-commit)
 
 ::: tip
-git的预提交钩子安装程序, 一般用来检测代码是否符合规范。若不符合则阻止提交。
+git 的预提交钩子安装程序, 一般用来检测代码是否符合规范。若不符合则阻止提交。
 :::
 
 ### 安装
@@ -67,5 +67,4 @@ npm install --save-dev nodemon
 "scripts": {
   "dev": "nodemon ./index.js --exec babel-node"
 }
- ```
-
+```

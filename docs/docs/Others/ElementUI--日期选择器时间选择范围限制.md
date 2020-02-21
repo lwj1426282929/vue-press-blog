@@ -48,8 +48,8 @@ data (){
                 return time.getTime() < Date.now();
             }
         }
-   }     
-} 
+   }
+}
 ```
 
 4. 设置选择今天之前的日期（不能选择当天）
@@ -62,8 +62,8 @@ data (){
             return time.getTime() > Date.now();
           }
         }
-   }     
-}    
+   }
+}
 ```
 
 5. 设置选择三个月之前到今天的日期
@@ -78,12 +78,12 @@ data (){
             let threeMonths = curDate - three;
             return time.getTime() > Date.now() || time.getTime() < threeMonths;;
           }
-        },  
-   }     
-} 
+        },
+   }
+}
 ```
 
-6. 设置选择xx-xx之间的日期
+6. 设置选择 xx-xx 之间的日期
 
 ```js
 data (){
@@ -95,31 +95,33 @@ data (){
             let threeMonths = curDate - three;
             return time.getTime() > Date.now() || time.getTime() < threeMonths;
           }
-        },  
-   }     
-} 
+        },
+   }
+}
 ```
 
-7. 设置选择xx-xx之间的日期（不能选择临界时间）
-8. 设置选择xx-xx之外的时间
-9. 设置选择xx-xx之外的时间（不能选择临界时间）
+7. 设置选择 xx-xx 之间的日期（不能选择临界时间）
+8. 设置选择 xx-xx 之外的时间
+9. 设置选择 xx-xx 之外的时间（不能选择临界时间）
 
 ## 两个组件
 
-针对选择范围(type="daterange")的日期筛选，类似于单个输入框的情况，直接使用参数time进行判断。
+针对选择范围(type="daterange")的日期筛选，类似于单个输入框的情况，直接使用参数 time 进行判断。
 
 ```html
 <el-date-picker
-       v-model="value1"
-       type="date"
-       placeholder="开始日期"
-       :picker-options="pickerOptions0">
+  v-model="value1"
+  type="date"
+  placeholder="开始日期"
+  :picker-options="pickerOptions0"
+>
 </el-date-picker>
 <el-date-picker
-       v-model="value2"
-       type="date"
-       placeholder="结束日期"
-       :picker-options="pickerOptions1">
+  v-model="value2"
+  type="date"
+  placeholder="结束日期"
+  :picker-options="pickerOptions1"
+>
 </el-date-picker>
 ```
 
@@ -141,6 +143,6 @@ data(){
                     return time.getTime() < this.value1 || time.getTime() > Date.now();
                 }
             },
-    }      
-}       
+    }
+}
 ```

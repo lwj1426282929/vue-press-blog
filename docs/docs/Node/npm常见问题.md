@@ -25,6 +25,7 @@ npm config set registry https://registry.npm.taobao.org
 ```bash
 npm cache clean --force
 ```
+
 ---
 
 ## 2. node 升级后，node-sass 报错
@@ -39,4 +40,5 @@ Node Sass could not find a binding for your current environment: Windows 64-bit 
 ```bash
 npm rebuild node-sass
 ```
+
 ---

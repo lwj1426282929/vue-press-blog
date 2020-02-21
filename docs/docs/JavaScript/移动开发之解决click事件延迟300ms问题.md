@@ -13,13 +13,16 @@ sidebarDepth: 0
 在 chrome 和 firefox 的移动版本中，如果禁用了页面缩放，那么着 300ms 的延迟就会自动消失。
 
 ```html
-<meta name="viewport" content="width=device-width, user-scalable=no">
+<meta name="viewport" content="width=device-width, user-scalable=no" />
 ```
 
 或
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"
+/>
 ```
 
 但是这一方案在 safari 上并不起作用，还会降低有视觉或运动障碍用户的可访问性。
@@ -29,7 +32,10 @@ sidebarDepth: 0
 在 chrome 32+ 中，如果设置了 <code>viewport</code> 的宽度小于或等于物理设备的宽度，那么也会达到禁用缩放的效果。
 
 ```html
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3">
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=3"
+/>
 ```
 
 ## 使用指针事件 （IE10+）
@@ -39,13 +45,15 @@ sidebarDepth: 0
 这有一个非标准的 CSS 触摸 <code>action</code> 属性，它允许你移除特定元素或整个文档的触发延迟，而无需禁用缩放：
 
 ```css
-a, button, .myelements {
+a,
+button,
+.myelements {
   -ms-touch-action: manipulation; /* IE10  */
-  touch-action: manipulation;     /* IE11+ */
+  touch-action: manipulation; /* IE11+ */
 }
 ```
 
-## 使用fastclick.js
+## 使用 fastclick.js
 
 <code>FastClick</code> 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。简而言之，<code>FastClick</code> 在检测到 touchend 事件的时候，会通过 DOM 自定义事件立即触发一个模拟 click 事件，并把浏览器在 300 毫秒之后真正触发的 click 事件阻止掉。
 
@@ -54,9 +62,13 @@ import FastClick from 'fastclick';
 
 // 修复点击300ms延迟
 if ('addEventListener' in document) {
-  document.addEventListener('DOMContentLoaded', () => {
-    FastClick.attach(document.body);
-  }, false);
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      FastClick.attach(document.body);
+    },
+    false,
+  );
 }
 ```
 
@@ -64,8 +76,9 @@ if ('addEventListener' in document) {
 
 ```js
 // 修复因引入FastClick导致输入框不能聚焦问题
-FastClick.prototype.focus = function (targetElement) {
-  targetElement.selectionStart = targetElement.selectionEnd = targetElement.value.length;
+FastClick.prototype.focus = function(targetElement) {
+  targetElement.selectionStart = targetElement.selectionEnd =
+    targetElement.value.length;
   targetElement.focus();
 };
 ```
