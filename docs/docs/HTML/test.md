@@ -30,6 +30,9 @@
 </template>
 
 <script>
+// var requireContext = require('require-context');
+// const files = require.context("./", false, /\.md$/).keys();
+// console.log(files);
 export default {
   data() {
     return {

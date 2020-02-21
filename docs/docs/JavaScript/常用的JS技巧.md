@@ -1,4 +1,4 @@
-# 常用的 JS 技巧
+<!-- # 常用的 JS 技巧
 
 ## 数组过滤唯一值
 
@@ -180,4 +180,4 @@ console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, '   '));
 //  "alpha": A,
 //  "beta": B
 // }'
-```
+``` -->
