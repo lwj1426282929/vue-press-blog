@@ -32,7 +32,7 @@ class Menu {
     let contents = this.getContents();
     let navs = [];
     contents.forEach(content => {
-      navs.push({ text: content.title, link: content._path + '/' });
+      navs.push({ text: content.title, link: '/docs/' + content._path + '/' });
     });
     return navs;
   }
