@@ -35,5 +35,9 @@ module.exports = {
         // 插件
         ['@vuepress/back-to-top', true],
         ['@vuepress/medium-zoom'],
+        ['one-click-copy', { copyMessage: '复制代码成功', duration: 60000 }]
+        // ['vuepress-plugin-code-copy', true]
+        // ["vuepress-plugin-nuggets-style-copy"]
+        // ["@dovyp/vuepress-plugin-clipboard-copy"]
     ],
 };
