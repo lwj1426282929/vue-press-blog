@@ -22,10 +22,12 @@
   "homepage": "https://github.com/lwj1426282929/vue-press-blog#readme",
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.0.0-rc.1",
+    "@vuepress/plugin-medium-zoom": "^1.3.1",
     "babel-register": "^6.26.0",
     "vuepress": "^1.0.3"
   },
   "dependencies": {
+    "clipboard": "^2.0.4",
     "element-ui": "^2.13.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7"
