@@ -39,5 +39,5 @@ module.exports = {
         ['@vuepress/back-to-top', true],
         ['@vuepress/medium-zoom'],
         ['one-click-copy', { copyMessage: '复制代码成功' }],
-    ],
+    ]
 };
