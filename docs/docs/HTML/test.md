@@ -27,12 +27,26 @@
     </el-table-column>
     <el-table-column label="操作"></el-table-column>
   </el-table>
+  <div class="language-bash extra-class">
+    <pre class="language-bash codecopy-enabled">
+      <code>
+        npm adduser         # 注册用户
+        npm login           # 登录
+        npm whoami          # 查看当前登录用户
+        npm logout          # 退出登录
+      </code>
+    </pre>
+  </div>
 </template>
 
+  ```sh
+  npm adduser         # 注册用户
+        npm login           # 登录
+        npm whoami          # 查看当前登录用户
+        npm logout          # 退出登录
+  ```
+
 <script>
-// var requireContext = require('require-context');
-// const files = require.context("./", false, /\.md$/).keys();
-// console.log(files);
 export default {
   data() {
     return {
