@@ -1,5 +1,5 @@
 const Menu = require('./config.menu');
-var md = require('markdown-it')();
+const md = require('markdown-it')();
 
 module.exports = {
     port: 80,
@@ -46,21 +46,20 @@ module.exports = {
         ['@vuepress/medium-zoom'],
         ['one-click-copy', { copyMessage: '复制代码成功' }],
         [
-            'vuepress-plugin-container',
+            'container',
             {
-                type: 'test',
+                type: 'demo',
                 render: (tokens, idx) => {
-                    const m = tokens[idx].info.trim().match(/^test\s*(.*)$/);
+                    const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
                     if (tokens[idx].nesting === 1) {
                         const description = m && m.length > 1 ? m[1] : '';
-                        const description_ = description ? md.render(description) : ''
                         const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
-                        return `<test>
+                        return `<code-demo>
                                     <div slot="meta">${content}</div>
                                     <div>${description ? `<div>${md.render(description)}</div>` : ''}</div>
                                 `
                     }
-                    return '</test>';
+                    return '</code-demo>';
                 },
             },
         ],
