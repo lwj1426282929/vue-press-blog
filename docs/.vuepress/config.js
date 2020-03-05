@@ -54,9 +54,10 @@ module.exports = {
                     if (tokens[idx].nesting === 1) {
                         const description = m && m.length > 1 ? m[1] : '';
                         const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
+                        console.log('description', description);
                         return `<code-demo>
                                     <div slot="meta">${content}</div>
-                                    <div>${description ? `<div>${md.render(description)}</div>` : ''}</div>
+                                    <div class="description">${description ? `<div>${md.render(description)}</div>` : ''}</div>
                                 `
                     }
                     return '</code-demo>';

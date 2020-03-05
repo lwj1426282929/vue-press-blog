@@ -79,6 +79,11 @@ export default {
 
     &:hover {
         box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
+
+        .demo-block-control {
+            background: #f9fafc;
+            color: #67C23A;
+        }
     }
 
     .demo-block {
@@ -96,8 +101,16 @@ export default {
             padding: 20px;
             border-bottom: 1px solid #ebebeb;
 
-            /deep/ div[class*='language-'] {
-                // background: #fafafa;
+            .description {
+                padding: 5px 10px;
+                box-sizing: border-box;
+                border: 1px solid #ebebeb;
+                border-radius: 3px;
+                font-size: 14px;
+                line-height: 22px;
+                color: #666;
+                word-break: break-word;
+                background-color: #fff;
             }
         }
     }
@@ -110,11 +123,6 @@ export default {
         color: #c0c4cc;
         user-select: none;
         position: relative;
-
-        &:hover {
-            background: #f9fafc;
-            color: #409eff;
-        }
 
         .el-icon-caret-bottom {
             transition: all 0.3s;
