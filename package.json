@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "blog of VuePress",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "dev": "vuepress dev docs --no-cache",
     "build": "vuepress build docs"
   },
   "repository": {
@@ -33,6 +33,9 @@
     "element-ui": "^2.13.0",
     "fs": "0.0.1-security",
     "highlight.js": "^9.18.1",
-    "path": "^0.12.7"
+    "markdown-it": "^10.0.0",
+    "markdown-it-container": "^2.0.0",
+    "path": "^0.12.7",
+    "vue-codemirror": "^4.0.6"
   }
 }

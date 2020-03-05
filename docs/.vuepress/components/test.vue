@@ -4,12 +4,12 @@
          @mouseleave="showButtonText = false">
 
         <div class="demo-block">
-            <slot></slot>
+            <slot name="meta"></slot>
         </div>
 
         <div class="demo-block-code">
             <div class="demo-block-code-p20">
-                
+                <slot></slot>
             </div>
         </div>
 
@@ -26,19 +26,38 @@
 </template>
 
 <script>
+import hljs from 'highlight.js';
+import 'highlight.js/styles/googlecode.css' //样式文件
+
 export default {
     data () {
         return {
             isShowCode: false,
-            showButtonText: false
+            showButtonText: false,
+            content: `<a href="tel:13266419102">13266419102</a>`
+        }
+    },
+
+    directives: {
+        highlight: {
+            inserted: (el) => {
+                let blocks = el.querySelectorAll('pre code');
+                setTimeout(() => {
+                    blocks.forEach((block) => {
+                        hljs.highlightBlock(block)
+                    });
+                }, 200);
+            }
         }
     },
 
     methods: {
+        // 代码包裹元素
         codeArea () {
             return this.$el.getElementsByClassName('demo-block-code')[0];
         },
 
+        // 代码包裹元素的高度
         codeAreaHeight () {
             return this.$el.getElementsByClassName('demo-block-code-p20')[0].clientHeight;
         }
@@ -76,6 +95,10 @@ export default {
         .demo-block-code-p20 {
             padding: 20px;
             border-bottom: 1px solid #ebebeb;
+
+            /deep/ div[class*='language-'] {
+                // background: #fafafa;
+            }
         }
     }
 

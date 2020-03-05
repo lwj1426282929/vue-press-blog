@@ -1,13 +1,19 @@
 const Menu = require('./config.menu');
+var md = require('markdown-it')();
 
 module.exports = {
     port: 80,
     // 部署站点的基础路径
     base: '/note/',
     // 网站描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
-    head: [['link', { rel: 'icon', href: '/logo.png' }]],
+    head: [
+        ['link', { rel: 'icon', href: '/logo.png' }],
+        []
+    ],
     // 离线访问
-    serviceWorker: true,
+    serviceWorker: false,
+
+    cache: false,
     locales: {
         '/': {
             title: '笔记',
@@ -39,6 +45,24 @@ module.exports = {
         ['@vuepress/back-to-top', true],
         ['@vuepress/medium-zoom'],
         ['one-click-copy', { copyMessage: '复制代码成功' }],
-        ['demo-code']
+        [
+            'vuepress-plugin-container',
+            {
+                type: 'test',
+                render: (tokens, idx) => {
+                    const m = tokens[idx].info.trim().match(/^test\s*(.*)$/);
+                    if (tokens[idx].nesting === 1) {
+                        const description = m && m.length > 1 ? m[1] : '';
+                        const description_ = description ? md.render(description) : ''
+                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
+                        return `<test>
+                                    <div slot="meta">${content}</div>
+                                    <div>${description ? `<div>${md.render(description)}</div>` : ''}</div>
+                                `
+                    }
+                    return '</test>';
+                },
+            },
+        ],
     ],
 };
