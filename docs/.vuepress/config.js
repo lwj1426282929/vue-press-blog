@@ -1,18 +1,11 @@
 const Menu = require('./config.menu');
-const md = require('markdown-it')();
 
 module.exports = {
     port: 80,
-    // 部署站点的基础路径
-    base: '/note/',
+    base: '/note/', // 部署站点的基础路径
     // 网站描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
-    head: [
-        ['link', { rel: 'icon', href: '/logo.png' }],
-        []
-    ],
-    // 离线访问
-    serviceWorker: false,
-
+    head: [['link', { rel: 'icon', href: '/logo.png' }], []],
+    serviceWorker: false, // 离线访问
     cache: false,
     locales: {
         '/': {
@@ -40,29 +33,10 @@ module.exports = {
             },
         },
     },
+    // 插件
     plugins: [
-        // 插件
         ['@vuepress/back-to-top', true],
         ['@vuepress/medium-zoom'],
         ['one-click-copy', { copyMessage: '复制代码成功' }],
-        [
-            'container',
-            {
-                type: 'demo',
-                render: (tokens, idx) => {
-                    const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-                    if (tokens[idx].nesting === 1) {
-                        const description = m && m.length > 1 ? m[1] : '';
-                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
-                        console.log('description', description);
-                        return `<code-demo>
-                                    <div slot="meta">${content}</div>
-                                    <div class="description">${description ? `<div>${md.render(description)}</div>` : ''}</div>
-                                `
-                    }
-                    return '</code-demo>';
-                },
-            },
-        ],
     ],
 };
