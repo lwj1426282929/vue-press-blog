@@ -29,6 +29,7 @@
     "vuepress-plugin-one-click-copy": "^1.0.1"
   },
   "dependencies": {
+    "@codeciting/vuepress-plugin-math": "^0.2.0",
     "element-ui": "^2.13.0",
     "fs": "0.0.1-security",
     "highlight.js": "^9.18.1",

@@ -49,12 +49,24 @@ export default {
     name: 'test',
 
     created () {
-        let Sta = new Stack([1, 2, 3, 4, 5, 6])
-        Sta.push(7)
-        console.log(Sta.value());
-        Sta.pop()
-        console.log(Sta.value());
-        console.log(Sta.peek());
+        let arr = [10, 7, 9, 11, 22, 33, 4, 2, 0, 1000];
+        console.log(this.bubbleSort(arr));
+    },
+
+    methods: {
+        bubbleSort (arr) {
+            let len = arr.length
+            for (let i = 0; i < len - 1; i++) {
+                for (let j = i + 1; j < len; j++) {
+                    if (arr[i] > arr[j]) {
+                        arr[i] = arr[i] ^ arr[j]
+                        arr[j] = arr[j] ^ arr[i]
+                        arr[i] = arr[i] ^ arr[j]
+                    }
+                }
+            }
+            return arr;
+        }
     }
 }
 </script>
