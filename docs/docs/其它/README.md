@@ -1,12 +1,28 @@
 <div class="table-of-contents">
   <ul>
-    <li><a href="./ElementUI--table篇"></a></li>
-    <li><a href="./ElementUI--日期选择器时间选择范围限制"></a></li>
-    <li><a href="./Eslint常用配置"></a></li>
-    <li><a href="./Markdown代码块支持高亮的语言"></a></li>
-    <li><a href="./工具篇之Chrome插件"></a></li>
-    <li><a href="./工具篇之npm"></a></li>
-    <li><a href="./工具篇之VS Code插件"></a></li>
-    <li><a href="./常用的正则表达式"></a></li>
+    <li v-for="(item, index) in contents" :key="index">
+      <a :href="item.path">{{ item.name }}</a>
+    </li>
   </ul>
 </div>
+
+<script>
+export default {
+  data(){
+    return {
+      contents: []
+    }
+  },
+
+  created(){
+    let arr = require.context("./", true, /^(?!\.\/README\.md$).+\.md$/).keys();
+    this.contents = arr.map(item => {
+      let name = item.match(/(?<=\.\/)([\s\S]*)(?=\.md)/)[0]
+      return {
+        name,
+        path: './' + name + '.html'
+      }
+    })
+  }
+}
+</script>
