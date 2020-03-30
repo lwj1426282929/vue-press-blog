@@ -32,7 +32,7 @@ Vue.js 开发调试工具。
 
 ![CSS-Shapes-Editor](/note/img/CSS-Shapes-Editor.jpg)
 
-通过鼠标绘制的轨迹生成 css-shape 的值。
+通过鼠标绘制的轨迹生成 `css-shape` 的值。
 
 ## [网页截图:注释&录屏](https://chrome.google.com/webstore/detail/awesome-screenshot-screen/nlipoenfbbikpbjkfpfillcgkoblgpmj?utm_source=chrome-ntp-icon)
 

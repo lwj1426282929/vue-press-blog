@@ -1,10 +1,12 @@
-<div class="table-of-contents">
+<!-- <div class="table-of-contents">
   <ul>
     <li v-for="(item, index) in contents" :key="index">
       <a :href="item.path">{{ item.name }}</a>
     </li>
   </ul>
-</div>
+</div> -->
+
+<Contents :contents="contents"></Contents>
 
 <script>
 export default {
@@ -23,6 +25,21 @@ export default {
         path: './' + name + '.html'
       }
     })
+
+    this.generateTree(this.contents)
+  },
+
+  methods: {
+    generateTree(contents){
+      let arr = []
+      contents.reduceRight((sum, cur) => {
+        // console.log(sum);
+        // console.log(cur);
+        return arr.push(cur);
+      }, arr)
+
+      console.log(arr);
+    }
   }
 }
 </script>
