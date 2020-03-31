@@ -13,7 +13,7 @@ module.exports = {
         },
     },
     themeConfig: {
-        sidebarDepth: 1, // 显示 h1, h2
+        sidebarDepth: 2, // 显示 h1, h2
         repo: 'https://github.com/lwj1426282929/vue-press-blog.git',
         locales: {
             '/': {
