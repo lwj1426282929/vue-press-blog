@@ -102,6 +102,7 @@ export default {
 .button-tab-item {
     text-align: center;
     position: relative;
+    cursor: pointer;
 }
 
 .button-tab-item:last-child {

@@ -15,7 +15,8 @@ export default {
           return {
             padding: '1px 5px',
             borderRadius: '3px',
-            background: this.color
+            background: '#e1f3d8',
+            color: this.color
           }
         }
     }

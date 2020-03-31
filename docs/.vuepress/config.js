@@ -61,23 +61,6 @@ module.exports = {
                     return '</demo-code>';
                 },
             },
-        ],
-        // 颜色容器
-        [
-            'container',
-            {
-                type: 'color',
-                render: (tokens, idx) => {
-                    const m = tokens[idx].info.trim().match(/^color\s*(.*)$/);
-                    if (tokens[idx].nesting === 1) {
-                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
-                        return `<color>
-                                    <div>${content}</div>
-                                `;
-                    }
-                    return '</color>';
-                }
-            }
         ]
     ],
 };
