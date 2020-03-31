@@ -2,7 +2,7 @@
 
 **系统环境**
 
-<code>CentOs 7 x86_64 bbr</code>
+`CentOs 7 x86_64 bbr`
 
 **安装依赖**
 

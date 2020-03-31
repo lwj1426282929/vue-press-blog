@@ -1,7 +1,7 @@
 # npm 常用命令
 
 :::tip
-[npm](https://www.npmjs.cn/) 的全称是 <code>Node Package Manager</code>，是随同 [Node.js](http://nodejs.cn/) 一起安装的包管理和分发工具，
+[npm](https://www.npmjs.cn/) 的全称是 `Node Package Manager`，是随同 [Node.js](http://nodejs.cn/) 一起安装的包管理和分发工具，
 它很方便让 JavaScript 开发者下载、安装、上传以及管理已经安装的包。
 :::
 
@@ -111,7 +111,7 @@ npm cache clean                     # 清除模块缓存
 
 ## 其他常用命令
 
-1. 生成 <code>package.json</code>
+1. 生成 `package.json`
 
 ```bash
 npm init
@@ -160,16 +160,16 @@ npm config set loglevel=http
 npm version
 ```
 
-8. <code>npm</code> 安装出错时
+8. `npm` 安装出错时
 
-使用 <code>https</code> 协议而不是 <code>git</code> 协议， 再重新安装
+使用 `https` 协议而不是 `git` 协议， 再重新安装
 
 ```bash
 git config --global url."https://".insteadOf git://
 npm i
 ```
 
-或者关闭 <code>ssl</code> ， 清除缓存， 再重新安装
+或者关闭 `ssl` ， 清除缓存， 再重新安装
 
 ```bash
 npm cache clean --force

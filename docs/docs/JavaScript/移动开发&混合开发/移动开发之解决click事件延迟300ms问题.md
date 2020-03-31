@@ -29,7 +29,7 @@ sidebarDepth: 0
 
 ## 设置 viewport 的 device-width （chrome 32+）
 
-在 chrome 32+ 中，如果设置了 <code>viewport</code> 的宽度小于或等于物理设备的宽度，那么也会达到禁用缩放的效果。
+在 chrome 32+ 中，如果设置了 `viewport` 的宽度小于或等于物理设备的宽度，那么也会达到禁用缩放的效果。
 
 ```html
 <meta
@@ -40,9 +40,9 @@ sidebarDepth: 0
 
 ## 使用指针事件 （IE10+）
 
-微软已经针对触摸问题发布了具体的规范，例如：在你滚屏的时候 <code>pointerup</code> 事件并不会被触发。
+微软已经针对触摸问题发布了具体的规范，例如：在你滚屏的时候 `pointerup` 事件并不会被触发。
 
-这有一个非标准的 CSS 触摸 <code>action</code> 属性，它允许你移除特定元素或整个文档的触发延迟，而无需禁用缩放：
+这有一个非标准的 CSS 触摸 `action` 属性，它允许你移除特定元素或整个文档的触发延迟，而无需禁用缩放：
 
 ```css
 a,
@@ -55,7 +55,7 @@ button,
 
 ## 使用 fastclick.js
 
-<code>FastClick</code> 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。简而言之，<code>FastClick</code> 在检测到 touchend 事件的时候，会通过 DOM 自定义事件立即触发一个模拟 click 事件，并把浏览器在 300 毫秒之后真正触发的 click 事件阻止掉。
+`FastClick` 是 FT Labs 专门为解决移动端浏览器 300 毫秒点击延迟问题所开发的一个轻量级的库。简而言之，`FastClick` 在检测到 touchend 事件的时候，会通过 DOM 自定义事件立即触发一个模拟 click 事件，并把浏览器在 300 毫秒之后真正触发的 click 事件阻止掉。
 
 ```js
 import FastClick from 'fastclick';
@@ -72,7 +72,7 @@ if ('addEventListener' in document) {
 }
 ```
 
-但是引入 <code>FastClick</code> 后会造成输入框、文本框无法聚焦的情况， 需要多次点击或双击才能聚焦， 弹出键盘：
+但是引入 `FastClick` 后会造成输入框、文本框无法聚焦的情况， 需要多次点击或双击才能聚焦， 弹出键盘：
 
 ```js
 // 修复因引入FastClick导致输入框不能聚焦问题

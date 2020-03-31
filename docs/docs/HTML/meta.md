@@ -4,37 +4,35 @@ sidebarDepth: 1
 
 # meta
 
-[[toc]]
-
 ::: tip
-meta 标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。该标签一共有 name、http-equiv、content、scheme 和 charset 属性
+meta 标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。该标签一共有 `name`、`http-equiv`、`content`、`scheme` 和 `charset` 属性
 :::
 
 ## name
 
-供浏览器进行解析，对于一些浏览器兼容性问题，name 属性是最常用的
+供浏览器进行解析，对于一些浏览器兼容性问题，`name` 属性是最常用的
 
 ## http-equiv
 
-添加 http 头部内容，对一些自定义的或者需要额外添加的 http 头部内容需要发送到浏览器中，可以使用该属性。
+添加 `http` 头部内容，对一些自定义的或者需要额外添加的 `http` 头部内容需要发送到浏览器中，可以使用该属性。
 
 ## content
 
-对 name 或 http-equiv 属性进行补充说明
+对 `name` 或 `http-equiv` 属性进行补充说明。
 
 ## scheme
 
-定义用于翻译 content 属性值的格式。HTML5 不支持该属性
+定义用于翻译 `content` 属性值的格式。HTML5 不支持该属性。
 
 ## charset
 
-HTML5 新属性，代替了 scheme，使字符集的定义更加容易
+HTML5 新属性，代替了 `scheme`，使字符集的定义更加容易。
 
 ## 常用 meta 标签
 
 ### 1. charset
 
-charset 是声明文档使用的字符编码，用以解决乱码问题，在 <code>head</code> 中位于第一行。
+`charset` 是声明文档使用的字符编码，用以解决乱码问题，在 `head` 中位于第一行。
 
 ```html
 <!-- HTML4 -->
@@ -84,8 +82,8 @@ viewport 主要是影响移动端页面布局
      minimum-scale 最小缩放比例
      user-scalable 是否允许用户缩放(yes/no) -->
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
 />
 ```
 
@@ -169,8 +167,8 @@ viewport 主要是影响移动端页面布局
 ```html
 <!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
 <meta
-  name="apple-itunes-app"
-  content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"
+    name="apple-itunes-app"
+    content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL"
 />
 
 <!-- 禁止自动探测并格式化手机号码、邮箱 -->

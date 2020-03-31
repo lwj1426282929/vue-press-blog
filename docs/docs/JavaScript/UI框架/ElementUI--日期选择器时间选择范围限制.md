@@ -5,7 +5,7 @@ sidebarDepth: 0
 # ElementUI--日期选择器时间选择范围限制
 
 :::tip
-官方文档中使用<code>picker-options</code>属性来限制可选择的日期。
+官方文档中使用`picker-options`属性来限制可选择的日期。
 :::
 
 ## 单个组件

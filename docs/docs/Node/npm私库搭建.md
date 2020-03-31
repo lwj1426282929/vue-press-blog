@@ -5,7 +5,7 @@ sidebarDepth: 1
 # npm 私库搭建
 
 ::: tip
-<code>npm</code> 是随同的 [Node.js](http://nodejs.cn/) 一起安装的包管理工具，能够解决 [Node.js](http://nodejs.cn/) 代码部署上的很多问题，主要应用于以下场景：
+`npm` 是随同的 [Node.js](http://nodejs.cn/) 一起安装的包管理工具，能够解决 [Node.js](http://nodejs.cn/) 代码部署上的很多问题，主要应用于以下场景：
 
 1. 允许用户从 npm 服务器下载别人编写的第三方包到本地使用；
 2. 允许用户从 npm 服务器下载并安装别人编写的命令行程序到本地使用；
@@ -20,13 +20,13 @@ sidebarDepth: 1
 
 ## [Sinopia](https://github.com/rlidwka/sinopia)
 
-一个用来做 npm 的 <code>registry</code> 的私有 + 缓存镜像的开源组件，拥有零配置的本地 npm 注册表。 不必安装和复制整个 CouchDB 数据库。
+一个用来做 npm 的 `registry` 的私有 + 缓存镜像的开源组件，拥有零配置的本地 npm 注册表。 不必安装和复制整个 CouchDB 数据库。
 
-[Sinopia](https://github.com/rlidwka/sinopia) 保留了自己的小型数据库，如果那里不存在包，它会询问 [npmjs.org](https://npmjs.org)。它只保留你使用的那些包。但是 [Sinopia](https://github.com/rlidwka/sinopia) 不能下载以 <code>@</code> 开头的 npm 包， 并且作者已经不再维护。
+[Sinopia](https://github.com/rlidwka/sinopia) 保留了自己的小型数据库，如果那里不存在包，它会询问 [npmjs.org](https://npmjs.org)。它只保留你使用的那些包。但是 [Sinopia](https://github.com/rlidwka/sinopia) 不能下载以 `@` 开头的 npm 包， 并且作者已经不再维护。
 
 ## [Verdaccio](https://verdaccio.org/zh-CN/)
 
-[Verdaccio](https://verdaccio.org/zh-CN/) 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一种新的 <code>web</code> <code>React</code> 端的实现形式，并且目前一直在维护中。 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一个分支。
+[Verdaccio](https://verdaccio.org/zh-CN/) 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一种新的 `web` `React` 端的实现形式，并且目前一直在维护中。 是 [Sinopia](https://github.com/rlidwka/sinopia) 的一个分支。
 
 ### Verdaccio 安装
 
@@ -34,13 +34,13 @@ sidebarDepth: 1
 npm install --global verdaccio
 ```
 
-如果在安装过程中报 <code>grywarn</code> 的权限错的话，那么需要加上 <code>--unsafe-perm</code> 。
+如果在安装过程中报 `grywarn` 的权限错的话，那么需要加上 `--unsafe-perm` 。
 
 ![image](/note/img/verdaccio_install.png)
 
 ### Verdaccio 启动
 
-安装完成后，就可以在命令行中 输入 <code>verdaccio</code> 命令运行。
+安装完成后，就可以在命令行中 输入 `verdaccio` 命令运行。
 
 ```sh
 verdaccio
@@ -50,7 +50,7 @@ verdaccio
 
 ### 配置远程访问
 
-[Verdaccio](https://verdaccio.org/zh-CN/) 默认是 <code>localhost:4873</code> ，只能本地访问， 需要修改配置文件：
+[Verdaccio](https://verdaccio.org/zh-CN/) 默认是 `localhost:4873` ，只能本地访问， 需要修改配置文件：
 
 ```sh
 vi /root/.config/verdaccio/config.yaml

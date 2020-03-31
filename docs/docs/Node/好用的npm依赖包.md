@@ -36,7 +36,7 @@ npm install --save-dev pre-commit
 
 ### 使用
 
-在 <code>package.json</code> 中配置：
+在 `package.json` 中配置：
 
 ```json
 "scripts": {
@@ -45,12 +45,12 @@ npm install --save-dev pre-commit
 "pre-commit": "lint"
 ```
 
-在执行 <code>git commit</code> 命令的时候就会检测所有代码是否符合 [Eslint 规则](https://eslint.org/)， 若不符合则会提示并且不能提交代码。
+在执行 `git commit` 命令的时候就会检测所有代码是否符合 [Eslint 规则](https://eslint.org/)， 若不符合则会提示并且不能提交代码。
 
 ## [nodemon](https://github.com/remy/nodemon)
 
 ::: tip
-通过在检测到目录中的文件更改时自动重新启动节点应用程序来帮助开发基于 <code>node.js</code> 的应用程序
+通过在检测到目录中的文件更改时自动重新启动节点应用程序来帮助开发基于 `node.js` 的应用程序
 :::
 
 ### 安装
@@ -61,7 +61,7 @@ npm install --save-dev nodemon
 
 ### 使用
 
-在 <code>package.json</code> 中配置：
+在 `package.json` 中配置：
 
 ```json
 "scripts": {

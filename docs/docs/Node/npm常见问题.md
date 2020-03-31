@@ -8,7 +8,7 @@ sidebarDepth: 0
 
 ### solution 1:
 
-删除 <code>node_modules</code> 文件夹 重新执行 <code>npm install </code>.
+删除 `node_modules` 文件夹 重新执行 `npm install `.
 
 ### solution 2:
 
@@ -31,7 +31,7 @@ npm cache clean --force
 ## 2. node 升级后，node-sass 报错
 
 ::: tip
-node 升级后， 启动项目时报 <code>node-sass</code> 错误:  
+node 升级后， 启动项目时报 `node-sass` 错误:  
 Node Sass could not find a binding for your current environment: Windows 64-bit with Node.js 8.x
 :::
 

@@ -1,5 +1,5 @@
 # 常用的 JS 技巧
-<!-- # 常用的 JS 技巧
+# 常用的 JS 技巧
 
 ## 数组过滤唯一值
 
@@ -62,9 +62,9 @@ return (foo || []).length;
 
 ## 转换成布尔值
 
-在 JavaScript 中，除了 <code>0</code> 、 <code>''</code> 、 <code>null</code> 、 <code>undefined<code> 、 <code>NaN</code> 和 <code>false</code> 是假值之外，其他的都是真值。
+在 JavaScript 中，除了 `0` 、 `''` 、 `null` 、 `undefined` 、 `NaN` 和 `false` 是假值之外，其他的都是真值。
 
-我们可以使用 <code>!</code> 来切换 true 和 false。
+我们可以使用 `!` 来切换 true 和 false。
 
 ```js
 const isTrue = !0; // true
@@ -74,7 +74,7 @@ const alsoFalse = !!0; // false
 
 ## 转换成字符串
 
-要快速将数字转换成字符串，我们可以使用 <code>+</code> 运算符，然后在后面跟上一个空字符串。
+要快速将数字转换成字符串，我们可以使用 `+` 运算符，然后在后面跟上一个空字符串。
 
 ```js
 const val = 1 + ''; // string
@@ -82,7 +82,7 @@ const val = 1 + ''; // string
 
 ## 转换成数字
 
-要把字符串转成数字，也可以使用 <code>+</code> 运算符。
+要把字符串转成数字，也可以使用 `+` 运算符。
 
 ```js
 let int = '15'; // string
@@ -95,7 +95,7 @@ int = +int; // number
 +true + false; // 1 // 0
 ```
 
-在某些情况下，<code>+</code> 运算符会被解析成连接操作，而不是加法操作。对于这种情况，可以使用两个波浪号：<code>~~</code>。
+在某些情况下，`+` 运算符会被解析成连接操作，而不是加法操作。对于这种情况，可以使用两个波浪号：`~~`。
 
 一个波浪号表示按位取反操作，例如，~15 等于 -16。
 两个波浪号~~表示去反再取反， 即自己。
@@ -181,4 +181,4 @@ console.log(JSON.stringify({ alpha: 'A', beta: 'B' }, null, '   '));
 //  "alpha": A,
 //  "beta": B
 // }'
-``` -->
+```
