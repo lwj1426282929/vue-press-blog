@@ -228,6 +228,26 @@ console.log(arr); // [1, 2, 3]
 
 :::
 
+### map
+
+**_Array.map(callback(currentValue [, index [, array]])[, thisArg])_**
+
+返回一个新数组，新数组的每一个元素都是原数组对应元素执行函数后的结果。
+
+-   callback：生成新数组元素的函数，使用三个参数：
+    -   currentValue： 当前遍历的元素；
+    -   index: 当前遍历的索引；
+    -   array：当前数组。
+-   thisArg： 执行回调时的`this`对象。
+
+```js
+let arr = [1, 2, 3];
+let arr_ = arr.forEach(item => {
+    item++;
+});
+console.log(arr_); // [2, 3, 4]
+```
+
 ### every
 
 **_Array.every(callback[, thisArg])_**
