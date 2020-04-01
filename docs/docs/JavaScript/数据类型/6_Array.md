@@ -4,7 +4,7 @@
 
 ### indexOf
 
-**_Array.indexOf(element[, fromIndex])_**
+> **_array.indexOf(element[, fromIndex])_**
 
 返回指定元素在数组中`第一次`出现的索引， 没有则返回`-1`。
 
@@ -26,13 +26,13 @@ arr.indexOf(2, -4); // 1
 `indexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-**_Polyfill_**
+> **_Polyfill_**
 
 `indexOf`在`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`indexOf`方法：
 
 ```js
-if (!Array.prototype.indexOf) {
-    Array.prototype.indexOf = function(searchElement, fromIndex) {
+if (!array.prototype.indexOf) {
+    array.prototype.indexOf = function(searchElement, fromIndex) {
         var k;
         if (this == null) throw new TypeError('"this" is null or not defined');
 
@@ -60,7 +60,7 @@ if (!Array.prototype.indexOf) {
 
 ### lastIndexOf
 
-**_Array.lastIndexOf(element[, fromIndex])_**
+> **_array.lastIndexOf(element[, fromIndex])_**
 
 返回指定元素在数组中`最后一次`出现的索引，没有则返回`-1`。
 
@@ -82,13 +82,13 @@ arr.lastIndexOf(2, -4); // -1
 `lastIndexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-**_Polyfill_**
+> **_Polyfill_**
 
 和`indexOf`一样，`lastIndexOf`也是`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`lastIndexOf`方法：
 
 ```js
-if (!Array.prototype.lastIndexOf) {
-    Array.prototype.lastIndexOf = function(searchElement /*, fromIndex*/) {
+if (!array.prototype.lastIndexOf) {
+    array.prototype.lastIndexOf = function(searchElement /*, fromIndex*/) {
         'use strict';
 
         if (this === void 0 || this === null) throw new TypeError();
@@ -124,7 +124,7 @@ if (!Array.prototype.lastIndexOf) {
 
 ### find
 
-**_Array.find(callback[, thisArg])_**
+> **_array.find(callback[, thisArg])_**
 
 返回`第一个`满足匹配函数的元素，否则返回`undefined`。
 
@@ -150,7 +150,7 @@ let person = arr.find(item => {
 
 ### findIndex
 
-**_Array.findIndex(callback[, thisArg])_**
+> **_array.findIndex(callback[, thisArg])_**
 
 返回数组中满足匹配函数的第一个元素的索引，否则返回`-1`。
 
@@ -176,7 +176,7 @@ let index = arr.findIndex(item => {
 
 ### includes
 
-**_Array.includes(valueToFind[, fromIndex])_**
+> **_array.includes(valueToFind[, fromIndex])_**
 
 判断数组是否包含指定值，包含返回`true`，否则返回`false`。
 
@@ -194,7 +194,7 @@ arr.includes(2, 2); // false
 
 ### forEach
 
-**_Array.forEach(callback(currentValue [, index [, array]])[, thisArg])_**
+> **_array.forEach(callback(currentValue [, index [, array]])[, thisArg])_**
 
 遍历数组，对数组的每个元素执行一次给定的函数。
 
@@ -230,7 +230,7 @@ console.log(arr); // [1, 2, 3]
 
 ### map
 
-**_Array.map(callback(currentValue [, index [, array]])[, thisArg])_**
+> **_array.map(callback(currentValue [, index [, array]])[, thisArg])_**
 
 返回一个新数组，新数组的每一个元素都是原数组对应元素执行函数后的结果。
 
@@ -250,11 +250,11 @@ console.log(arr_); // [2, 3, 4]
 
 ### every
 
-**_Array.every(callback[, thisArg])_**
+> **_array.every(callback[, thisArg])_**
 
 判断数组的每一项元素是否都通过指定函数，是返回`true`，否则返回`false`。
 
--   callback：用来测试每个元素的函数，它可以接收三个参数：
+-   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于所有元素该函数返回`true`，则该方法返回`true`， 否则返回`false`。它可以接收三个参数：
     -   element：当前遍历的元素；
     -   index：当前遍历的索引；
     -   array：调用`every`的数组。
@@ -280,11 +280,11 @@ arr.every(item => {
 
 ### some
 
-**_Array.some(callback[, thisArg])_**
+> **_array.some(callback[, thisArg])_**
 
 判断数组中是否至少有一项元素通过指定函数，是返回`true`，否则返回`false`。
 
--   callback：用来测试每个元素的函数，它可以接收三个参数：
+-   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于某一元素该函数返回`true`，则该方法返回 `true`，若都返回`false`， 则返回`false`。它可以接收三个参数：
     -   element：当前遍历的元素；
     -   index：当前遍历的索引；
     -   array：调用`every`的数组。
@@ -308,287 +308,233 @@ arr.some(item => {
 
 :::
 
-<!-- ### toString
+### reduce
 
-返回一个表示数组及其元素的字符串。
+> **_array.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])_**
+
+对数组中的每个元素执行一个累计器函数(从左到右执行)，返回一个汇总结果。
+
+-   callback：累计器函数，包括四个参数：
+    -   accumulator：累计器累计回调的返回值，即上一次回调时返回的累计值；
+    -   currentValue：当前遍历的元素；
+    -   index：当前遍历的索引，若提供了`initialValue`，则初始值为 0，否则初始值为 1；
+    -   array：调用`reduce`的数组。
+-   initialValue：第一次调用 callback 函数时的第一个参数的值，若没有提供，则为数组中的第一个元素。
 
 ```js
-let arr = [1, 2, 3];
-console.log(arr.toString()); // "1,2,3"
-``` -->
+let arr = [1, 2, 3, 4];
+arr.reduce((sum, item) => {
+    return sum + item;
+}); // 10
+```
 
-<!-- ### values
+::: tip
 
-返回一个新的`Array Iterator`对象，该对象包含数组每个索引的值。
+-   如果没有提供`initialValue`，`reduce`会从索引 1 的地方开始执行 callback 方法，跳过第一个索引。如果提供`initialValue`，从索引 0 开始。
+-   如果是空数组且没有提供`initialValue`，则在运行时会抛出`Uncaught TypeError: Reduce of empty array with no initial value`错误；
+-   如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`， 或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且 callback 不会被执行。
+-   建议最好提供`initialValue`，这样更为安全，以便在数组为空或者不为空时每一项元素都能通过累计器函数。
+-   `reduce`不会改变原数组。
+
+:::
+
+### reduceRight
+
+> **_array.reduceRight(callback(accumulator, currentValue[, index[, array]])[, initialValue])_**
+
+对数组中的每个元素执行一个累计器函数(从右到左执行)，返回一个汇总结果。
+
+-   callback：累计器函数，包括四个参数：
+    -   accumulator：累计器累计回调的返回值，即上一次回调时返回的累计值；
+    -   currentValue：当前遍历的元素；
+    -   index：当前遍历的索引，若提供了`initialValue`，则初始值为 0，否则初始值为 1；
+    -   array：调用`reduce`的数组。
+-   initialValue：第一次调用 callback 函数时的第一个参数的值，若没有提供，则为数组中的第一个元素。
 
 ```js
-let arr = ['a', 'b', 'c'];
-let iterator = arr.values();
-for (let value of iterator) {
-    console.log(value);
-}
-// a
-// b
-// c
-``` -->
+let arr = [1, 2, 3, 4];
+arr.reduceRight((sum, item) => {
+    return sum + item;
+}); // 10
+```
 
-<!-- ### of
+::: tip
 
-返回一个新的`Array`实例。
+-   如果没有提供`initialValue`，`reduceRight`会从索引 1 的地方开始执行 callback 方法，跳过第一个索引。如果提供`initialValue`，从索引 0 开始。
+-   如果是空数组且没有提供`initialValue`，则在运行时会抛出`Uncaught TypeError: Reduce of empty array with no initial value`错误；
+-   如果数组仅有一个元素（无论位置如何）并且没有提供`initialValue`， 或者有提供`initialValue`但是数组为空，那么此唯一值将被返回并且 callback 不会被执行。
+-   建议最好提供`initialValue`，这样更为安全，以便在数组为空或者不为空时每一项元素都能通过累计器函数。
+-   `reduceRight`不会改变原数组。
 
-### join()
+:::
 
-返回由数组元素以特定形式（默认 <code>,</code>）拼接成的一个字符串。
+### filter
 
-### concat()
+> **_array.filter(callback(element[, index[, array]])[, thisArg])_**
 
-合并多个数组， 返回一个 <code>新数组</code> 。
+遍历数组元素，返回一个由所有满足过滤条件的元素所组成的新数组，如果没有元素满足过滤条件，则返回空数组。
 
-### push()
+-   callback：过滤函数，返回值为 blloean 类型， true 为 满足过滤条件， false 不满足。包括三个参数：
+    -   element：当前遍历的元素；
+    -   index：当前遍历的索引；
+    -   array：调用`filter`的数组
+-   thisArg：执行回调时的`this`对象。
+
+`filter`遍历的元素范围在第一次调用 callback 之前就已经确定了。在调用 `filter` 之后被添加到数组中的元素不会被`filter`遍历到。如果已经存在的元素被改变了，则他们传入 callback 的值是`filter`遍历到它们那一刻的值。被删除或从来未被赋值的元素不会被遍历到。
+
+```js
+let arr = [1, 2, 3, 4];
+arr.filter(item => {
+    return item > 2;
+}); // [3, 4]
+```
+
+::: tip
+`filter`不会改变原数组，返回过滤后的新数组。
+:::
+
+### push
+
+> **_array.push(element1, ..., elementN)_**
+
+-   elementN：要追加进数组的元素。
+
+将一个或多个元素添加到数组的末尾，并返回该数组的新长度。
 
 ```js
 let arr = [];
-arr.push(1, 2, 3); // [1, 2, 3]
+arr.push(1, 2, 3); // 3; arr = [1, 2, 3]
 ```
 
-往数组末尾中添加元素，可以一次添加多个。
+### pop
 
-### pop()
+> **_array.pop()_**
 
-每次删除数组最后一个元素，返回被删除的元素。
+删除数组`最后一个`元素，返回被删除的元素。如果为空数组，则返回`undefined`。
 
-### shift()
+```js
+let arr = [1, 2, 3];
+arr.pop(); // 3; arr = [1, 2]
+```
 
-删除数组的第一个元素， 返回被删除的元素。
+### shift
 
-### unshift()
+> **_array.shift()_**
 
-往数组起始位置添加元素, 可以一次添加多个。
-
-### splice()
+从数组中删除`第一个`元素，并返回该元素的值。如果为空数组，则返回`undefined`。
 
 ```js
 let arr = [1, 2, 3, 4];
-arr.splice(0, 2); // [1, 2]  arr = [3, 4]
-arr.splice(1, 0, [4, 5, 6]); // []  arr = [3, [4, 5, 6], 4]
+arr.shift(); // 1; arr = [2, 3, 4]
 ```
 
-删除或者添加元素，返回被删除的元素组成的数组， 添加元素时返回空数组。参数：起始位置， 需要删除的元素的个数（添加元素时为 0），需要添加的元素。
+### unshift
 
-### reverse()
+将一个或多个元素添加到数组的开头，并返回该数组的新长度。
 
-对数组进行翻转，返回翻转后的数组。
+::: message #3d7e9a 语法
+_array.unshift(element1, ..., elementN)_
+:::
 
-### sort()
-
-对数组进行排序， 默认按照字典顺序(即基数排序根据数组内元素首字母进行排序)进行排序, 对数字类型的元素可能不太友好。
-
-### forEach()
+-   elementN：要添加到数组开头的元素。
 
 ```js
-let arr = [1, 2, 3, 4, 5];
-arr.forEach((item, index) => {
-    /* do something */
-});
+let arr = [1, 2, 3];
+arr.unshift(-1, -2); // 5; arr = [-1, -2, 1, 2, 3]
 ```
 
-遍历数组， 可以修改数组元素。
+### slice
 
-### map()
+返回从原数组中提取（`浅拷贝`）下来的子数组（包含开始位置，但不包含结束位置），原数组不改变。
+
+> **_array.slice([begin[, end]])_**
+
+-   begin：拷贝的开始位置， 默认为 0。若值大于原数组长度， 返回空数组；若为负数，则代表从数组的倒数第几位开始拷贝。
+-   end： 拷贝的结束位置，默认为数组的长度值。若该参数为负数，则代表从数组的倒数第几位结束拷贝。若大于原数组的长度，则会一直拷贝到原数组末尾。
+
+```js
+let arr = [1, 2, 3, 4, 5, 6];
+arr.slice(); // [1, 2, 3, 4, 5, 6]
+arr.slice(1, 4); // [2, 3, 4]
+arr.slice(-3, -2); // [4]
+arr.slice(-3, -4); // []
+```
+
+### splice
+
+::: message #3d7e9a 语法
+_array.splice(start[, deleteCount[, item1[, item2[, ...]]]])_
+:::
+
+删除或替换现有元素或者原地添加新的元素来修改数组，返回由被删除元素组成的数组，若不删除，则返回空数组。
+
+-   start：开始修改的位置，默认为 0。若该参数大于数组长度，则在数组末尾添加内容。如果为负值且绝对值小于原数组长度则代表从数组的倒数第几位开始修改，若为负值且绝对值大于或等于数组长度，则从数组起始位置开始修改。修改时包含 start 位置。
+-   deleteCount：整数，表示要移除的数组元素的个数。如果 deleteCount 大于 start 之后的元素的总数，则从 start 后面的元素都将被删除（含第 start 位）。若 deleteCount 被省略，则数组从 start 位置开始以及后面的元素都会被删除。如果 deleteCount 是 0 或者负数，则添加元素。
+-   itemN：要添加进数组的元素,从 start 位置开始。如果不指定，则`splice`将只删除数组元素。
+
+```js
+// 删除元素
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+arr.splice(8, 2); // [9, 10]; arr = [1, 2, 3, 4, 5, 6, 7, 8]
+arr.splice(7, 0, [9, 10]); // [1, 2, 3, 4, 5, 6, 7, [9, 10], 8];
+```
+
+### concat
+
+::: message #3d7e9a 语法
+_array.concat(value1[, value2[, ...[, valueN]]])_
+:::
+
+合并两个或多个数组（或元素）。此方法不会更改现有数组，而是返回一个新数组（`浅拷贝`）。
+
+-   valueN：要合并的数组或元素。
+
+```js
+let arr_1 = [1, 2, 3, 4, 5];
+let arr_2 = [6, 7, 8];
+arr_1.concat(999, arr_2); // [1, 2, 3, 4, 5, 999, 6, 7, 8]; arr_1 = [1, 2, 3, 4, 5]
+```
+
+### join
+
+将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个元素，那么将返回该元素而不使用分隔符。
+
+::: message #3d7e9a 语法
+_array.join([separator])_
+:::
+
+-   separator：指定一个字符串来分隔数组的每个元素。默认为`,`，若 separator 为空字符串（`''`或`""`），则所有元素之间没有任何字符。
 
 ```js
 let arr = [1, 2, 3, 4];
-arr.map(item => {
-    return item + 1;
-}); // [2, 3, 4, 5]  arr = [1, 2, 3, 4]
+arr.join('-'); // 1-2-3-4
 ```
 
-与 forEach()类似， 但是 map 会返回一个新数组， 原数组不变（不能修改数组元素）, 新数组元素时原数组元素调用函数返回的结果。
+::: tip
+若数组元素为`undefined`或`null`，则会被转化为空字符串。
+:::
 
-### filter()
+### sort
+
+::: message #3d7e9a 语法
+_array.sort([sortFunction])_
+:::
+
+-   sortFunction：用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的 Unicode 位点进行排序。接收两个参数：
+    -   firstEl：第一个用于比较的元素。
+    -   secondEl：第二个用于比较的元素。
+
+如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 firstEl 和 secondEl 是两个将要被比较的元素：
+
+-   compareFunction(a, b) > 0：a 排在 b 之前；
+-   compareFunction(a, b) > 0：a、b 位置不确定（具体是否会交换得看浏览器如何解析）；
+-   compareFunction(a, b) <> 0：b 排在 a 之前。
+-   compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
 
 ```js
-let arr = [1, 2, 3, 4, 5];
-arr.filter(item => {
-    return item % 2 == 0;
-}); // [2, 4]  arr = [1, 2, 3, 4, 5]
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100];
+arr.sort(); // [1, 10, 100, 2, 20, 3, 30, 4, 40, 5, 6, 7, 8, 9]
+arr.sort((a, b) => a - b); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100]
 ```
 
-接收一个返回值为 Boolean 类型的函数， 返回一个新数组， 新数组中的元素均为原数组中每一项元素调用该函数返回为 true 的元素。
-
-### every()
-
-```js
-let arr = [1, 2, 3, 4, 5];
-arr.every(item => {
-    return item % 2 == 0;
-}); // false
-```
-
-遍历数组，接收一个返回值为 Boolean 类型的函数，对数组中的每个元素使用该函数，如果对于所有元素该函数返回 true，则该方法返回 true， 否则返回 false。
-
-### some()
-
-与 every 类似， 接收一个返回值为 Boolean 类型的函数，对数组中的每个元素使用该函数，如果对于某一元素该函数返回 true，则该方法返回 true，若都返回 false， 则返回 false。
-
-### reduce()
-
-接收一个函数，返回一个值， 该方法从一个累加值开始， 不断对累加值 he 数组中的后续元素调用该函数，最后返回累加值。
-
-### reduceRight()
-
-与 reduce 一致， 但是顺序是从右至左执行。
-
-## 数组去重
-
-<code>for</code> 循环删除重复元素
-
-```js
-// for循环删除后面重复的速度最快，可用倒序计算可加快速度
-let uniqueArray = arr => {
-    for (let i = 0; i < arr.length - 1; i++) {
-        let item = arr[i];
-        for (let j = i + 1; j < arr.length; j++) {
-            item === arr[j] && (arr.splice(j, 1), j--);
-        }
-    }
-    return arr;
-};
-```
-
-通过对象属性方式过滤重复元素，如果有重复属性， 说明元素重复。
-
-```js
-// 判断对象属性
-let uniqueArray = arr => {
-    let v,
-        r = [],
-        o = {};
-    for (let i = 0; (v = arr[i]) !== undefined; i++) {
-        !o[v] && (r.push(v), (o[v] = true));
-    }
-    return r;
-};
-```
-
-通过 <code>Array.filter()</code> 过滤重复元素。
-
-```js
-// 数组过滤重复项filter
-let uniqueArray = arr => {
-    return arr.filter((elem, pos, self) => {
-        // 如果没有重复项，返回true
-        return self.indexOf(elem, pos + 1) === -1;
-    });
-};
-```
-
-通过 ES6 的 <code>Set</code> 数据结构过滤数组重复项。
-
-```js
-let uniqueArray = Array.from(new Set(arr));
-```
-
-## 数组排序
-
-### sort()
-
-```js
-// 默认按照字符编码进行排序
-arr.sort();
-
-// 根据比较函数进行排序
-arr.sort((a, b) => {
-    return b.number - a.number;
-});
-```
-
-### 冒泡排序
-
-两两比较顺序,如果顺序错误则交换位置。
-
-```js
-function bubbleSort(arr) {
-    let i = arr.length - 1,
-        j;
-
-    for (; i >= 0; i--) {
-        for (j = i - 1; j >= 0; j--) {
-            if (arr[j] > arr[j + 1]) {
-                arr[j] = [arr[j + 1], (arr[j + 1] = arr[j])][0];
-            }
-        }
-    }
-
-    return arr;
-}
-```
-
-### 选择排序
-
-在未排序的序列中找到最大（小）的元素与第 1 个元素交换，在剩余元素中继续找最大（小）的元素与第 2 个元素交换，以此类推，直到排序完毕。
-
-```js
-function selectionSort(arr) {
-    let i = arr.length - 1,
-        j,
-        buffer,
-        special;
-
-    // 采用倒序，提高查找性能
-    for (; i >= 0; i--) {
-        special = i;
-        buffer = arr[i];
-
-        for (j = i - 1; j >= 0; j--) {
-            // 正序与倒序取决于这里的判断,max or min
-            if (buffer < arr[j]) {
-                // 当前的最值位置
-                special = j;
-                buffer = arr[j];
-            }
-        }
-
-        // 最值与当前位置的值交换位置
-        arr[special] = [arr[i], (arr[i] = buffer)][0];
-
-        return arr;
-    }
-}
-```
-
-### 插入排序
-
-1.从第二位（当前元素）开始从后向前查找
-
-2.若新元素（当前元素的前面）大于当前元素，将新元素移到下一位置
-
-3.重复 2，直到在有序区找到大于或等于新元素的位置
-
-4.将当前元素插到上面找到的位置
-
-5.重复 2~4
-
-```js
-function insertionSort(arr) {
-    let len = arr.length,
-        i = 1,
-        j,
-        buffer;
-
-    for (; i < len; i++) {
-        buffer = arr[i];
-
-        // 在当前元素从后向前遍历,
-        // 一旦找到比当前元素大的就进行“元素加位”
-        for (j = i - 1; j >= 0 && arr[j] > buffer; j--) {
-            arr[j + 1] = arr[j];
-        }
-
-        //找到的位置替换为当前元素，比它大的在上面已经“加位”了
-        arr[j + 1] = buffer;
-    }
-
-    return arr;
-}
-``` -->
+### reverse

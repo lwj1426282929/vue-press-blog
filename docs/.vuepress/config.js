@@ -1,4 +1,5 @@
 const Menu = require('./config.menu');
+const md = require('markdown-it')();
 
 module.exports = {
     port: 80,
@@ -61,6 +62,26 @@ module.exports = {
                     return '</demo-code>';
                 },
             },
+        ],
+        [
+            'container',
+            {
+                type: 'message',
+                render: (tokens, idx) => {
+                    const m = tokens[idx].info.trim().match(/^message\s*(.*)$/);
+                    if (tokens[idx].nesting === 1) {
+                        const description = m && m.length > 1 ? m[1] : '';
+                        const borderColor = description.split(' ')[0] || '#1989fa';
+                        const title = description.split(' ')[1] || '';
+                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
+                        return `<div class="custom-block tip" style="border-color: ${ borderColor };">
+                                    ${ title ? `<p class="custom-block-title">${ title }</p>` : '' }
+                                    <p>${ content }</p>
+                                `;
+                    }
+                    return '</div>';
+                }
+            }
         ]
     ],
 };
