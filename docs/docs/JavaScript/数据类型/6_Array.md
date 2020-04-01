@@ -4,7 +4,9 @@
 
 ### indexOf
 
-> **_array.indexOf(element[, fromIndex])_**
+::: message #3d7e9a 语法
+_array.indexOf(element[, fromIndex])_
+:::
 
 返回指定元素在数组中`第一次`出现的索引， 没有则返回`-1`。
 
@@ -26,7 +28,7 @@ arr.indexOf(2, -4); // 1
 `indexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-> **_Polyfill_**
+_Polyfill_
 
 `indexOf`在`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`indexOf`方法：
 
@@ -60,7 +62,9 @@ if (!array.prototype.indexOf) {
 
 ### lastIndexOf
 
-> **_array.lastIndexOf(element[, fromIndex])_**
+::: message #3d7e9a 语法
+_array.lastIndexOf(element[, fromIndex])_
+:::
 
 返回指定元素在数组中`最后一次`出现的索引，没有则返回`-1`。
 
@@ -82,7 +86,7 @@ arr.lastIndexOf(2, -4); // -1
 `lastIndexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-> **_Polyfill_**
+_Polyfill_
 
 和`indexOf`一样，`lastIndexOf`也是`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`lastIndexOf`方法：
 
@@ -124,7 +128,9 @@ if (!array.prototype.lastIndexOf) {
 
 ### find
 
-> **_array.find(callback[, thisArg])_**
+::: message #3d7e9a 语法
+_array.find(callback[, thisArg])_
+:::
 
 返回`第一个`满足匹配函数的元素，否则返回`undefined`。
 
@@ -150,7 +156,9 @@ let person = arr.find(item => {
 
 ### findIndex
 
-> **_array.findIndex(callback[, thisArg])_**
+::: message #3d7e9a 语法
+_array.findIndex(callback[, thisArg])_
+:::
 
 返回数组中满足匹配函数的第一个元素的索引，否则返回`-1`。
 
@@ -176,7 +184,9 @@ let index = arr.findIndex(item => {
 
 ### includes
 
-> **_array.includes(valueToFind[, fromIndex])_**
+::: message #3d7e9a 语法
+_array.includes(valueToFind[, fromIndex])_
+:::
 
 判断数组是否包含指定值，包含返回`true`，否则返回`false`。
 
@@ -194,7 +204,9 @@ arr.includes(2, 2); // false
 
 ### forEach
 
-> **_array.forEach(callback(currentValue [, index [, array]])[, thisArg])_**
+::: message #3d7e9a 语法
+_array.forEach(callback(currentValue [, index [, array]])[, thisArg])_
+:::
 
 遍历数组，对数组的每个元素执行一次给定的函数。
 
@@ -230,7 +242,9 @@ console.log(arr); // [1, 2, 3]
 
 ### map
 
-> **_array.map(callback(currentValue [, index [, array]])[, thisArg])_**
+::: message #3d7e9a 语法
+_array.map(callback(currentValue [, index [, array]])[, thisArg])_
+:::
 
 返回一个新数组，新数组的每一个元素都是原数组对应元素执行函数后的结果。
 
@@ -250,7 +264,9 @@ console.log(arr_); // [2, 3, 4]
 
 ### every
 
-> **_array.every(callback[, thisArg])_**
+::: message #3d7e9a 语法
+_array.every(callback[, thisArg])_
+:::
 
 判断数组的每一项元素是否都通过指定函数，是返回`true`，否则返回`false`。
 
@@ -280,7 +296,9 @@ arr.every(item => {
 
 ### some
 
-> **_array.some(callback[, thisArg])_**
+::: message #3d7e9a 语法
+_array.some(callback[, thisArg])_
+:::
 
 判断数组中是否至少有一项元素通过指定函数，是返回`true`，否则返回`false`。
 
@@ -310,7 +328,9 @@ arr.some(item => {
 
 ### reduce
 
-> **_array.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])_**
+::: message #3d7e9a 语法
+_array.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])_
+:::
 
 对数组中的每个元素执行一个累计器函数(从左到右执行)，返回一个汇总结果。
 
@@ -340,7 +360,9 @@ arr.reduce((sum, item) => {
 
 ### reduceRight
 
-> **_array.reduceRight(callback(accumulator, currentValue[, index[, array]])[, initialValue])_**
+::: message #3d7e9a 语法
+_array.reduceRight(callback(accumulator, currentValue[, index[, array]])[, initialValue])_
+:::
 
 对数组中的每个元素执行一个累计器函数(从右到左执行)，返回一个汇总结果。
 
@@ -370,7 +392,9 @@ arr.reduceRight((sum, item) => {
 
 ### filter
 
-> **_array.filter(callback(element[, index[, array]])[, thisArg])_**
+::: message #3d7e9a 语法
+_array.filter(callback(element[, index[, array]])[, thisArg])_
+:::
 
 遍历数组元素，返回一个由所有满足过滤条件的元素所组成的新数组，如果没有元素满足过滤条件，则返回空数组。
 
@@ -395,7 +419,9 @@ arr.filter(item => {
 
 ### push
 
-> **_array.push(element1, ..., elementN)_**
+::: message #3d7e9a 语法
+_array.push(element1, ..., elementN)_
+:::
 
 -   elementN：要追加进数组的元素。
 
@@ -408,7 +434,9 @@ arr.push(1, 2, 3); // 3; arr = [1, 2, 3]
 
 ### pop
 
-> **_array.pop()_**
+::: message #3d7e9a 语法
+_array.pop()_
+:::
 
 删除数组`最后一个`元素，返回被删除的元素。如果为空数组，则返回`undefined`。
 
@@ -419,7 +447,9 @@ arr.pop(); // 3; arr = [1, 2]
 
 ### shift
 
-> **_array.shift()_**
+::: message #3d7e9a 语法
+_array.shift()_
+:::
 
 从数组中删除`第一个`元素，并返回该元素的值。如果为空数组，则返回`undefined`。
 
@@ -445,9 +475,11 @@ arr.unshift(-1, -2); // 5; arr = [-1, -2, 1, 2, 3]
 
 ### slice
 
-返回从原数组中提取（`浅拷贝`）下来的子数组（包含开始位置，但不包含结束位置），原数组不改变。
+::: message #3d7e9a 语法
+_array.slice([begin[, end]])_
+:::
 
-> **_array.slice([begin[, end]])_**
+返回从原数组中提取（`浅拷贝`）下来的子数组（包含开始位置，但不包含结束位置），原数组不改变。
 
 -   begin：拷贝的开始位置， 默认为 0。若值大于原数组长度， 返回空数组；若为负数，则代表从数组的倒数第几位开始拷贝。
 -   end： 拷贝的结束位置，默认为数组的长度值。若该参数为负数，则代表从数组的倒数第几位结束拷贝。若大于原数组的长度，则会一直拷贝到原数组末尾。
@@ -497,11 +529,11 @@ arr_1.concat(999, arr_2); // [1, 2, 3, 4, 5, 999, 6, 7, 8]; arr_1 = [1, 2, 3, 4,
 
 ### join
 
-将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个元素，那么将返回该元素而不使用分隔符。
-
 ::: message #3d7e9a 语法
 _array.join([separator])_
 :::
+
+将一个数组（或一个类数组对象）的所有元素连接成一个字符串并返回这个字符串。如果数组只有一个元素，那么将返回该元素而不使用分隔符。
 
 -   separator：指定一个字符串来分隔数组的每个元素。默认为`,`，若 separator 为空字符串（`''`或`""`），则所有元素之间没有任何字符。
 
@@ -538,3 +570,14 @@ arr.sort((a, b) => a - b); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100]
 ```
 
 ### reverse
+
+::: message #3d7e9a 语法
+_array.reverse()_
+:::
+
+将原数组里面的元素顺序颠倒并返回。
+
+```js
+let arr = [1, 2, 3, 4];
+arr.reverse(); // [4, 3, 2, 1]
+```
