@@ -44,7 +44,7 @@ module.exports = {
         ['one-click-copy', { copyMessage: '复制代码成功' }],
         // 数学公式
         ['@codeciting/vuepress-plugin-math'],
-        // 自定义demo-code容器
+        // 自定义容器
         [
             'container',
             {
