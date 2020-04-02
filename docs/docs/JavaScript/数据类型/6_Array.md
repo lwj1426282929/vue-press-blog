@@ -1,6 +1,74 @@
 # Array
 
-## Methods
+## methods
+
+### from
+
+::: message #3d7e9a 语法
+_Array.from(arrayLike[, mapFn[, thisArg]])_
+:::
+
+创建一个新的数组。
+
+-   arrayLike：想要转换成数组的伪数组对象或可迭代对象。
+-   mapFn：如果指定了该参数，新数组中的每个元素会执行该回调函数。
+-   thisArg: 执行回调时的`this`对象。
+
+`Array.from()`可以通过以下方式来创建数组对象：
+
+-   伪数组对象（拥有一个 length 属性和若干索引属性的任意对象）
+-   可迭代对象（可以获取对象中的元素,如 `Map` 和 `Set` 等）
+
+```js
+Array.from(new Set([1, 2, 3, 3, 4])); // [1, 2, 3, 4]
+Array.from(new Map([[1, 2], [2, 4], [4, 8]]); // [[1, 2], [2, 4], [4, 8]]
+Array.from('abcd'); // ['a', 'b', 'c', 'd']
+```
+
+### of
+
+::: message #3d7e9a 语法
+_Array.of(element0[, element1[, ...[, elementN]]])_
+:::
+
+创建一个具有可变数量参数的新数组实例
+
+-   elementN：任意个参数，将按顺序成为返回数组中的元素。
+
+```js
+Array.of(1); // [1]
+Array.of(1, 2, 3); // [1, 2, 3]
+Array.of(undefined); // [undefined]
+```
+
+**`Array.of()`与`Array()`的区别：**
+
+Array.of(7)表示创建一个长度为 1 的数组（[7]）；Array(7)表示创建一个长度为 7 的数组（[]），只不过里面元素为空。
+
+### isArray
+
+::: message #3d7e9a 语法
+Array.isArray(obj)
+:::
+
+判断一个实例是否是数组，是返回`true`，否则返回`false`。
+
+-   obj：需要检测的实例。
+
+```js
+Array.isArray([1, 2, 3]); // true
+Array.isArray(1); // false
+Array.isArray({}); // false
+Array.isArray(Array.prototype); // true
+```
+
+**`Array.isArray` 与`instanceof`：**
+
+当检测`Array`实例时, `Array.isArray` 优于`instanceof`，因为`Array.isArray`能检测`iframes`。
+
+::: tip
+`Array.isArray(Array.prototype)`返回`true`。
+:::
 
 ### indexOf
 
@@ -28,7 +96,7 @@ arr.indexOf(2, -4); // 1
 `indexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-_Polyfill_
+**_Polyfill_**
 
 `indexOf`在`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`indexOf`方法：
 
@@ -86,7 +154,7 @@ arr.lastIndexOf(2, -4); // -1
 `lastIndexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
-_Polyfill_
+**_Polyfill_**
 
 和`indexOf`一样，`lastIndexOf`也是`ECMA-262`标准的第 5 版中被加入，但并非所有的浏览器都支持该方法。我们可以加入以下代码使其在没有本地支持的情况下依然能够使用`lastIndexOf`方法：
 
@@ -262,70 +330,6 @@ let arr_ = arr.forEach(item => {
 console.log(arr_); // [2, 3, 4]
 ```
 
-### every
-
-::: message #3d7e9a 语法
-_array.every(callback[, thisArg])_
-:::
-
-判断数组的每一项元素是否都通过指定函数，是返回`true`，否则返回`false`。
-
--   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于所有元素该函数返回`true`，则该方法返回`true`， 否则返回`false`。它可以接收三个参数：
-    -   element：当前遍历的元素；
-    -   index：当前遍历的索引；
-    -   array：调用`every`的数组。
--   thisArg：执行 callback 时使用的 this 值。
-
-`every`遍历的元素范围在第一次调用 callback 之前就已确定了。在调用`every`之后添加到数组中的元素不会被 callback 访问到。如果数组中存在的元素被更改，则他们传入 callback 的值是`every`访问到他们那一刻的值。那些被删除的元素或从来未被赋值的元素将不会被访问到。
-
-`every`方法为数组中的每个元素执行一次 callback 函数，直到它找到一个会使 callback 返回 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 的元素。如果发现了一个这样的元素，`every`方法将会立即返回`false`。否则，callback 为每一个元素返回`true`，`every`就会返回`true`。callback 只会为那些已经被赋值的索引调用。不会为那些被删除或从未被赋值的索引调用。
-
-```js
-let arr = [12, 5, 8, 130, 44];
-arr.every(item => {
-    return item > 10;
-}); // false
-```
-
-::: tip
-
--   空数组在任何情况下都会返回`true`。（这种情况属于[无条件正确](https://en.wikipedia.org/wiki/Vacuous_truth)：正因为一个空集合没有元素，所以它其中的所有元素都符合给定的条件。）
--   `every`不会改变原数组。
-
-:::
-
-### some
-
-::: message #3d7e9a 语法
-_array.some(callback[, thisArg])_
-:::
-
-判断数组中是否至少有一项元素通过指定函数，是返回`true`，否则返回`false`。
-
--   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于某一元素该函数返回`true`，则该方法返回 `true`，若都返回`false`， 则返回`false`。它可以接收三个参数：
-    -   element：当前遍历的元素；
-    -   index：当前遍历的索引；
-    -   array：调用`every`的数组。
--   thisArg：执行 callback 时使用的 this 值。
-
-`some`遍历的元素的范围在第一次调用 callback. 前就已经确定了。在调用`some`后被添加到数组中的值不会被 callback 访问到。如果数组中存在且还未被访问到的元素被 callback 改变了，则其传递给 callback 的值是`some`访问到它那一刻的值。已经被删除的元素不会被访问到。
-
-`some`为数组中的每一个元素执行一次 callback 函数，直到找到一个使得 callback 返回一个真值。如果找到了这样一个值，`some`将会立即返回`true`。否则，`some`返回`false`。callback 只会在那些有值的索引上被调用，不会在那些被删除或从来未被赋值的索引上调用。
-
-```js
-let arr = [12, 5, 8, 130, 44];
-arr.some(item => {
-    return item > 10;
-}); // true
-```
-
-::: tip
-
--   空数组在任何情况下都会返回`false`。
--   `some`被调用时不会改变数组。
-
-:::
-
 ### reduce
 
 ::: message #3d7e9a 语法
@@ -416,6 +420,162 @@ arr.filter(item => {
 ::: tip
 `filter`不会改变原数组，返回过滤后的新数组。
 :::
+
+### flat
+
+::: message #3d7e9a 语法
+_array.flat([depth])_
+:::
+
+按照指定深度递归遍历数组，并将所有元素与遍历到的子数组中的元素合并为一个新数组返回。
+
+-   depth：指定要提取嵌套数组的深度，默认为 1。若指定为`Infinity`，可展开任意深度的嵌套数组。
+
+在扁平化过程中，`flat`会溢出数组中的空项，但是不会移除`undefined`、`null`。
+
+```js
+let arr = [1, 2, , undefined, null, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
+arr.flat(); // [1, 2, undefined, null, 3, 4, [5, 6, [7, 8, [9, 10]]]]
+arr.flat(2); // [1, 2, undefined, null, 3, 4, 5, 6, [7, 8, [9, 10]]]
+arr.flat(Infinity); // [1, 2, undefined, null, 3, 4, 5, 6, 7, 8, 9, 10]
+```
+
+::: tip
+该方法不改变原数组
+:::
+
+### flatMap
+
+::: message #3d7e9a 语法
+_array.flatMap(callback[, thisArg])_
+:::
+
+返回一个新数组，该数组每一项都是原数组元素执行回调函数的结果，并且结构深度`depth`为 1。
+
+-   callback：生成新数组的回调，包含三个参数：
+    -   currentValue：当前遍历的元素；
+    -   index：当前遍历的索引；
+    -   array：被调用的数组。
+-   thisArg： 执行回调时的`this`对象。
+
+```js
+let arr = [1, 2, 3, 4];
+arr.flatMap(item => {
+    return [item * 2];
+}); // [2, 4, 6, 8]; arr = [1, 2, 3, 4]
+
+arr.flatMap(item => {
+    if (item > 2) return item;
+    return [];
+}); // [3, 4]
+```
+
+::: tip
+
+-   该方法不改变原数组。
+-   该方法与[map](#map)以及深度为 1 的[flat()](#flat)作用几乎相同，但`flatMap`通常在合并成一种方法的效率稍微高一些， 而且`flapMap`可以用于过滤一些元素。
+
+:::
+
+### every
+
+::: message #3d7e9a 语法
+_array.every(callback[, thisArg])_
+:::
+
+判断数组的每一项元素是否都通过指定函数，是返回`true`，否则返回`false`。
+
+-   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于所有元素该函数返回`true`，则该方法返回`true`， 否则返回`false`。它可以接收三个参数：
+    -   element：当前遍历的元素；
+    -   index：当前遍历的索引；
+    -   array：调用`every`的数组。
+-   thisArg：执行 callback 时使用的 this 值。
+
+`every`遍历的元素范围在第一次调用 callback 之前就已确定了。在调用`every`之后添加到数组中的元素不会被 callback 访问到。如果数组中存在的元素被更改，则他们传入 callback 的值是`every`访问到他们那一刻的值。那些被删除的元素或从来未被赋值的元素将不会被访问到。
+
+`every`方法为数组中的每个元素执行一次 callback 函数，直到它找到一个会使 callback 返回 [falsy](https://developer.mozilla.org/zh-CN/docs/Glossary/Falsy) 的元素。如果发现了一个这样的元素，`every`方法将会立即返回`false`。否则，callback 为每一个元素返回`true`，`every`就会返回`true`。callback 只会为那些已经被赋值的索引调用。不会为那些被删除或从未被赋值的索引调用。
+
+```js
+let arr = [12, 5, 8, 130, 44];
+arr.every(item => {
+    return item > 10;
+}); // false
+```
+
+::: tip
+
+-   空数组在任何情况下都会返回`true`。（这种情况属于[无条件正确](https://en.wikipedia.org/wiki/Vacuous_truth)：正因为一个空集合没有元素，所以它其中的所有元素都符合给定的条件。）
+-   `every`不会改变原数组。
+
+:::
+
+### some
+
+::: message #3d7e9a 语法
+_array.some(callback[, thisArg])_
+:::
+
+判断数组中是否至少有一项元素通过指定函数，是返回`true`，否则返回`false`。
+
+-   callback：用来测试每个元素的函数，返回值为`boolean`类型，对数组中的每个元素使用该函数，如果对于某一元素该函数返回`true`，则该方法返回 `true`，若都返回`false`， 则返回`false`。它可以接收三个参数：
+    -   element：当前遍历的元素；
+    -   index：当前遍历的索引；
+    -   array：调用`every`的数组。
+-   thisArg：执行 callback 时使用的 this 值。
+
+`some`遍历的元素的范围在第一次调用 callback. 前就已经确定了。在调用`some`后被添加到数组中的值不会被 callback 访问到。如果数组中存在且还未被访问到的元素被 callback 改变了，则其传递给 callback 的值是`some`访问到它那一刻的值。已经被删除的元素不会被访问到。
+
+`some`为数组中的每一个元素执行一次 callback 函数，直到找到一个使得 callback 返回一个真值。如果找到了这样一个值，`some`将会立即返回`true`。否则，`some`返回`false`。callback 只会在那些有值的索引上被调用，不会在那些被删除或从来未被赋值的索引上调用。
+
+```js
+let arr = [12, 5, 8, 130, 44];
+arr.some(item => {
+    return item > 10;
+}); // true
+```
+
+::: tip
+
+-   空数组在任何情况下都会返回`false`。
+-   `some`被调用时不会改变原数组。
+
+:::
+
+### sort
+
+::: message #3d7e9a 语法
+_array.sort([sortFunction])_
+:::
+
+-   sortFunction：用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的 Unicode 位点进行排序。接收两个参数：
+    -   firstEl：第一个用于比较的元素。
+    -   secondEl：第二个用于比较的元素。
+
+如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 firstEl 和 secondEl 是两个将要被比较的元素：
+
+-   compareFunction(a, b) > 0：a 排在 b 之前；
+-   compareFunction(a, b) > 0：a、b 位置不确定（具体是否会交换得看浏览器如何解析）；
+-   compareFunction(a, b) <> 0：b 排在 a 之前。
+-   compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+
+```js
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100];
+arr.sort(); // [1, 10, 100, 2, 20, 3, 30, 4, 40, 5, 6, 7, 8, 9]
+arr.sort((a, b) => a - b); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100]
+```
+
+### reverse
+
+::: message #3d7e9a 语法
+_array.reverse()_
+:::
+
+将原数组里面的元素顺序颠倒并返回。
+
+```js
+let arr = [1, 2, 3, 4];
+arr.reverse(); // [4, 3, 2, 1]
+```
 
 ### push
 
@@ -546,38 +706,142 @@ arr.join('-'); // 1-2-3-4
 若数组元素为`undefined`或`null`，则会被转化为空字符串。
 :::
 
-### sort
+### copyWithin
 
 ::: message #3d7e9a 语法
-_array.sort([sortFunction])_
+_array.copyWithin(target[, start[, end]])_
 :::
 
--   sortFunction：用来指定按某种顺序进行排列的函数。如果省略，元素按照转换为的字符串的各个字符的 Unicode 位点进行排序。接收两个参数：
-    -   firstEl：第一个用于比较的元素。
-    -   secondEl：第二个用于比较的元素。
+浅拷贝数组的一部分到该数组的另一位置（覆盖），并返回改变后的数组。
 
-如果指明了 compareFunction ，那么数组会按照调用该函数的返回值排序。即 firstEl 和 secondEl 是两个将要被比较的元素：
-
--   compareFunction(a, b) > 0：a 排在 b 之前；
--   compareFunction(a, b) > 0：a、b 位置不确定（具体是否会交换得看浏览器如何解析）；
--   compareFunction(a, b) <> 0：b 排在 a 之前。
--   compareFunction(a, b) 必须总是对相同的输入返回相同的比较结果，否则排序的结果将是不确定的。
+-   target：目标位置，默认为 0，若 target 为负数，则从数组末尾开始往前计算；
+-   start：开始复制元素的起始位置，默认为 0。若为负数，则从末尾开始往前计算；
+-   end：复制元素的结束位置（复制元素不包括该位置的元素），默认为数组的末尾
 
 ```js
-let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100];
-arr.sort(); // [1, 10, 100, 2, 20, 3, 30, 4, 40, 5, 6, 7, 8, 9]
-arr.sort((a, b) => a - b); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100]
+let arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+arr.copyWithin(0, 3, 5); // ['d', 'e', 'c', 'd', 'e', 'f', 'g']
 ```
 
-### reverse
+::: tip
 
-::: message #3d7e9a 语法
-_array.reverse()_
+-   `copyWithin`会改变数组元素值但是不会改变数组长度。
+-   `copyWithin`是复制粘贴为一体的操作，是用来移动数组的一个高性能方法。
+
 :::
 
-将原数组里面的元素顺序颠倒并返回。
+### values
+
+::: message #3d7e9a 语法
+_array.values()_
+:::
+
+返回一个新的`Array Iterator`对象，该对象包含每个索引的值
 
 ```js
-let arr = [1, 2, 3, 4];
-arr.reverse(); // [4, 3, 2, 1]
+let arr = ['a', 'b', 'c'];
+let obj = arr.values(); // Array Iterator {}
+for (let item of obj) {
+    console.log(item);
+}
+// a
+// b
+// c
+```
+
+### entries
+
+::: message #3d7e9a 语法
+_array.entries()_
+:::
+
+返回一个新的`Array Iterator`对象，该对象包含数组中每个索引的键/值对。
+
+```js
+let arr = [1, 2, 3, 4, 5];
+let obj = arr.entries(); // Array Iterator {}
+for (let item of obj) {
+    console.log(item);
+}
+// [0, 1]
+// [1, 2]
+// [2, 3]
+// [3, 4]
+// [4, 5]
+console.log(obj.next()); // { value: [0, 1], done: false }
+```
+
+### fill
+
+::: message #3d7e9a 语法
+_array.fill(value[, start[, end]])_
+:::
+
+用一个固定值填充一个数组中从起始索引到终止索引内的全部元素但不包括终止索引。返回修改后的数组。
+
+-   value：填充数组元素的值；
+-   start：填充的起始位置，默认为 0。若为负数，则从数组末尾开始计算。
+-   end：填充的结束位置，但是该位置不填充，默认为数组的长度，若为负数，则从数组末尾开始计算。
+
+```js
+let arr = [1, 2, 3, 4, 5, 6, 7];
+arr.fill(6, 2, 4); // [1, 2, 6, 6, 5, 6, 7]
+```
+
+::: tip
+当一个对象被传递给 `fill` 方法的时候，填充数组的是这个对象的引用。
+:::
+
+### keys
+
+::: message #3d7e9a 语法
+_array.keys()_
+:::
+
+返回一个包含数组中每个索引键的`Array Iterator`对象。
+
+```js
+let arr = [1, , 3];
+let iterator = arr.keys(); // Array Iterator {}
+for (let item of iterator) {
+    console.log(item);
+}
+// 0
+// 1
+// 2
+```
+
+::: tip
+该方法返回的索引迭代器会包含那些没有对应元素的索引。
+:::
+
+### toString
+
+::: message #3d7e9a 语法
+_array.toString()_
+:::
+
+返回一个表示数组中的元素的字符串。
+
+当一个数组被作为文本值或者进行字符串连接操作时，将会自动调用其 toString 方法。
+
+```js
+let arr = [{ name: 'name' }, 1, 'string', new Date(), true, [1, 2]];
+arr.toString(); // [object Object],1,string,Thu Apr 02 2020 10:39:43 GMT+0800 (中国标准时间),true,1,2
+```
+
+### toLocaleString
+
+::: message #3d7e9a 语法
+_array.toLocaleString([locales[,options]])_
+:::
+
+返回一个表示数组中的元素的字符串。
+
+-   locales：带有`BCP 47`语言标记的字符串或字符串数组;
+-   options：配置对象，具体应参考对应的元素类型的`toLocaleString`方法。
+
+```js
+let arr = [{ name: 'name' }, 1, 'string', new Date(), true, [1, 2]];
+arr.toLocaleString(); // [object Object],1,string,2020/4/2 上午10:36:59,true,1,2
 ```
