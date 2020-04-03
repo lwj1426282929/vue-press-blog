@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-
 class Menu {
   // 动态生成目录树(含完整路径)
   getContents(path_ = '../docs') {
@@ -50,5 +49,9 @@ class Menu {
     return navs;
   }
 }
+
+global.menus = new Menu().getContents();
+
+module.exports.menus = global.menus && global.menus.length ? global.menus : [];
 
 module.exports = new Menu();
