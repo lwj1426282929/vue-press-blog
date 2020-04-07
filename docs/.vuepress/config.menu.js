@@ -50,8 +50,4 @@ class Menu {
   }
 }
 
-global.menus = new Menu().getContents();
-
-module.exports.menus = global.menus && global.menus.length ? global.menus : [];
-
 module.exports = new Menu();

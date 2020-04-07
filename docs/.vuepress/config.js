@@ -82,6 +82,7 @@ module.exports = {
                     return '</div>';
                 }
             }
-        ]
+        ],
+        require('./plugin/index')
     ],
 };

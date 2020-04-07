@@ -1,21 +1,40 @@
 <template>
-  <ul>
-    <li v-for="(item, index) in contents">
-      <Contents v-if="item.children && item.children.length" :contents="item.children"></Contents>
-      <a :href="item.path"> {{ item.name }}</a>
-    </li>
-  </ul>
+    <ul>
+        <li v-for="(item, index) in contents_"
+            :key="index">
+            {{ item }}
+        </li>
+    </ul>
 </template>
 
 <script>
 export default {
-  name: 'Contents',
+    name: 'Contents',
 
-  props: {
-    contents: {
-      type: Array,
-      default: () => []
+    props: {
+        contents: Array
+    },
+
+    render (createElement) {
+        console.log('render')
+        return createElement('div', {
+            style: this.style
+        }, this.$slots.default)
+    },
+
+    data () {
+        return {
+            contents_: []
+        }
+    },
+
+    created () {
+        if (this.contents) {
+            this.contents_ = this.contents
+        } else {
+            this.contents_ = this.$page.contents
+        }
+        console.log(this.contents_)
     }
-  }
 }
 </script>

@@ -1,7 +1,5 @@
-<Contents :contents="contents" />
-
-<script>
-import { menu } from '../../../docs/.vuepress/config.menu.js'
+<Contents></Contents>
+<!-- <script>
 
 export default {
   data(){
@@ -11,8 +9,6 @@ export default {
   },
 
   mounted(){
-
-    console.log(menu);
 
     let arr = require.context("./", true, /^(?!\.\/README\.md$).+\.md$/).keys()
 
@@ -25,11 +21,6 @@ export default {
     })
 
     this.contents = contents
-
-    // console.log(JSON.stringify(contents))
-    // console.log(window.__MY_STATE__)
-
-    // this.mergeTrees(contents)
 
     // let contents_ = contents.map(item => {
     //     let names = item.name.split('/')
@@ -48,24 +39,7 @@ export default {
           children: sum.name ? [sum] : [] 
           }
       }, {})
-    },
-
-    mergeTrees(arr = []){
-      let len = arr.length
-      for(let i = 0; i < len -1; i++) {
-        for(let j = i + 1; j < len; j++) {
-          let index1 = arr[i].name.lastIndexOf('/')
-          let index2 = arr[j].name.lastIndexOf('/')
-          let name1 = arr[i].name.slice(0, index1)
-          let name2 = arr[j].name.slice(0, index2)
-          console.log(name1)
-          console.log(name2)
-          if(name1 === name2) {
-            arr[i] = arr[i] + ',' + arr[j].name
-          }
-        }
-      }
     }
   }
 }
-</script>
+</script> -->
