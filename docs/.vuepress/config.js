@@ -33,6 +33,7 @@ module.exports = {
                 },
             },
         },
+        globalLayout: './components/Layout.vue',
     },
     // 插件
     plugins: [

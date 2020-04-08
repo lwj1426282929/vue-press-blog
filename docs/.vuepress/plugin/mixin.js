@@ -4,14 +4,7 @@ export default {
     
 
     created() {
-        console.log('created mixin')
-    },
-
-    data(){
-        console.log('test')
-        return {
-            test: 'test'
-        }
+        console.log(this.$page)
     },
 
     render (createElement) {

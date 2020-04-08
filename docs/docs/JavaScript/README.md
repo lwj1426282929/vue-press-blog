@@ -1,6 +1,8 @@
-<Contents></Contents>
-<!-- <script>
+---
+layout: Contents
+---
 
+<script>
 export default {
   data(){
     return {
@@ -9,6 +11,7 @@ export default {
   },
 
   mounted(){
+    console.log(this.$page.frontmatter.layout)
 
     let arr = require.context("./", true, /^(?!\.\/README\.md$).+\.md$/).keys()
 
@@ -42,4 +45,4 @@ export default {
     }
   }
 }
-</script> -->
+</script>

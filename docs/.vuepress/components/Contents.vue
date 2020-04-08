@@ -1,5 +1,5 @@
 <template>
-    <ul>
+    <ul v-if="$page.contents">
         <li v-for="(item, index) in contents_"
             :key="index">
             {{ item }}
@@ -35,6 +35,7 @@ export default {
             this.contents_ = this.$page.contents
         }
         console.log(this.contents_)
+        console.log(this.$page.frontmatter.layout)
     }
 }
 </script>
