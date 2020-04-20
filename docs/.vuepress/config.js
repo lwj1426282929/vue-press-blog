@@ -5,9 +5,41 @@ module.exports = {
     port: 80,
     base: '/note/', // 部署站点的基础路径
     // 网站描述，它将会以 <meta> 标签渲染到当前页面的 HTML 中
-    head: [['link', { rel: 'icon', href: '/logo.png' }], []],
-    serviceWorker: false, // 离线访问
-    cache: false,
+    head: [
+        ['link', { rel: 'icon', href: '/logo.png' }],
+        ['link', { rel: 'manifest', href: '/manifest.json' }],
+        ['meta', { name: 'theme-color', content: '#3eaf7c' }],
+        ['meta', { name: 'apple-mobile-web-app-capable', content: 'yes' }],
+        [
+            'meta',
+            { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
+        ],
+        [
+            'link',
+            {
+                rel: 'apple-touch-icon',
+                href: '/icons/apple-touch-icon-152x152.png',
+            },
+        ],
+        [
+            'link',
+            {
+                rel: 'mask-icon',
+                href: '/icons/safari-pinned-tab.svg',
+                color: '#3eaf7c',
+            },
+        ],
+        [
+            'meta',
+            {
+                name: 'msapplication-TileImage',
+                content: '/icons/msapplication-icon-144x144.png',
+            },
+        ],
+        ['meta', { name: 'msapplication-TileColor', content: '#000000' }],
+    ],
+    serviceWorker: true, // 离线访问
+    cache: true,
     locales: {
         '/': {
             title: '笔记',
@@ -37,6 +69,8 @@ module.exports = {
     },
     // 插件
     plugins: [
+        // pwa
+        ['@vuepress/pwa'],
         // 返回顶部
         ['@vuepress/back-to-top', true],
         // 预览图片
@@ -54,10 +88,19 @@ module.exports = {
                     const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
                     if (tokens[idx].nesting === 1) {
                         const description = m && m.length > 1 ? m[1] : '';
-                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
+                        const content =
+                            tokens[idx + 1].type === 'fence'
+                                ? tokens[idx + 1].content
+                                : '';
                         return `<demo-code>
                                     <div slot="meta">${content}</div>
-                                    ${ description ? `<div class="description">${ md.render(description) }</div>` : '' }
+                                    ${
+                                        description
+                                            ? `<div class="description">${md.render(
+                                                  description,
+                                              )}</div>`
+                                            : ''
+                                    }
                                 `;
                     }
                     return '</demo-code>';
@@ -72,18 +115,26 @@ module.exports = {
                     const m = tokens[idx].info.trim().match(/^message\s*(.*)$/);
                     if (tokens[idx].nesting === 1) {
                         const description = m && m.length > 1 ? m[1] : '';
-                        const borderColor = description.split(' ')[0] || '#1989fa';
+                        const borderColor =
+                            description.split(' ')[0] || '#1989fa';
                         const title = description.split(' ')[1] || '';
-                        const content = tokens[idx + 1].type === 'fence' ? tokens[idx + 1].content : '';
-                        return `<div class="custom-block tip" style="border-color: ${ borderColor };">
-                                    ${ title ? `<p class="custom-block-title">${ title }</p>` : '' }
-                                    <p>${ content }</p>
+                        const content =
+                            tokens[idx + 1].type === 'fence'
+                                ? tokens[idx + 1].content
+                                : '';
+                        return `<div class="custom-block tip" style="border-color: ${borderColor};">
+                                    ${
+                                        title
+                                            ? `<p class="custom-block-title">${title}</p>`
+                                            : ''
+                                    }
+                                    <p>${content}</p>
                                 `;
                     }
                     return '</div>';
-                }
-            }
+                },
+            },
         ],
-        require('./plugin/index')
+        require('./plugin/index'),
     ],
 };

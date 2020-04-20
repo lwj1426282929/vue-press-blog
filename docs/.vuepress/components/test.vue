@@ -50,7 +50,6 @@ export default {
 
     created () {
         let arr = [10, 7, 9, 11, 22, 33, 4, 2, 0, 1000];
-        console.log(this.bubbleSort(arr));
     },
 
     methods: {
