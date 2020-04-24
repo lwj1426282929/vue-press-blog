@@ -76,7 +76,7 @@ module.exports = {
         // 预览图片
         ['@vuepress/medium-zoom'],
         // 复制代码
-        ['one-click-copy', { copyMessage: '复制代码成功' }],
+        ['one-click-copy', { copyMessage: '复制成功' }],
         // 数学公式
         ['@codeciting/vuepress-plugin-math'],
         // 自定义容器
