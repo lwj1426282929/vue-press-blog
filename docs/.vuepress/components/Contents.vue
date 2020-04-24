@@ -1,15 +1,15 @@
 <template>
     <ul>
         <template v-for="(item, index) in data">
-            {{ item }}
-            <!-- <li v-if="typeof item == 'string'">
-                <a :href="item">{{ item }}</a>
+            <li v-if="typeof item == 'string'"
+                :key="index">
+                <a :href="_path(item)">{{ _title(item) }}</a>
             </li>
             <li v-else
                 :key="index">
                 {{ item.title }}
                 <Contents :contents="item.children" />
-            </li> -->
+            </li>
         </template>
     </ul>
 </template>
@@ -19,9 +19,7 @@ export default {
     name: 'Contents',
 
     props: {
-        contents: {
-            type: Array
-        }
+        contents: Array
     },
 
     data () {
@@ -32,18 +30,17 @@ export default {
 
     created () {
         this.data = this.contents ? this.contents : this.$page.contents
-
-        console.log(this.data)
-
-        // console.log(this.$page)
     },
 
     methods: {
-        genarateItem (item) {
-            return {
-                title: item.match(/\/([^/]*)$/)[1].replace('.md', ''),
-                path: item.replace('.md', '.html').replace('..' + this.$page.path, '')
-            }
+        _title (item) {
+            let title = item.match(/\/([^/]*)$/)[1].replace('.md', '')
+            let names = title.split('_')
+            return names[1] ? names[1] : names[0]
+        },
+
+        _path (item) {
+            return item.replace('.md', '.html').replace('..' + this.$page.path, '')
         }
     }
 }

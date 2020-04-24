@@ -8,10 +8,22 @@ class Menu {
 
             // 排序，将文件夹放在文件后面
             files.sort((a, b) => {
+                // let subPath_a = path_ + '/' + a;
+                // let subPath_b = path_ + '/' + b;
+                // let stat_a = fs.lstatSync(path.join(__dirname, subPath_a));
+                // let stat_b = fs.lstatSync(path.join(__dirname, subPath_b));
+                // return stat_a.isDirectory() - stat_b.isDirectory();
                 let subPath_a = path_ + '/' + a;
                 let subPath_b = path_ + '/' + b;
                 let stat_a = fs.lstatSync(path.join(__dirname, subPath_a));
                 let stat_b = fs.lstatSync(path.join(__dirname, subPath_b));
+
+                if(!(stat_a.isDirectory() ^ stat_b.isDirectory())) {
+                    let m = a.split('_')[0]
+                    let n = b.split('_')[0]
+                    return m - n
+                }
+
                 return stat_a.isDirectory() - stat_b.isDirectory();
             });
 
