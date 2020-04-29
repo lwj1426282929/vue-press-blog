@@ -6,13 +6,8 @@ class Menu {
         const findFilesByPath = (path_, content = []) => {
             let files = fs.readdirSync(path.join(__dirname, path_));
 
-            // 排序，将文件夹放在文件后面
+            // 排序
             files.sort((a, b) => {
-                // let subPath_a = path_ + '/' + a;
-                // let subPath_b = path_ + '/' + b;
-                // let stat_a = fs.lstatSync(path.join(__dirname, subPath_a));
-                // let stat_b = fs.lstatSync(path.join(__dirname, subPath_b));
-                // return stat_a.isDirectory() - stat_b.isDirectory();
                 let subPath_a = path_ + '/' + a;
                 let subPath_b = path_ + '/' + b;
                 let stat_a = fs.lstatSync(path.join(__dirname, subPath_a));
@@ -24,17 +19,17 @@ class Menu {
                     return m - n
                 }
 
-                return stat_a.isDirectory() - stat_b.isDirectory();
+                return stat_a.isDirectory() - stat_b.isDirectory()
             });
 
             // 遍历文件路径
             files.forEach((file) => {
-                let subPath = path_ + '/' + file;
-                let stat = fs.lstatSync(path.join(__dirname, subPath));
-                let isDirectory = stat.isDirectory();
+                let subPath = path_ + '/' + file
+                let stat = fs.lstatSync(path.join(__dirname, subPath))
+                let isDirectory = stat.isDirectory()
                 if (isDirectory) {
                     if (file !== 'img') {
-                        let children = findFilesByPath(subPath);
+                        let children = findFilesByPath(subPath)
                         content.push({
                             title: file,
                             children,
@@ -54,16 +49,16 @@ class Menu {
 
     // 动态生成Nav
     getNavs() {
-        let navs = [];
-        let contents = this.getContents();
+        let navs = []
+        let contents = this.getContents()
         contents.forEach((content) => {
             navs.push({
                 text: content.title,
                 link: '/docs/' + content._path + '/',
-            });
-        });
+            })
+        })
 
-        return navs;
+        return navs
     }
 }
 
