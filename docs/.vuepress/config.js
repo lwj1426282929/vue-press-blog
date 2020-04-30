@@ -84,7 +84,7 @@ module.exports = {
                 copySelector: [
                     'div[class*="language-"] pre',
                     'div[class*="aside-code"] aside',
-                    'div[class*="code-block__inner-code"]'
+                    'div[class*="code-block__inner-code"]',
                 ],
                 copyMessage: '复制成功',
             },
@@ -92,33 +92,6 @@ module.exports = {
         // 数学公式
         ['@codeciting/vuepress-plugin-math'],
         // 自定义容器
-        // [
-        //     'container',
-        //     {
-        //         type: 'demo',
-        //         render: (tokens, idx) => {
-        //             const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-        //             if (tokens[idx].nesting === 1) {
-        //                 const description = m && m.length > 1 ? m[1] : '';
-        //                 const content =
-        //                     tokens[idx + 1].type === 'fence'
-        //                         ? tokens[idx + 1].content
-        //                         : '';
-        //                 return `<demo-code>
-        //                             <div slot="meta">${content}</div>
-        //                             ${
-        //                                 description
-        //                                     ? `<div class="description">${md.render(
-        //                                           description,
-        //                                       )}</div>`
-        //                                     : ''
-        //                             }
-        //                         `;
-        //             }
-        //             return '</demo-code>';
-        //         },
-        //     },
-        // ],
         [
             'container',
             {

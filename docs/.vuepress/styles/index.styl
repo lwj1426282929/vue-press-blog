@@ -38,3 +38,93 @@ html, body
   width 100%
   margin 10px auto
   border-radius 6px
+
+
+
+
+.theme-default-content pre code, .theme-default-content pre[class*="language-"] code{
+  color #606266
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+}
+
+div[class*="language-"] {
+  background: #fafafa;
+}
+
+.token.comment,
+.token.block-comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: #999;
+}
+
+.token.punctuation {
+	// color: #ccc;
+  color #3182bd
+}
+
+.token.tag,
+.token.attr-name,
+.token.namespace,
+.token.deleted {
+	// color: #e2777a;
+  color #3182bd
+}
+
+.token.function-name {
+	// color: #6196cc;
+	color #3182bd
+}
+
+.token.boolean,
+.token.number,
+.token.function {
+	// color: #f08d49;
+	color #3182bd
+}
+
+.token.property,
+.token.class-name,
+.token.constant,
+.token.symbol {
+	color: #f8c555;
+}
+
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+	// color: #cc99cd;
+  color #3182bd
+}
+
+.token.string,
+.token.char,
+.token.attr-value,
+.token.regex,
+.token.variable {
+	// color: #7ec699;
+  color #756bb1
+}
+
+.token.operator,
+.token.entity,
+.token.url {
+	color: #67cdcc;
+}
+
+.token.inserted {
+	color: green;
+}
+
+div[class*="language-"]::before{
+  color #ccc
+}
