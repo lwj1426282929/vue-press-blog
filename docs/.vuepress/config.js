@@ -1,5 +1,6 @@
 const Menu = require('./config.menu');
 const md = require('markdown-it')();
+const CodeDocPlugin = require('./plugin/demo-code');
 
 module.exports = {
     port: 80,
@@ -75,38 +76,49 @@ module.exports = {
         ['@vuepress/back-to-top', true],
         // 预览图片
         ['@vuepress/medium-zoom'],
+        [CodeDocPlugin, {}],
         // 复制代码
-        ['one-click-copy', { copyMessage: '复制成功' }],
+        [
+            'one-click-copy',
+            {
+                copySelector: [
+                    'div[class*="language-"] pre',
+                    'div[class*="aside-code"] aside',
+                    'div[class*="code-block__inner-code"]'
+                ],
+                copyMessage: '复制成功',
+            },
+        ],
         // 数学公式
         ['@codeciting/vuepress-plugin-math'],
         // 自定义容器
-        [
-            'container',
-            {
-                type: 'demo',
-                render: (tokens, idx) => {
-                    const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
-                    if (tokens[idx].nesting === 1) {
-                        const description = m && m.length > 1 ? m[1] : '';
-                        const content =
-                            tokens[idx + 1].type === 'fence'
-                                ? tokens[idx + 1].content
-                                : '';
-                        return `<demo-code>
-                                    <div slot="meta">${content}</div>
-                                    ${
-                                        description
-                                            ? `<div class="description">${md.render(
-                                                  description,
-                                              )}</div>`
-                                            : ''
-                                    }
-                                `;
-                    }
-                    return '</demo-code>';
-                },
-            },
-        ],
+        // [
+        //     'container',
+        //     {
+        //         type: 'demo',
+        //         render: (tokens, idx) => {
+        //             const m = tokens[idx].info.trim().match(/^demo\s*(.*)$/);
+        //             if (tokens[idx].nesting === 1) {
+        //                 const description = m && m.length > 1 ? m[1] : '';
+        //                 const content =
+        //                     tokens[idx + 1].type === 'fence'
+        //                         ? tokens[idx + 1].content
+        //                         : '';
+        //                 return `<demo-code>
+        //                             <div slot="meta">${content}</div>
+        //                             ${
+        //                                 description
+        //                                     ? `<div class="description">${md.render(
+        //                                           description,
+        //                                       )}</div>`
+        //                                     : ''
+        //                             }
+        //                         `;
+        //             }
+        //             return '</demo-code>';
+        //         },
+        //     },
+        // ],
         [
             'container',
             {

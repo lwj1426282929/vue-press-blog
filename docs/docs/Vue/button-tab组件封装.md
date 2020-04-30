@@ -1,17 +1,47 @@
 # button-tab 组件封装
 
-:::demo
-
 ```vue
 <template>
-    <button-tab value="1">
+    <button-tab v-model="value">
         <button-tab-item value="1">1</button-tab-item>
         <button-tab-item value="2">2</button-tab-item>
         <button-tab-item value="3">3</button-tab-item>
         <button-tab-item value="4">4</button-tab-item>
     </button-tab>
 </template>
+
+<script>
+export default {
+    data(){
+        return {
+            value: '1'
+        }
+    }
+}
+
+</script>
 ```
+
+:::demo
+<template>
+    <button-tab v-model="value">
+        <button-tab-item value="1">1</button-tab-item>
+        <button-tab-item value="2">2</button-tab-item>
+        <button-tab-item value="3">3</button-tab-item>
+        <button-tab-item value="4">4</button-tab-item>
+    </button-tab>
+</template>
+
+<script>
+export default {
+    data(){
+        return {
+            value: '1'
+        }
+    }
+}
+
+</script>
 
 :::
 
