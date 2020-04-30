@@ -4,9 +4,7 @@ sidebarDepth: 1
 
 # meta
 
-::: tip
-meta 标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。该标签一共有 `name`、`http-equiv`、`content`、`scheme` 和 `charset` 属性
-:::
+meta 标签提供关于 HTML 文档的元数据。它不会显示在页面上，但是对于机器是可读的。可用于浏览器（如何显示内容或重新加载页面），搜索引擎（关键词），或其他 web 服务。该标签一共有 `name`、`http-equiv`、`content`、`scheme` 和 `charset` 属性。
 
 ## name
 

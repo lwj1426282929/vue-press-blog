@@ -92,7 +92,7 @@
 
 ::: tip 阻止表单默认提交
 
-1. 将 form 的 action 属性置为``或者`#`,同时 onsubmit 事件`return false`。
+1. 将 form 的 action 属性置为<code>&nbsp;</code>或者`#`,同时 onsubmit 事件`return false`。
 2. 在 form 表单内不使用 `type=submit` 的 input。在 form 最后添加一个`type=hidden`的 input。
    :::
 
