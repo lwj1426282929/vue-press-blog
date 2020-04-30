@@ -39,6 +39,12 @@
 | size           | password, email, tel, text       | 控件大小                                             |
 | `pattern`      | password, tel, text              | 匹配有效 value 的模式（pattern）                     |
 
+:::tip disabled 和 readonly 的区别
+
+1. disabled 针对所有的表单元素都有效，readonly 只针对 input 和 textarea 生效；
+2. 都能够使该控件的值不可编辑，但 disabled 还能禁用该控件，使 form 表单提交时不提交该控件的值。
+   :::
+
 ## type
 
 | type           | 说明                                                                  | 例子                            |
@@ -84,8 +90,7 @@
 </form>
 ```
 
-::: tip
-**阻止表单默认提交**
+::: tip 阻止表单默认提交
 
 1. 将 form 的 action 属性置为``或者`#`,同时 onsubmit 事件`return false`。
 2. 在 form 表单内不使用 `type=submit` 的 input。在 form 最后添加一个`type=hidden`的 input。
