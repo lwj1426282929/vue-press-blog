@@ -1,7 +1,10 @@
 <template>
     <div>
-        <input type="color"
-               v-model="value">
+        <!-- <input type="color"
+               readonly="readonly"
+               v-model="value"> -->
+        <span class="color"
+              :style="style"></span>
         <copy>{{ value }}</copy>
     </div>
 </template>
@@ -23,6 +26,14 @@ export default {
     data () {
         return {
             value: ''
+        }
+    },
+
+    computed: {
+        style () {
+            return {
+                background: this.value
+            }
         }
     },
 
@@ -49,5 +60,12 @@ input[type='color'] {
     -webkit-appearance: none;
     background: none;
     outline: none;
+}
+
+.color {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #ccc;
 }
 </style>
