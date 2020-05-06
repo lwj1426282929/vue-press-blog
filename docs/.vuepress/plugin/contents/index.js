@@ -3,8 +3,6 @@ const Menu = require('../../config.menu');
 
 module.exports = (options, ctx) => {
     return {
-        // clientRootMixin: path.resolve(__dirname, './mixin.js'),
-
         extendPageData($page) {
             const path_ = $page.path.match(/^\/(\S*)\/$/);
             if (path_) {

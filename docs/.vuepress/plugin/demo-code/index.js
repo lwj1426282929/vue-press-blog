@@ -45,7 +45,6 @@ const getRender = (md, options = {}, ctx) => {
 module.exports = (options, ctx) => {
     return {
         name: 'vuepress-plugin-code-doc',
-        enhanceAppFiles: [resolve(__dirname, 'registerComp.js')],
         extendMarkdown: (md) => {
             md.use(mdItContainer, 'demo', {
                 render: getRender(md, options, ctx),

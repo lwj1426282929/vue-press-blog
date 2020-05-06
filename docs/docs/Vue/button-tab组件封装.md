@@ -35,7 +35,9 @@ export default {
     data(){
         return {
             value: '1',
-            value1: ['1', '2']
+            value1: ['1', '2'],
+            selected: [],
+            options: []
         }
     }
 }
