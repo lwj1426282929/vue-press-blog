@@ -1,12 +1,15 @@
 <template>
-    <div class="button-tab-item"
-         :class="classes"
-         :style="styles"
-         @click="itemClick">
-        <div class="button-tab-item-bg"
-             :style="bgStyles"></div>
-        <div class="button-tab-body">
-            <slot></slot>
+    <div class="button-tab-item-wrap"
+         :class="wrapClass">
+        <div class="button-tab-item"
+             :class="classes"
+             :style="styles"
+             @click="itemClick">
+            <div class="button-tab-item-bg"
+                 :style="bgStyles"></div>
+            <div class="slot">
+                <slot></slot>
+            </div>
         </div>
     </div>
 </template>
@@ -19,10 +22,6 @@ export default {
         value: {
             type: [String, Number],
             default: () => ''
-        },
-
-        width: {
-            type: [String, Number]
         }
     },
 
@@ -33,29 +32,24 @@ export default {
     },
 
     computed: {
+        wrapClass () {
+            return {
+                ['gutter-' + this.$parent.gutter]: +this.$parent.gutter,
+                'gutter-0': !+this.$parent.gutter,
+                ['col-' + this.$parent.column]: +this.$parent.column,
+                flex: !this.$parent.column
+            };
+        },
+
         classes () {
             return {
-                selected: this.selected,
-                'no-gutter': !+this.$parent.gutter,
-                ['gutter-' + this.$parent.gutter]: +this.$parent.gutter
+                selected: this.selected
             };
         },
 
         styles () {
-            let style = {};
-            if (!this.width) {
-                style.flex = 1;
-            } else if (this.width.match(/\%$/)) {
-                style.width = this.width;
-            } else {
-                style.width = this.width + 'px';
-            }
             return {
-                height: this.$parent.height + 'px',
-                lineHeight: this.$parent.height + 'px',
-                marginRight: this.$parent.gutter + 'px',
-                color: this.selected ? this.$parent.activeColor : this.$parent.defaultColor,
-                ...style
+                color: this.selected ? this.$parent.activeColor : this.$parent.defaultColor
             };
         },
 
@@ -98,52 +92,80 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@for $i from 1 through 100 {
+    .gutter-#{$i} {
+        padding-left: ($i / 2) + px;
+        padding-right: ($i / 2) + px;
+    }
+}
+
+@for $i from 1 through 24 {
+    .button-tab-item-wrap.col-#{$i} {
+        width: percentage(1 / $i);
+    }
+}
+
+.button-tab-item-wrap {
+    margin-bottom: 20px;
+
+    &.gutter-0 {
+        &:first-child {
+            .button-tab-item-bg {
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+        }
+
+        &:last-child {
+            .button-tab-item-bg {
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+        }
+
+        &:not(:last-child) {
+            .button-tab-item-bg {
+                border-right: 0 none;
+            }
+        }
+    }
+
+    &:not(.gutter-0) {
+        border-radius: 8px;
+        .button-tab-item-bg {
+            border-radius: 8px;
+        }
+    }
+
+    &.flex {
+        flex: 1;
+    }
+}
+
 .button-tab-item {
     text-align: center;
     position: relative;
-    cursor: pointer;
-}
-
-.button-tab-item:last-child {
-    margin-right: 0 !important;
-}
-
-.button-tab-body {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 3;
-}
-
-.button-tab-item .button-tab-item-bg {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    border: 1px solid;
     box-sizing: border-box;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scale(0.5);
-    transform: scale(0.5);
-    z-index: 2;
-}
+    flex: 1;
+    height: 60px;
+    line-height: 60px;
 
-.button-tab-item:not(.no-gutter) .button-tab-item-bg {
-    border-radius: 8px;
-}
+    .slot {
+        position: relative;
+        z-index: 99;
+    }
 
-.button-tab-item.no-gutter:first-child .button-tab-item-bg {
-    border-top-left-radius: 8px;
-    border-bottom-left-radius: 8px;
-}
-
-.button-tab-item.no-gutter:last-child .button-tab-item-bg {
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-}
-
-.button-tab-item.no-gutter:not(:last-child) .button-tab-item-bg {
-    border-right: 0 none;
+    .button-tab-item-bg {
+        position: absolute;
+        width: 200%;
+        height: 200%;
+        border: 1px solid;
+        box-sizing: border-box;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: scale(0.5);
+        transform: scale(0.5);
+    }
 }
 </style>

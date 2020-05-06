@@ -1,16 +1,13 @@
 <template>
-    <div :class="['button-tab', flex ? 'flex' : '']">
+    <div :class="['button-tab', 'clear-gutter-' + gutter]">
         <slot></slot>
     </div>
 </template>
 
 <script>
-import ButtonTabItem from './ButtonTabItem';
 
 export default {
     name: 'ButtonTab',
-
-    components: { ButtonTabItem },
 
     model: {
         prop: 'value',
@@ -30,21 +27,19 @@ export default {
             default: () => false
         },
 
-        // 单行模式
-        flex: {
-            type: Boolean,
-            default: () => true
-        },
-
-        // 高度
-        height: {
-            type: [Number, String],
-            default: () => 34
+        column: {
+            type: Number,
+            validator: (val) => {
+                return val >= 0 && val <= 24;
+            }
         },
 
         // 子元素间距
         gutter: {
             type: [Number, String],
+            validator: (val) => {
+                return val >= 0 && val <= 100;
+            },
             default: () => 0
         },
 
@@ -111,9 +106,17 @@ export default {
     }
 };
 </script>
-<style scoped>
-.button-tab.flex {
+<style lang="scss" scoped>
+.button-tab {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    font-size: 28px;
+}
+
+@for $i from 1 through 100 {
+    .clear-gutter-#{$i} {
+        margin-left: -($i / 2) + px;
+        margin-right: -($i / 2) + px;
+    }
 }
 </style>
