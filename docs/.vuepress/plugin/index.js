@@ -6,7 +6,7 @@ module.exports = (options, ctx) => {
         // clientRootMixin: path.resolve(__dirname, './mixin.js'),
 
         extendPageData($page) {
-            let path_ = $page.path.match(/^\/(\S*)\/$/);
+            const path_ = $page.path.match(/^\/(\S*)\/$/);
             if (path_) {
                 let pathStr = path_[0].substring(0, path_[0].length - 1)
                 let contents = Menu.getContents('../../docs' + decodeURI(pathStr));
