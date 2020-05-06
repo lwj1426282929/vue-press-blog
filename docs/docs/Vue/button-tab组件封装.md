@@ -9,7 +9,7 @@
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
-            <button-tab v-model="value" gutter="30">
+        <button-tab v-model="value" gutter="30">
             <button-tab-item value="1">1</button-tab-item>
             <button-tab-item value="2">2</button-tab-item>
             <button-tab-item value="3">3</button-tab-item>
@@ -70,14 +70,14 @@ export default {
 
 ### 事件
 
-| 事件名                  | 说明                     | 回调参数                |
-| :---------------------- | :----------------------- | :---------------------- |
+| 事件名                     | 说明                     | 回调参数                |
+| :------------------------- | :----------------------- | :---------------------- |
 | <copy>on-item-click</copy> | 当选项被点击时触发的事件 | 当前点击项的 `value` 值 |
 
 ## button-tab-item
 
 ### 属性
 
-|        参数        |    说明    |      类型       | 默认值 |
-| :----------------: | :--------: | :-------------: | :----: |
-| <copy>value</copy> |  选项的值  | string / number |   -    |
+|        参数        |   说明   |      类型       | 默认值 |
+| :----------------: | :------: | :-------------: | :----: |
+| <copy>value</copy> | 选项的值 | string / number |   -    |
