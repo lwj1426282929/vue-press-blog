@@ -108,6 +108,7 @@ export default {
 
 .button-tab-item-wrap {
     margin-bottom: 20px;
+    box-sizing: border-box;
 
     &.gutter-0 {
         &:first-child {

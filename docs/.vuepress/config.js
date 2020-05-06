@@ -1,6 +1,7 @@
 const Menu = require('./config.menu');
 const md = require('markdown-it')();
 const CodeDocPlugin = require('./plugin/demo-code');
+const contents = require('./plugin/contents')
 
 module.exports = {
     port: 80,
@@ -77,6 +78,9 @@ module.exports = {
         // 预览图片
         ['@vuepress/medium-zoom'],
         [CodeDocPlugin, {}],
+        [contents],
+        // 数学公式
+        ['@codeciting/vuepress-plugin-math'],
         // 复制代码
         [
             'one-click-copy',
@@ -88,10 +92,9 @@ module.exports = {
                     '.copy-container'
                 ],
                 copyMessage: '复制成功',
+                duration: 1000
             },
         ],
-        // 数学公式
-        ['@codeciting/vuepress-plugin-math'],
         // 自定义容器
         [
             'container',
@@ -121,6 +124,5 @@ module.exports = {
                 },
             },
         ],
-        require('./plugin/index'),
     ],
 };

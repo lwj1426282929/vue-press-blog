@@ -1,5 +1,5 @@
 const path = require('path');
-const Menu = require('../config.menu');
+const Menu = require('../../config.menu');
 
 module.exports = (options, ctx) => {
     return {
