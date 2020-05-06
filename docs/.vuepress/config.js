@@ -85,6 +85,7 @@ module.exports = {
                     'div[class*="language-"] pre',
                     'div[class*="aside-code"] aside',
                     'div[class*="code-block__inner-code"]',
+                    '.copy-container'
                 ],
                 copyMessage: '复制成功',
             },
