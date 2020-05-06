@@ -27,7 +27,6 @@
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
-        <cell label="123"></cell>
     </div>
 </template>
 
@@ -36,9 +35,7 @@ export default {
     data(){
         return {
             value: '1',
-            value1: ['1', '2'],
-            selected: [],
-            options: []
+            value1: ['1', '2']
         }
     }
 }
