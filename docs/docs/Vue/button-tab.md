@@ -1,4 +1,4 @@
-# button-tab 组件封装
+# button-tab
 
 ::: demo
 <template>
@@ -53,9 +53,23 @@ export default {
 
 :::
 
-## button-tab
+## 安装
 
-### 属性
+### npm 安装
+
+```sh
+npm i button-tab
+```
+
+### yarn 安装
+
+```sh
+yarn add button-tab
+```
+
+## 使用
+
+### button-tab 属性
 
 | 参数                              | 说明                                                   | 类型                    | 默认值                       |
 | :-------------------------------- | :----------------------------------------------------- | :---------------------- | :--------------------------- |
@@ -70,15 +84,13 @@ export default {
 | <copy>default-border-color</copy> | 默认边框颜色                                           | string                  | <color color="#2482FC" />    |
 | <copy>active-border-color</copy>  | 选中时边框颜色                                         | string                  | <color color="#2482FC" />    |
 
-### 事件
+### button-tab 事件
 
 | 事件名                     | 说明                     | 回调参数                |
 | :------------------------- | :----------------------- | :---------------------- |
 | <copy>on-item-click</copy> | 当选项被点击时触发的事件 | 当前点击项的 `value` 值 |
 
-## button-tab-item
-
-### 属性
+### button-tab-item 属性
 
 |        参数        |   说明   |      类型       | 默认值 |
 | :----------------: | :------: | :-------------: | :----: |
