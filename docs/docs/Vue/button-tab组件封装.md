@@ -2,34 +2,32 @@
 
 ::: demo
 <template>
-
-<div>
-
-<button-tab v-model="value">
-<button-tab-item value="1">1</button-tab-item>
-<button-tab-item value="2">2</button-tab-item>
-<button-tab-item value="3">3</button-tab-item>
-<button-tab-item value="4">4</button-tab-item>
-</button-tab>
-<button-tab v-model="value" gutter="30">
-<button-tab-item value="1">1</button-tab-item>
-<button-tab-item value="2">2</button-tab-item>
-<button-tab-item value="3">3</button-tab-item>
-<button-tab-item value="4">4</button-tab-item>
-</button-tab>
-<button-tab v-model="value" :gutter="30" :column="2">
-<button-tab-item value="1">1</button-tab-item>
-<button-tab-item value="2">2</button-tab-item>
-<button-tab-item value="3">3</button-tab-item>
-<button-tab-item value="4">4</button-tab-item>
-</button-tab>
-<button-tab v-model="value1" multiple gutter="30">
-<button-tab-item value="1">1</button-tab-item>
-<button-tab-item value="2">2</button-tab-item>
-<button-tab-item value="3">3</button-tab-item>
-<button-tab-item value="4">4</button-tab-item>
-</button-tab>
-</div>
+    <div>
+        <button-tab v-model="value">
+            <button-tab-item value="1">1</button-tab-item>
+            <button-tab-item value="2">2</button-tab-item>
+            <button-tab-item value="3">3</button-tab-item>
+            <button-tab-item value="4">4</button-tab-item>
+        </button-tab>
+            <button-tab v-model="value" gutter="30">
+            <button-tab-item value="1">1</button-tab-item>
+            <button-tab-item value="2">2</button-tab-item>
+            <button-tab-item value="3">3</button-tab-item>
+            <button-tab-item value="4">4</button-tab-item>
+        </button-tab>
+        <button-tab v-model="value" :gutter="30" :column="2">
+            <button-tab-item value="1">1</button-tab-item>
+            <button-tab-item value="2">2</button-tab-item>
+            <button-tab-item value="3">3</button-tab-item>
+            <button-tab-item value="4">4</button-tab-item>
+        </button-tab>
+        <button-tab v-model="value1" multiple gutter="30">
+            <button-tab-item value="1">1</button-tab-item>
+            <button-tab-item value="2">2</button-tab-item>
+            <button-tab-item value="3">3</button-tab-item>
+            <button-tab-item value="4">4</button-tab-item>
+        </button-tab>
+    </div>
 </template>
 
 <script>
