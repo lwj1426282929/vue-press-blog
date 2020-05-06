@@ -27,6 +27,7 @@
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
+        <cell label="123"></cell>
     </div>
 </template>
 

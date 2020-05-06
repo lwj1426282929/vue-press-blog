@@ -1,8 +1,10 @@
 import { ButtonTab, ButtonTabItem } from './ButtonTab'
+import Cell from './Cell'
 
 const components = {
   ButtonTab, 
-  ButtonTabItem
+  ButtonTabItem,
+  Cell
 }
 
 const install = Vue => {
