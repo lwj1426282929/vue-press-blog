@@ -74,7 +74,7 @@ export default {
 
 | 事件名                  | 说明                     | 回调参数                |
 | :---------------------- | :----------------------- | :---------------------- |
-| <copy>item-click</copy> | 当选项被点击时触发的事件 | 当前点击项的 `value` 值 |
+| <copy>on-item-click</copy> | 当选项被点击时触发的事件 | 当前点击项的 `value` 值 |
 
 ## button-tab-item
 
@@ -83,4 +83,3 @@ export default {
 |        参数        |    说明    |      类型       | 默认值 |
 | :----------------: | :--------: | :-------------: | :----: |
 | <copy>value</copy> |  选项的值  | string / number |   -    |
-| <copy>width</copy> | 选项的宽度 |     string      |   -    |
