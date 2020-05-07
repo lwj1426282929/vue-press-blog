@@ -25,10 +25,9 @@ class Menu {
             // 遍历文件路径
             files.forEach((file) => {
                 let subPath = path_ + '/' + file
-                // console.log('path_', path_)
-                // console.log('file', file)
                 let stat = fs.lstatSync(path.join(__dirname, subPath))
                 let isDirectory = stat.isDirectory()
+                
                 if (isDirectory) {
                     if (file !== 'img') {
                         let children = findFilesByPath(subPath)

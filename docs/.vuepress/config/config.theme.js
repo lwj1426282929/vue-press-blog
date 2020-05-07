@@ -1,7 +1,5 @@
 const Menu = require('./config.menu');
 
-// console.log(Menu.getContents())
-
 module.exports = {
     // 显示 h1, h2
     sidebarDepth: 2,
