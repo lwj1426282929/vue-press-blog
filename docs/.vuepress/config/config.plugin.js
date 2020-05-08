@@ -1,5 +1,6 @@
 const demoCode = require('../plugin/demo-code');
 const contents = require('../plugin/contents');
+const block = require('../plugin/block');
 
 module.exports = [
     // pwa
@@ -34,6 +35,8 @@ module.exports = [
             duration: 1000,
         },
     ],
+
+    ['container', block],
 
     // 自定义容器
     [

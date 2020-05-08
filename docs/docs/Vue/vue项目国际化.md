@@ -1,6 +1,6 @@
 # vue-i18n 国际化
 
-`vue-element-admin`<Badge text="v4.1.0-" /> 默认提供了国际化，因大部分用户其实是用不到国际化的，但移除国际化工作量又相当的大。故在<Badge text="v4.1.0+" />版本之后不再提供国际化，如有国际化的需求可以参考`vue-element-admin`[i18n 分支](https://github.com/PanJiaChen/vue-element-admin/tree/i18n)。
+`vue-element-admin`<badge text="v4.1.0-" /> 默认提供了国际化，因大部分用户其实是用不到国际化的，但移除国际化工作量又相当的大。故在<badge text="v4.1.0+" />版本之后不再提供国际化，如有国际化的需求可以参考`vue-element-admin`[i18n 分支](https://github.com/PanJiaChen/vue-element-admin/tree/i18n)。
 
 ![](./img/vue-i18n-en.png)
 ![](./img/vue-i18n-zh.png)

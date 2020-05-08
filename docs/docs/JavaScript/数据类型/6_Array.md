@@ -4,15 +4,16 @@
 
 ### from
 
-::: message #3d7e9a 语法
-_Array.from(arrayLike[, mapFn[, thisArg]])_
-:::
-
 创建一个新的数组。
+
+::: block #3d7e9a 语法
+_Array.from(arrayLike[, mapFn[, thisArg]])_
 
 -   arrayLike：想要转换成数组的伪数组对象或可迭代对象。
 -   mapFn：如果指定了该参数，新数组中的每个元素会执行该回调函数。
 -   thisArg: 执行回调时的`this`对象。
+
+:::
 
 `Array.from()`可以通过以下方式来创建数组对象：
 
@@ -27,13 +28,14 @@ Array.from('abcd'); // ['a', 'b', 'c', 'd']
 
 ### of
 
-::: message #3d7e9a 语法
-_Array.of(element0[, element1[, ...[, elementN]]])_
-:::
+创建一个具有可变数量参数的新数组实例。
 
-创建一个具有可变数量参数的新数组实例
+::: block #3d7e9a 语法
+_Array.of(element0[, element1[, ...[, elementN]]])_
 
 -   elementN：任意个参数，将按顺序成为返回数组中的元素。
+
+:::
 
 ```js
 Array.of(1); // [1]
@@ -47,13 +49,14 @@ Array.of(7)表示创建一个长度为 1 的数组（[7]）；Array(7)表示创�
 
 ### isArray
 
-::: message #3d7e9a 语法
-Array.isArray(obj)
-:::
-
 判断一个实例是否是数组，是返回`true`，否则返回`false`。
 
+::: block #3d7e9a 语法
+Array.isArray(obj)
+
 -   obj：需要检测的实例。
+
+:::
 
 ```js
 Array.isArray([1, 2, 3]); // true
@@ -66,19 +69,20 @@ Array.isArray(Array.prototype); // true
 
 当检测`Array`实例时, `Array.isArray` 优于`instanceof`，因为`Array.isArray`能检测`iframes`。
 
-::: tip
+::: tip 提示
 `Array.isArray(Array.prototype)`返回`true`。
 :::
 
 ### indexOf
 
-::: message #3d7e9a 语法
-_array.indexOf(element[, fromIndex])_
-:::
-
 返回指定元素在数组中`第一次`出现的索引， 没有则返回`-1`。
 
+::: block #3d7e9a 语法
+_array.indexOf(element[, fromIndex])_
+
 -   fromIndex：从此位置开始正向查找。默认为 0。若 fromIndex &ge; 数组的长度，则不会查找；若为负数，则将其视为从数组末尾向前的偏移（查找顺序不变），即-1 代表从最后一个元素开始往后查找，-2 表示从倒数第二个元素开始往后查找...，若为负数且其绝对值&ge;数组的长度，则整个数组都会查找。
+
+:::
 
 ```js
 let arr = [1, 2, 3];
@@ -92,7 +96,7 @@ arr.indexOf(2, -3); // 1
 arr.indexOf(2, -4); // 1
 ```
 
-::: tip
+:::tip 提示
 `indexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
@@ -130,13 +134,14 @@ if (!array.prototype.indexOf) {
 
 ### lastIndexOf
 
-::: message #3d7e9a 语法
-_array.lastIndexOf(element[, fromIndex])_
-:::
-
 返回指定元素在数组中`最后一次`出现的索引，没有则返回`-1`。
 
+::: block #3d7e9a 语法
+_array.lastIndexOf(element[, fromIndex])_
+
 -   fromIndex：从此位置开始逆向查找。默认为数组的长度-1。若 fromIndex &ge; 数组的长度-1，则整个数组都会被查找；若为负值，则将其视为从数组末尾向前的偏移，即-1 代表从最后一个元素开始往前查找，-2 代表从倒数第二个元素开始往前查找...，若为负数且其绝对值 &gt; 数组的长度，则不会查找，返回-1。
+
+:::
 
 ```js
 let arr = [1, 2, 3];
@@ -150,7 +155,7 @@ arr.lastIndexOf(2, -3); // -1
 arr.lastIndexOf(2, -4); // -1
 ```
 
-::: tip
+::: tip 提示
 `lastIndexOf`使用`===`进行判断 element 与数组中包含的元素之间的关系。
 :::
 
@@ -196,11 +201,10 @@ if (!array.prototype.lastIndexOf) {
 
 ### find
 
-::: message #3d7e9a 语法
-_array.find(callback[, thisArg])_
-:::
-
 返回`第一个`满足匹配函数的元素，否则返回`undefined`。
+
+::: block #3d7e9a 语法
+_array.find(callback[, thisArg])_
 
 -   callback：在数组每一项上执行的函数，接收 3 个参数：
 
@@ -209,6 +213,8 @@ _array.find(callback[, thisArg])_
     -   array：数组本身。
 
 -   thisArg: 执行回调时的`this`对象。
+
+:::
 
 在第一次调用 callback 函数时会确定元素的索引范围，因此在`find`方法开始执行之后添加到数组的新元素将不会被 callback 函数访问到。如果数组中一个尚未被 callback 函数访问到的元素的值被 callback 函数所改变，那么当 callback 函数访问到它时，它的值是将是根据它在数组中的索引所访问到的当前值。被删除的元素仍旧会被访问到，但是其值已经是`undefined`了。
 
@@ -217,18 +223,17 @@ let arr = [
     { name: 'a', age: 18 },
     { name: 'b', age: 22 },
 ];
-let person = arr.find(item => {
+let person = arr.find((item) => {
     return item.age > 20;
 }); // { name: 'b', age: 22 }
 ```
 
 ### findIndex
 
-::: message #3d7e9a 语法
-_array.findIndex(callback[, thisArg])_
-:::
-
 返回数组中满足匹配函数的第一个元素的索引，否则返回`-1`。
+
+::: block #3d7e9a 语法
+_array.findIndex(callback[, thisArg])_
 
 -   callback：在数组每一项上执行的函数，接收 3 个参数：
 
@@ -238,6 +243,8 @@ _array.findIndex(callback[, thisArg])_
 
 -   thisArg: 执行回调时的`this`对象。
 
+:::
+
 在第一次调用 callback 函数时会确定元素的索引范围，因此在 `findIndex` 方法开始执行之后添加到数组的新元素将不会被 callback 函数访问到。如果数组中一个尚未被 callback 函数访问到的元素的值被 callback 函数所改变，那么当 callback 函数访问到它时，它的值是将是根据它在数组中的索引所访问到的当前值。被删除的元素仍然会被访问到。
 
 ```js
@@ -245,20 +252,21 @@ let arr = [
     { name: 'a', age: 18 },
     { name: 'b', age: 22 },
 ];
-let index = arr.findIndex(item => {
+let index = arr.findIndex((item) => {
     return item.age > 20;
 }); // 1
 ```
 
 ### includes
 
-::: message #3d7e9a 语法
-_array.includes(valueToFind[, fromIndex])_
-:::
-
 判断数组是否包含指定值，包含返回`true`，否则返回`false`。
 
+::: block #3d7e9a 语法
+_array.includes(valueToFind[, fromIndex])_
+
 -   fromIndex： 从 fromIndex 索引处开始查找，默认为 0。若为负值，则将其视为从数组末尾向前的偏移，即-1 代表从最后一个元素开始往后查找，-2 代表从倒数第二个元素开始往后查找...。若 fromIndex 为正且 &ge; 数组长度，或为负数时其绝对值大于数组长度，则数组不会搜索， 返回`false`。
+
+:::
 
 ```js
 let arr = [1, 2, 3];
@@ -266,17 +274,16 @@ arr.includes(2); // true
 arr.includes(2, 2); // false
 ```
 
-::: tip
+::: tip 提示
 `includes`是一个通用方法。它不要求 this 值是数组对象，所以它可以被用于其他类型的对象 (比如类数组对象)。
 :::
 
 ### forEach
 
-::: message #3d7e9a 语法
-_array.forEach(callback(currentValue [, index [, array]])[, thisArg])_
-:::
-
 遍历数组，对数组的每个元素执行一次给定的函数。
+
+::: block #3d7e9a 语法
+_array.forEach(callback(currentValue [, index [, array]])[, thisArg])_
 
 -   callback：为数组中每个元素执行的函数，该函数接收三个参数：
     -   currentValue： 当前遍历的元素；
@@ -284,9 +291,11 @@ _array.forEach(callback(currentValue [, index [, array]])[, thisArg])_
     -   array：当前数组。
 -   thisArg： 执行回调时的`this`对象。
 
+:::
+
 ```js
 let arr = [1, 2, 3];
-arr.forEach(item => {
+arr.forEach((item) => {
     item++;
 });
 console.log(arr); // [1, 2, 3]
@@ -310,7 +319,7 @@ console.log(arr); // [1, 2, 3]
 
 ### map
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.map(callback(currentValue [, index [, array]])[, thisArg])_
 :::
 
@@ -324,7 +333,7 @@ _array.map(callback(currentValue [, index [, array]])[, thisArg])_
 
 ```js
 let arr = [1, 2, 3];
-let arr_ = arr.forEach(item => {
+let arr_ = arr.forEach((item) => {
     item++;
 });
 console.log(arr_); // [2, 3, 4]
@@ -332,7 +341,7 @@ console.log(arr_); // [2, 3, 4]
 
 ### reduce
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.reduce(callback(accumulator, currentValue[, index[, array]])[, initialValue])_
 :::
 
@@ -364,7 +373,7 @@ arr.reduce((sum, item) => {
 
 ### reduceRight
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.reduceRight(callback(accumulator, currentValue[, index[, array]])[, initialValue])_
 :::
 
@@ -396,7 +405,7 @@ arr.reduceRight((sum, item) => {
 
 ### filter
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.filter(callback(element[, index[, array]])[, thisArg])_
 :::
 
@@ -412,7 +421,7 @@ _array.filter(callback(element[, index[, array]])[, thisArg])_
 
 ```js
 let arr = [1, 2, 3, 4];
-arr.filter(item => {
+arr.filter((item) => {
     return item > 2;
 }); // [3, 4]
 ```
@@ -423,7 +432,7 @@ arr.filter(item => {
 
 ### flat
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.flat([depth])_
 :::
 
@@ -446,7 +455,7 @@ arr.flat(Infinity); // [1, 2, undefined, null, 3, 4, 5, 6, 7, 8, 9, 10]
 
 ### flatMap
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.flatMap(callback[, thisArg])_
 :::
 
@@ -460,11 +469,11 @@ _array.flatMap(callback[, thisArg])_
 
 ```js
 let arr = [1, 2, 3, 4];
-arr.flatMap(item => {
+arr.flatMap((item) => {
     return [item * 2];
 }); // [2, 4, 6, 8]; arr = [1, 2, 3, 4]
 
-arr.flatMap(item => {
+arr.flatMap((item) => {
     if (item > 2) return item;
     return [];
 }); // [3, 4]
@@ -479,7 +488,7 @@ arr.flatMap(item => {
 
 ### every
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.every(callback[, thisArg])_
 :::
 
@@ -497,7 +506,7 @@ _array.every(callback[, thisArg])_
 
 ```js
 let arr = [12, 5, 8, 130, 44];
-arr.every(item => {
+arr.every((item) => {
     return item > 10;
 }); // false
 ```
@@ -511,7 +520,7 @@ arr.every(item => {
 
 ### some
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.some(callback[, thisArg])_
 :::
 
@@ -529,7 +538,7 @@ _array.some(callback[, thisArg])_
 
 ```js
 let arr = [12, 5, 8, 130, 44];
-arr.some(item => {
+arr.some((item) => {
     return item > 10;
 }); // true
 ```
@@ -543,7 +552,7 @@ arr.some(item => {
 
 ### sort
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.sort([sortFunction])_
 :::
 
@@ -566,7 +575,7 @@ arr.sort((a, b) => a - b); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30, 40, 100]
 
 ### reverse
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.reverse()_
 :::
 
@@ -579,7 +588,7 @@ arr.reverse(); // [4, 3, 2, 1]
 
 ### push
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.push(element1, ..., elementN)_
 :::
 
@@ -594,7 +603,7 @@ arr.push(1, 2, 3); // 3; arr = [1, 2, 3]
 
 ### pop
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.pop()_
 :::
 
@@ -607,7 +616,7 @@ arr.pop(); // 3; arr = [1, 2]
 
 ### shift
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.shift()_
 :::
 
@@ -622,7 +631,7 @@ arr.shift(); // 1; arr = [2, 3, 4]
 
 将一个或多个元素添加到数组的开头，并返回该数组的新长度。
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.unshift(element1, ..., elementN)_
 :::
 
@@ -635,7 +644,7 @@ arr.unshift(-1, -2); // 5; arr = [-1, -2, 1, 2, 3]
 
 ### slice
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.slice([begin[, end]])_
 :::
 
@@ -654,7 +663,7 @@ arr.slice(-3, -4); // []
 
 ### splice
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.splice(start[, deleteCount[, item1[, item2[, ...]]]])_
 :::
 
@@ -673,7 +682,7 @@ arr.splice(7, 0, [9, 10]); // [1, 2, 3, 4, 5, 6, 7, [9, 10], 8];
 
 ### concat
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.concat(value1[, value2[, ...[, valueN]]])_
 :::
 
@@ -689,7 +698,7 @@ arr_1.concat(999, arr_2); // [1, 2, 3, 4, 5, 999, 6, 7, 8]; arr_1 = [1, 2, 3, 4,
 
 ### join
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.join([separator])_
 :::
 
@@ -708,7 +717,7 @@ arr.join('-'); // 1-2-3-4
 
 ### copyWithin
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.copyWithin(target[, start[, end]])_
 :::
 
@@ -732,7 +741,7 @@ arr.copyWithin(0, 3, 5); // ['d', 'e', 'c', 'd', 'e', 'f', 'g']
 
 ### values
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.values()_
 :::
 
@@ -751,7 +760,7 @@ for (let item of obj) {
 
 ### entries
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.entries()_
 :::
 
@@ -773,7 +782,7 @@ console.log(obj.next()); // { value: [0, 1], done: false }
 
 ### fill
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.fill(value[, start[, end]])_
 :::
 
@@ -794,7 +803,7 @@ arr.fill(6, 2, 4); // [1, 2, 6, 6, 5, 6, 7]
 
 ### keys
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.keys()_
 :::
 
@@ -817,7 +826,7 @@ for (let item of iterator) {
 
 ### toString
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.toString()_
 :::
 
@@ -832,7 +841,7 @@ arr.toString(); // [object Object],1,string,Thu Apr 02 2020 10:39:43 GMT+0800 (�
 
 ### toLocaleString
 
-::: message #3d7e9a 语法
+::: block #3d7e9a 语法
 _array.toLocaleString([locales[,options]])_
 :::
 

@@ -37,7 +37,7 @@ export default {
             value: '1',
             value1: ['1', '2']
         }
-    }
+    },
 }
 </script>
 

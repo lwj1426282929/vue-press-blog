@@ -1,4 +1,3 @@
-const { resolve } = require('path');
 const mdIt = require('markdown-it');
 const mdItContainer = require('markdown-it-container');
 const { filterHTMLTokenFromTokens, getHighlightCode } = require('./utils');
@@ -44,7 +43,7 @@ const getRender = (md, options = {}, ctx) => {
 
 module.exports = (options, ctx) => {
     return {
-        name: 'vuepress-plugin-code-doc',
+        name: 'vuepress-plugin-demo-code',
         extendMarkdown: (md) => {
             md.use(mdItContainer, 'demo', {
                 render: getRender(md, options, ctx),

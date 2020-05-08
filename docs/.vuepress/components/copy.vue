@@ -1,6 +1,6 @@
 <template>
     <el-tooltip content="点击复制"
-                placement="top">
+                placement="left">
         <div class="copy-container">
             <slot></slot>
         </div>

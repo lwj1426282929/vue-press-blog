@@ -346,7 +346,7 @@ window.history.go(1);
 
 新建并激活一个历史记录。
 
-::: message #3d7e9a
+::: block #3d7e9a
 _window.history.pushState(state, title[, URL])_
 :::
 
@@ -358,7 +358,7 @@ pushState() 绝对不会触发 hashchange 事件，即使新的 URL 与旧的 UR
 
 修改当前历史记录，更新状态对象 state 或者当前历史记录的 URL。
 
-::: message #3d7e9a
+::: block #3d7e9a
 _window.history.replaceState(state, title[, URL])_
 :::
 
