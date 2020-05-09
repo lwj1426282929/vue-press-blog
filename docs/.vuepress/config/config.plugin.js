@@ -10,7 +10,7 @@ module.exports = [
     ['@vuepress/back-to-top', true],
 
     // 预览图片
-    ['@vuepress/medium-zoom'],
+    ['@vuepress/medium-zoom', { selector: '.theme-default-content :not(a)  img' }],
 
     // 数学公式
     ['@codeciting/vuepress-plugin-math'],
