@@ -283,3 +283,190 @@ string.normalize('NFD'); // "ñ"
 string.normalize('NFKC'); // "ñ"
 string.normalize('NFKD'); // "ñ"
 ```
+
+### padEnd
+
+用一个字符串从当前字符串的结束位置开始填充当前字符串（如果需要的话则重复填充），返回填充后达到指定长度的字符串。
+
+::: block #3d7e9a 语法
+_string.padEnd(targetLength[, padString])_
+
+-   targetLength：当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身;
+-   padString：填充字符串。
+
+:::
+
+```js
+let str = 'abc';
+str.padEnd(1); // "abc"
+str.padEnd(4); // "abc "
+str.padEnd(5, 'defght'); // "abcde"
+str.padEnd(5, 'd'); // "abcdd"
+```
+
+**Polyfill**
+
+```js
+String.prototype.padEnd =
+    String.prototype.padEnd ||
+    function(targetLength, padString) {
+        targetLength = targetLength >> 0;
+        if (this.length > targetLength) return String(this);
+
+        padString = padString === undefined ? '' : padString;
+        targetLength = targetLength - this.length;
+        if (targetLength > padString.length)
+            padString += padString.repeat(targetLength / padString.length);
+
+        return String(this) + padString.slice(0, targetLength);
+    };
+```
+
+### padStart
+
+用一个字符串从当前字符串的开始位置开始填充当前字符串（如果需要的话则重复填充），返回填充后达到指定长度的字符串。
+
+::: block #3d7e9a 语法
+_string.padEnd(targetLength[, padString])_
+
+-   targetLength：当前字符串需要填充到的目标长度。如果这个数值小于当前字符串的长度，则返回当前字符串本身;
+-   padString：填充字符串。
+
+:::
+
+```js
+let str = 'abc';
+str.padStart(1); // "abc"
+str.padStart(4); // " abc"
+str.padStart(5, 'defght'); // "deabc"
+str.padStart(5, 'd'); // "ddabc"
+```
+
+**Polyfill**
+
+```js
+String.prototype.padStart =
+    String.prototype.padStart ||
+    function(targetLength, padString) {
+        targetLength = targetLength >> 0;
+        if (this.length > targetLength) return String(this);
+
+        padString = padString === undefined ? '' : padString;
+        targetLength = targetLength - this.length;
+        if (targetLength > padString.length)
+            padString += padString.repeat(targetLength / padString.length);
+
+        return padString.slice(0, targetLength) + String(this);
+    };
+```
+
+### repeat
+
+构造并返回一个新字符串，该字符串包含被连接在一起的指定数量的字符串的副本，不改变原字符串。
+
+::: block #3d7e9a 语法
+_string.repeat(count)_
+
+-   count：不能为负的整数，表示在新构造的字符串中重复了多少遍原字符串。
+
+:::
+
+:::tip 提示
+当参数为小数时会自动取整（正数向下取整，负数向上取整）。
+:::
+
+```js
+let str = 'abc';
+str.repeat(0); // ""
+str.repeat(1); // "abc"
+str.repeat(2); // "abcabc"
+str.repeat(2.5); // "abcabc"
+str.repeat(-1); // "abcabc"
+```
+
+### replace
+
+返回一个由替换值（replacement）替换一些或所有匹配的模式（pattern）后的新字符串，不改变原字符串。
+
+::: block #3d7e9a 语法
+_string.replace(regexp|substr, newSubStr|function)_
+
+-   regexp：正则表达式，该正则所匹配的内容会被第二个参数的返回值替换掉；
+-   substr：一个将被 newSubStr 替换的 字符串，进第一个匹配到的字符串会被替换掉；
+-   newSubStr：用于替换掉第一个参数在原字符串中的匹配部分的字符串；
+-   function：一个用来创建新子字符串的函数，该函数的返回值将替换掉第一个参数匹配到的结果。
+
+:::
+
+**newSubStr 使用字符串作为参数**
+
+| 变量名 | 说明                                               |
+| :----- | :------------------------------------------------- |
+| \$\$   | 插入一个\$                                         |
+| \$&    | 插入匹配的子串                                     |
+| \$\`   | 插入当前匹配的子串左边的内容                       |
+| \$'    | 插入当前匹配的子串右边的内容                       |
+| \$n    | 插入`RegExp`第 n 个括号匹配的字符串（n 从 1 开始） |
+
+```js
+let str = 'John Smith';
+str.replace(/(\w+)\s(\w+)/, '$$'); // "$"
+str.replace(/(\w+)\s(\w+)/, '$&'); // "John Smith"
+str.replace(/(\w+)\s(\w+)/, '$`'); // ""
+str.replace(/(\w+)\s(\w+)/, "$'"); // ""
+str.replace(/(\w+)\s(\w+)/, '$2 $1'); // "Smith John"
+```
+
+**newSubStr 使用函数作为参数**
+
+| 参数            | 说明                                                    |
+| :-------------- | :------------------------------------------------------ |
+| match           | 匹配的子串, 对应\$&                                     |
+| p1, p2, ..., pn | `RegExp`第 n 个括号匹配的字符串（n 从 1 开始），对应\$n |
+| offset          | 匹配到的子字符串在原字符串中的偏移量                    |
+| string          | 被匹配的原字符串                                        |
+
+```js
+function replacer(match, p1, p2, offset, string) {
+    return [p2, p1].join(' ');
+}
+
+let str = 'John Smith';
+str.replace(/(\w+)\s(\w+)/, replacer); // "Smith John"
+```
+
+### search
+
+返回正则表达式在字符串中首次匹配项的索引;否则，返回 -1。
+
+::: block #3d7e9a 语法
+_string.search(regexp)_
+
+-   regexp：正则表达式。
+
+:::
+
+```js
+let str = 'John Smith';
+str.search(/[a-z]/g); // 1
+```
+
+### slice
+
+提取某个字符串的一部分（包含开始位置，不包含结束位置），并返回一个新的字符串，且不会改动原字符串。
+
+::: block #3d7e9a 语法
+_string.slice(beginIndex[, endIndex])_
+
+-   beginIndex：从该索引处开始提取原字符串中的字符。如果值为负数，则从 string.length + beginIndex 处开始提取；
+-   endIndex：在该索引（以 0 为基数）处结束提取字符串。若为负数，则从 string.length + endIndex 处结束提取，默认为字符串长度。
+
+:::
+
+```js
+let str = 'abcdefg';
+str.slice(0); // "abcdefg"
+str.slice(2, 6); // "cdef"
+```
+
+### split
