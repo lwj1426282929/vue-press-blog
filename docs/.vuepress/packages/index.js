@@ -1,4 +1,5 @@
-import { ButtonTab, ButtonTabItem } from './ButtonTab'
+import { ButtonTab, ButtonTabItem } from 'vue-button-tab'
+import 'vue-button-tab/lib/vue-button-tab.css'
 import Cell from './Cell'
 
 const components = {

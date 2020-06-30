@@ -3,24 +3,28 @@
 ::: demo
 <template>
     <div>
+        <p>基础用法</p>
         <button-tab v-model="value">
             <button-tab-item value="1">1</button-tab-item>
             <button-tab-item value="2">2</button-tab-item>
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
+        <p>分栏间隔</p>
         <button-tab v-model="value" gutter="30">
             <button-tab-item value="1">1</button-tab-item>
             <button-tab-item value="2">2</button-tab-item>
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
+        <p>分栏间隔换行</p>
         <button-tab v-model="value" :gutter="30" :column="2">
             <button-tab-item value="1">1</button-tab-item>
             <button-tab-item value="2">2</button-tab-item>
             <button-tab-item value="3">3</button-tab-item>
             <button-tab-item value="4">4</button-tab-item>
         </button-tab>
+        <p>多选模式</p>
         <button-tab v-model="value1" multiple gutter="30">
             <button-tab-item value="1">1</button-tab-item>
             <button-tab-item value="2">2</button-tab-item>
@@ -46,6 +50,7 @@ export default {
     height: 40px;
     line-height: 40px;
     font-size: 16px;
+    margin-bottom: 20px;
 }
 </style>
 

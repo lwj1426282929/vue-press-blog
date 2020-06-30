@@ -40,6 +40,7 @@
     "markdown-it-container": "^2.0.0",
     "md5": "^2.2.1",
     "path": "^0.12.7",
+    "vue-button-tab": "^0.1.8",
     "vux": "^2.9.4"
   }
 }
