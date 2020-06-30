@@ -4,19 +4,17 @@
     <p></p>
   </block>
   <el-row :gutter="20">
-  <el-col :lg="6" :md="8" :sm="12" :xs="24" v-for="(item, index) in frames_js" :key="index">
-  <div class="card">
-  <a :href="item.link" target="_blank">
-  <div class="card-mask" >
-  <img :src="item.img">
-  <p class="card-name">{{ item.name }}</p>
-  </div>
-  <div class="card-desc">
-    {{ item.desc }}
-  </div>
-  </a>
-  </div>
-  </el-col>
+    <el-col :lg="6" :md="8" :sm="12" :xs="24" v-for="(item, index) in frames_js" :key="index">
+      <div class="card">
+        <a :href="item.link" target="_blank">
+          <div class="card-mask" >
+            <img :src="item.img">
+            <p class="card-name">{{ item.name }}</p>
+          </div>
+          <div class="card-desc">{{ item.desc }}</div>
+        </a>
+      </div>
+    </el-col>
   </el-row>
 </template>
 

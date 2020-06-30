@@ -61,13 +61,13 @@ export default {
 ### npm 安装
 
 ```sh
-npm i button-tab
+npm i vue-button-tab
 ```
 
 ### yarn 安装
 
 ```sh
-yarn add button-tab
+yarn add vue-button-tab
 ```
 
 ## 使用
