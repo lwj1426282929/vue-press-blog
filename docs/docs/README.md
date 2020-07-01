@@ -34,8 +34,8 @@ export default {
 
 <style lang="stylus" scoped>
 .theme-default-content:not(.custom) {
-  margin: 0;
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 100% !important;
 
   .card {
     border: 1px solid #ebeef5;
