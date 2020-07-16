@@ -29,7 +29,7 @@ class Menu {
                 let isDirectory = stat.isDirectory()
                 
                 if (isDirectory) {
-                    if (file !== 'img') {
+                    if (file !== 'img' && file !== 'image') {
                         let children = findFilesByPath(subPath)
                         content.push({
                             title: file,
