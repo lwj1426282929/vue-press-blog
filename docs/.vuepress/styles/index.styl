@@ -11,7 +11,6 @@ html, body
   position relative
   z-index 2
 
-
 .en, .zh
   margin-bottom 3em
 
@@ -27,114 +26,87 @@ html, body
   color #e2777a
 
 .medium-zoom-image
-  // box-shadow: 0 5px 20px 0 rgba(0, 0, 0, .4)
   position relative
   width 100%
   margin 10px auto
   border-radius 6px
 
-table{
+table
   display inline-block
-  // &:hover {
-  //   box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
-  // }
-}
-
-
-
-
-.theme-default-content pre code, .theme-default-content pre[class*="language-"] code{
+  &:hover 
+    box-shadow 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5)
+  
+.theme-default-content pre code, .theme-default-content pre[class*="language-"] code
   color #606266
-}
+
 
 /* Code blocks */
-pre[class*="language-"] {
-	padding: 1em;
-	margin: .5em 0;
-	overflow: auto;
+pre[class*="language-"] 
+	padding 1em
+	margin .5em 0
+	overflow auto
   border 1px solid #ebebeb
 
-  // &:hover {
-  //   box-shadow: 0 0 8px 0 rgba(232, 237, 250, 0.6), 0 2px 4px 0 rgba(232, 237, 250, 0.5);
-  // }
-}
+div[class*="language-"] 
+  background #fafafa
+  &::before
+    color #ccc
 
-div[class*="language-"] {
-  background: #fafafa;
-}
-
-.token.comment,
-.token.block-comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-	color: #999;
-}
-
-.token.punctuation {
-	// color: #ccc;
-  color #3182bd
-}
-
-.token.tag,
-.token.attr-name,
-.token.namespace,
-.token.deleted {
-	// color: #e2777a;
-  color #3182bd
-}
-
-.token.function-name {
-	// color: #6196cc;
-	color #3182bd
-}
-
-.token.boolean,
-.token.number,
-.token.function {
-	// color: #f08d49;
-	color #3182bd
-}
-
-.token.property,
-.token.class-name,
-.token.constant,
-.token.symbol {
-	color: #f8c555;
-}
-
-.token.selector,
-.token.important,
-.token.atrule,
-.token.keyword,
-.token.builtin {
-	// color: #cc99cd;
-  color #3182bd
-}
-
-.token.string,
-.token.char,
-.token.attr-value,
-.token.regex,
-.token.variable {
-	// color: #7ec699;
-  color #756bb1
-}
-
-.token.operator,
-.token.entity,
-.token.url {
-	color: #67cdcc;
-}
-
-.token.inserted {
-	color: green;
-}
-
-div[class*="language-"]::before{
-  color #ccc
-}
+.token
+  &.comment,
+  &.block-comment,
+  &.prolog,
+  &.doctype,
+  &.cdata
+    color #999
+  &.punctuation
+    color #3182bd
+  &.tag,
+  &.attr-name,
+  &.namespace,
+  &.deleted 
+    color #3182bd
+  &.function-name 
+    color #3182bd
+  &.boolean,
+  &.number,
+  &.function
+    color #3182bd
+  &.property,
+  &.class-name,
+  &.constant,
+  &.symbol 
+	  color #f8c555
+  &.property,
+  &.class-name,
+  &.constant,
+  &.symbol 
+    color #f8c555
+  &.selector,
+  &.important,
+  &.atrule,
+  &.keyword,
+  &.builtin 
+    color #3182bd
+  &.string,
+  &.char,
+  &.attr-value,
+  &.regex,
+  &.variable 
+    color #756bb1
+  &.operator,
+  &.entity,
+  &.url 
+    color #67cdcc
+  &.inserted 
+    color green
 
 .theme-default-content:not(.custom), .page-edit, .page-nav
-  max-width: 900px !important
+  max-width 900px !important
 
+.code-copy 
+  right 2.2rem !important
+  top 0.6rem !important
+  svg
+    width 16px
+    height 16px
