@@ -459,10 +459,11 @@ $imgHeight: 370;
 
 ::: demo
 <template>
-    <div class="demo-battery-container">
+    <div class="battery-bg">
         <div class="battery-container">
             <div class="header"></div>
-            <div class="battery"></div>
+            <div class="battery">
+            </div>
             <div class="battery-copy">
                 <div class="g-wave"></div>
                 <div class="g-wave"></div>
@@ -473,11 +474,9 @@ $imgHeight: 370;
 </template>
 
 <style lang="scss" scoped>
-.demo-battery-container {
-    width: 100%;
-    height: 300px;
+.battery-bg {
     background: #000;
-    padding: 20px;
+    padding: 50px;
 }
 .battery-container {
     position: relative;
@@ -490,9 +489,9 @@ $imgHeight: 370;
         height: 10px;
         left: 50%;
         top: 0;
-        background: #fff;
         transform: translate(-50%, -10px);
         border-radius: 5px 5px 0 0;
+        background: #fff;
     }
 
     .battery-copy {
@@ -537,9 +536,9 @@ $imgHeight: 370;
         border-radius: 45% 47% 44% 42%;
         bottom: 25px;
         left: 50%;
-        transform: translate(0%, 0);
+        transform: translate(-50%, 0);
         z-index: 1;
-        animation: move 10s linear infinite;
+        animation: move-battery 10s linear infinite;
     }
 
     .g-wave:nth-child(2) {
@@ -554,7 +553,7 @@ $imgHeight: 370;
 }
 
 @keyframes charging {
-    50% {
+	50% {
         box-shadow: 0 14px 28px rgba(0, 150, 136, 0.83), 0px 4px 10px rgba(9, 188, 215, 0.4);
     }
     
@@ -572,11 +571,12 @@ $imgHeight: 370;
     }
 }
 
-@keyframes move {
+@keyframes move-battery {
     100% {
         transform: translate(-50%, -160px) rotate(720deg);
     }
 }
+
 </style>
 :::
 
@@ -729,225 +729,6 @@ $imgHeight: 370;
 </style>
 :::
 
-## 文字断裂效果
-
-::: demo
-<template>
-    <div class="text-crack-container">
-        <div data-text="Text Crack" class="text-crack">
-            <span>Text Crack</span>
-        </div>
-    </div>
-</template>
-
-<style lang="scss" scoped>
-.text-crack-container {
-    height: 200px;
-    background: #000;
-    overflow: hidden;
-
-    .text-crack {
-        position: relative;
-        height: 100%;
-        margin: auto;
-        font-size: 40px;
-        font-weight: bold;
-        color: #fff;
-        letter-spacing: 0.02em;
-        text-transform: uppercase;
-        text-shadow: 0 0 10px blue;
-        user-select: none;
-        white-space: nowrap;
-        filter: blur(0.007em);
-        animation: shake 2.5s linear forwards;
-
-        &::before,
-        &::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        &::before {
-            animation: crack1 2.5s linear forwards;
-            clip-path: polygon(0% 0%, 10% 0%, 55% 100%, 0% 100%);
-        }
-
-        &::after {
-            animation: crack2 2.5s linear forwards;
-            clip-path: polygon(44% 0%, 100% 0%, 100% 100%, 70% 100%);
-        }
-
-        span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            clip-path: polygon(10% 0%, 44% 0%, 70% 100%, 55% 100%);
-        }
-    }
-}
-
-
-@keyframes shake {
-    5%,
-    15%,
-    25%,
-    35%,
-    55%,
-    65%,
-    75%,
-    95% {
-        filter: blur(0.018em);
-        transform: translateY(0.018em) rotate(0deg);
-    }
-
-    10%,
-    30%,
-    40%,
-    50%,
-    70%,
-    80%,
-    90% {
-        filter: blur(0.01em);
-        transform: translateY(-0.018em) rotate(0deg);
-    }
-
-    20%,
-    60% {
-        filter: blur(0.03em);
-        transform: translate(-0.018em, 0.018em) rotate(0deg);
-    }
-
-    45%,
-    85% {
-        filter: blur(0.03em);
-        transform: translate(0.018em, -0.018em) rotate(0deg);
-    }
-
-    100% {
-        filter: blur(0.007em);
-        transform: translate(0) rotate(-0.5deg);
-    }
-}
-
-@keyframes crack1 {
-    0%,
-    95% {
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        transform: translate(-53%, -47%);
-    }
-}
-
-@keyframes crack2 {
-    0%,
-    95% {
-        transform: translate(-50%, -50%);
-    }
-
-    100% {
-        transform: translate(-47%, -53%);
-    }
-}
-</style>
-:::
-
-## 文字投影效果
-
-::: demo
-<template>
-    <div class="text-shadow-container">
-        <div class="shadow-left"> TxT Long Shadow</div>
-        <div class="shadow-right">Txt Shadow</div>
-    </div>
-</template>
-
-<style lang="scss" scoped>
-@function makelongrightshadow($color) {
-    $val: 0px 0px $color;
-    @for $i from 1 through 50 {
-        $color: fade-out(desaturate($color, 1%), .02);
-        $val: #{$val}, #{$i}px #{$i}px #{$color};
-    }
-    @return $val;
-}
-
-@function makelongleftshadow($color) {
-    $val: 0px 0px $color;
-    @for $i from 1 through 50 {
-        $color: fade-out(desaturate($color, 1%), .02);
-        $val: #{$val}, -#{$i}px #{$i}px #{$color};
-    }
-    @return $val;
-}
-
-.text-shadow-container {
-    .shadow-left {
-        text-align: center;
-        font-size: 50px;
-        line-height: 100px;
-        text-shadow: makelongrightshadow(hsla(14, 100%, 30%, 1));
-        color: hsl(14, 100%, 60%);
-    }
-
-    .shadow-right {
-        text-align: center;
-        font-size: 50px;
-        line-height: 100px;
-        text-shadow: makelongleftshadow(hsla(231, 50%, 30%, 1));
-        color: hsl(231, 50%, 60%);
-    }
-}
-</style>
-:::
-
-## 条纹阴影文字效果
-
-::: demo
-<template>
-    <div data-name="Solid Shadow Word" class="solid-shadow-text">Solid Shadow Word</div>
-</template>
-
-<style lang="scss" scoped>
-.solid-shadow-text {
-    font-family: Times New Roman, 'serif';
-    position: relative;
-    font-size: 50px;
-    line-height: 100px;
-    text-align: center;
-    text-shadow: 4px 4px 1px #333;
-    
-    &::before {
-        position: absolute;
-        content: "";
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-image: linear-gradient(-45deg, #fff 0%, #fff 25%, transparent 25%, transparent 50%, #fff 50%, #fff 75%, transparent 75%, transparent 100%);
-        background-size: 6px 6px;
-        z-index: 1;
-    }
-    
-    &::after {
-        position: absolute;
-        content: attr(data-name);
-        top: -4px;
-        left: -2px;
-        right: 6px;
-        bottom: 6px;
-        color: #333;
-        z-index: 2;
-        text-shadow: 3px 3px #fff;
-    }
-}
-</style>
-:::
 
 ## 抖音logo
 
@@ -973,7 +754,7 @@ $imgHeight: 370;
         filter:drop-shadow(-10px -10px 0 #24f6f0) contrast(150%) brightness(110%);
         box-shadow: 11.6px 10px 0 0 #fe2d52;
         z-index: 10;
-        animation: move 5s infinite ease-in;
+        animation: move-douyin 5s infinite ease-in;
         
         &::before {
             content: "";
@@ -1009,7 +790,7 @@ $imgHeight: 370;
 }
 
 
-@keyframes move {
+@keyframes move-douyin {
     4% {
         transform: skewX(7deg) translate(-30px);
     }
@@ -1034,6 +815,91 @@ $imgHeight: 370;
     }
     30% {
         filter:drop-shadow(-10px -10px 0 #24f6f0) contrast(150%) brightness(120%) blur(0px);
+    }
+}
+</style>
+:::
+
+## 幽灵动画
+
+::: demo
+<template>
+<div class="ghost-bg">
+    <div class="ghost-container" translate="no">
+        <div class="ghost"></div>
+    </div>
+</div>
+</template>
+
+<style lang="scss" scoped>
+.ghost-bg {
+    overflow: hidden;
+    background: #000;
+}
+.ghost-container {
+    padding: 20px;
+    background: #000;
+    filter: blur(3px) contrast(10);
+}
+.ghost {
+    position: relative;
+    width: 80px;
+    height: 120px;
+    background: 
+        radial-gradient(circle at 60px 40px, #000, #000 7px, transparent 7px),
+        radial-gradient(circle at 40px 40px, #000, #000 7px, transparent 7px),
+        radial-gradient(circle at 50px 50px, #fff, #fff);
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    margin: auto;
+    border-radius: 40px 40px 60px 20px;
+    transform: skewX(-10deg);
+    animation: move-ghost-main 2s infinite ease-out;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        background: #fff;
+        border-radius: 50%;
+    }
+
+    &::before {
+        width: 20px;
+        height: 20px;
+        top: 50px;
+        left: -10px;
+        box-shadow: 0 0 0 1px #fff;
+        animation: move-ghost 2s infinite ease-in;
+    }
+
+    &::after {
+        width: 30px;
+        height: 25px;
+        top: 95px;
+        left: -10px;
+        box-shadow: 0 0 0 1px #fff;
+        animation: move-ghost2 2s infinite ease-in;
+    }
+}
+
+@keyframes move-ghost {
+    80%,
+    100% {
+        box-shadow: -60px 0 0 .5px rgba(255, 255, 255, .4);
+    }
+}
+
+@keyframes move-ghost2 {
+    80%,
+    100% {
+        box-shadow: -100px 0 0 .5px rgba(255, 255, 255, .2);
+    }
+}
+
+@keyframes move-ghost-main {
+    42% {
+        transform: skewX(-10deg) translate(40px, 0);
     }
 }
 </style>
