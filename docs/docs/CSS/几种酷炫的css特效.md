@@ -904,3 +904,89 @@ $imgHeight: 370;
 }
 </style>
 :::
+
+## 毛玻璃效果
+
+::: demo
+<div class="frosted-glass-container">
+    <div class="frosted-glass">毛玻璃效果</div> 
+</div>
+
+<style lang="scss" scoped>
+.frosted-glass-container {
+    height: 400px;
+    background: url('./img/crack-img.png') no-repeat center center;
+
+    .frosted-glass {
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 50%;
+        height: 200px;
+        background: inherit;
+        margin: 50px auto;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 30px;
+        line-height: 200px;
+        color: #eee;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+        &::after {
+            position: absolute;
+            content: "";
+            background: inherit; 
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            filter: blur(10px);
+            z-index: -1;
+        }
+    }
+}
+</style>
+:::
+
+## 聚光灯效果
+
+::: demo
+<template>
+    <div class="radial-circle-bg">
+        <div class="radial-circle"></div>
+    </div>
+</template>
+
+<style lang="scss" scoped>
+$img: './img/crack-img.png';
+
+.radial-circle-bg {
+    height: 300px;
+    background-image: url($img);
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+
+    .radial-circle {
+        position: absolute;
+        top: -100%;
+        left: -100%;
+        right: -100%;
+        bottom: -100%;
+        background: radial-gradient(circle at 50% 50%, transparent 0%, transparent 3%, rgba(0, 0, 0, .7) 3.5%, rgba(0, 0, 0, .8) 100%);
+        animation: move-radial-circle 10s infinite alternate;
+    }
+}
+
+@keyframes move-radial-circle {
+    0% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateX(10%);
+    }
+}
+</style>
+:::
