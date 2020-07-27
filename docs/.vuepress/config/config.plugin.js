@@ -4,7 +4,7 @@ const block = require('../plugin/block')
 
 module.exports = [
   // pwa
-  ['@vuepress/pwa', { serviceWorker: true, updatePopup: true }],
+  ['@vuepress/pwa'],
 
   // 返回顶部
   ['@vuepress/back-to-top', true],
