@@ -28,6 +28,9 @@ git push origin --tags
 回滚到某一节点
 
 ```sh
+# 本地回滚到指定节点
 git reset --hard <version>
+
+# 强行推送至远程
 git push -f
 ```
