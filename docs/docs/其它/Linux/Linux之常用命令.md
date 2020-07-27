@@ -41,3 +41,18 @@ scp -r <local_dir> root@<ip>:<path>
 ```sh
 scp -r root@<ip>:<path> <local_dir>
 ```
+
+打包文件
+
+```sh
+# 仅打包，不压缩
+tar -cvf /home/www/images.tar /home/www/images
+# 打包后，以 gzip 压缩
+tar -zcvf /home/www/images.tar.gz /home/www/images
+```
+
+解压文件至指定目录
+
+```sh
+tar zxvf /source/kernel.tgz -C /source/ linux-2.6.29
+```
