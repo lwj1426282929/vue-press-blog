@@ -35,7 +35,7 @@
     "@codeciting/vuepress-plugin-math": "^0.2.0",
     "element-ui": "^2.13.0",
     "fs": "0.0.1-security",
-    "highlight.js": "^9.18.1",
+    "highlight.js": "^10.1.2",
     "markdown-it": "^10.0.0",
     "markdown-it-container": "^2.0.0",
     "md5": "^2.2.1",
