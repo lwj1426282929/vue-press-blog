@@ -4,7 +4,7 @@ const plugins = require('./config/config.plugin');
 
 module.exports = {
     port: 80,
-    base: '/',
+    base: '/vue-press-blog/',
     head,
     serviceWorker: true,
     cache: true,
