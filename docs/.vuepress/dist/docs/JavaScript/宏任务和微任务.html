@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>宏任务和微任务 | 笔记</title>
+    <meta name="description" content="">
+    <link rel="icon" href="/note/logo.png">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/KaTeX/0.11.1/katex.min.css">
+    
+    <link rel="preload" href="/note/assets/css/0.styles.40276bcc.css" as="style"><link rel="preload" href="/note/assets/js/app.7f2852d0.js" as="script"><link rel="preload" href="/note/assets/js/2.690ace21.js" as="script"><link rel="preload" href="/note/assets/js/17.11edac97.js" as="script"><link rel="prefetch" href="/note/assets/js/10.bf4f7e11.js"><link rel="prefetch" href="/note/assets/js/11.0debeefd.js"><link rel="prefetch" href="/note/assets/js/12.8fb6767d.js"><link rel="prefetch" href="/note/assets/js/13.f634f011.js"><link rel="prefetch" href="/note/assets/js/14.8b1dac30.js"><link rel="prefetch" href="/note/assets/js/15.f6d7d2c1.js"><link rel="prefetch" href="/note/assets/js/16.7a2ed1e7.js"><link rel="prefetch" href="/note/assets/js/18.54e8cdc0.js"><link rel="prefetch" href="/note/assets/js/19.3bfa3263.js"><link rel="prefetch" href="/note/assets/js/20.42fcf539.js"><link rel="prefetch" href="/note/assets/js/21.7adbd545.js"><link rel="prefetch" href="/note/assets/js/22.39dff569.js"><link rel="prefetch" href="/note/assets/js/23.c9f8c087.js"><link rel="prefetch" href="/note/assets/js/24.0cb1cc2b.js"><link rel="prefetch" href="/note/assets/js/25.881ac95b.js"><link rel="prefetch" href="/note/assets/js/26.1a0e0ff9.js"><link rel="prefetch" href="/note/assets/js/27.b76314ac.js"><link rel="prefetch" href="/note/assets/js/28.e426802b.js"><link rel="prefetch" href="/note/assets/js/29.52986737.js"><link rel="prefetch" href="/note/assets/js/3.f78ceb33.js"><link rel="prefetch" href="/note/assets/js/30.d50b4a0f.js"><link rel="prefetch" href="/note/assets/js/31.715478ed.js"><link rel="prefetch" href="/note/assets/js/32.c5da5a66.js"><link rel="prefetch" href="/note/assets/js/33.4f53ac4c.js"><link rel="prefetch" href="/note/assets/js/34.181e9ff6.js"><link rel="prefetch" href="/note/assets/js/35.af530620.js"><link rel="prefetch" href="/note/assets/js/36.f4451f34.js"><link rel="prefetch" href="/note/assets/js/37.4afd150c.js"><link rel="prefetch" href="/note/assets/js/38.7d1f1212.js"><link rel="prefetch" href="/note/assets/js/39.bd98828d.js"><link rel="prefetch" href="/note/assets/js/4.3c631f78.js"><link rel="prefetch" href="/note/assets/js/40.1461a1b6.js"><link rel="prefetch" href="/note/assets/js/41.e1201042.js"><link rel="prefetch" href="/note/assets/js/42.60134b7c.js"><link rel="prefetch" href="/note/assets/js/43.8d9f7c94.js"><link rel="prefetch" href="/note/assets/js/44.4213a663.js"><link rel="prefetch" href="/note/assets/js/45.9fe573f6.js"><link rel="prefetch" href="/note/assets/js/46.b408f41c.js"><link rel="prefetch" href="/note/assets/js/47.b28d7600.js"><link rel="prefetch" href="/note/assets/js/48.2435e76d.js"><link rel="prefetch" href="/note/assets/js/49.cd390acd.js"><link rel="prefetch" href="/note/assets/js/5.7caca880.js"><link rel="prefetch" href="/note/assets/js/50.961040ca.js"><link rel="prefetch" href="/note/assets/js/51.56df46e0.js"><link rel="prefetch" href="/note/assets/js/52.0b3e8479.js"><link rel="prefetch" href="/note/assets/js/53.293bd5c0.js"><link rel="prefetch" href="/note/assets/js/54.a1157f4e.js"><link rel="prefetch" href="/note/assets/js/55.5c2dafe4.js"><link rel="prefetch" href="/note/assets/js/56.d4a30e0e.js"><link rel="prefetch" href="/note/assets/js/57.611d5b72.js"><link rel="prefetch" href="/note/assets/js/58.0f42652a.js"><link rel="prefetch" href="/note/assets/js/59.0fb36a6f.js"><link rel="prefetch" href="/note/assets/js/6.7b4a3aa9.js"><link rel="prefetch" href="/note/assets/js/60.e2a187c9.js"><link rel="prefetch" href="/note/assets/js/61.fd29b318.js"><link rel="prefetch" href="/note/assets/js/62.f6e8ca1c.js"><link rel="prefetch" href="/note/assets/js/63.378dbca8.js"><link rel="prefetch" href="/note/assets/js/64.7f6eb0bd.js"><link rel="prefetch" href="/note/assets/js/65.c2a40426.js"><link rel="prefetch" href="/note/assets/js/66.93926aa8.js"><link rel="prefetch" href="/note/assets/js/67.38855a9b.js"><link rel="prefetch" href="/note/assets/js/68.ac0f9595.js"><link rel="prefetch" href="/note/assets/js/69.b239db3d.js"><link rel="prefetch" href="/note/assets/js/7.7f5fe022.js"><link rel="prefetch" href="/note/assets/js/70.88c5aa0b.js"><link rel="prefetch" href="/note/assets/js/71.1bd1789a.js"><link rel="prefetch" href="/note/assets/js/72.81bb93e1.js"><link rel="prefetch" href="/note/assets/js/73.d2f56b51.js"><link rel="prefetch" href="/note/assets/js/74.cbc90061.js"><link rel="prefetch" href="/note/assets/js/75.1ac9a962.js"><link rel="prefetch" href="/note/assets/js/76.fc8b4c67.js"><link rel="prefetch" href="/note/assets/js/8.b476f32a.js"><link rel="prefetch" href="/note/assets/js/9.c7fb2f9a.js">
+    <link rel="stylesheet" href="/note/assets/css/0.styles.40276bcc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/note/" class="home-link router-link-active"><!----> <span class="site-name">笔记</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/note/" class="nav-link">首页</a></div><div class="nav-item"><a href="/note/docs/" class="nav-link router-link-active">笔记</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/note/docs/CSS/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/note/docs/HTML/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/note/docs/JavaScript/" class="nav-link router-link-active">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/note/docs/Node/" class="nav-link">Node</a></li><li class="dropdown-item"><!----> <a href="/note/docs/Vue/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/note/docs/其它/" class="nav-link">其它</a></li></ul></div></div><div class="nav-item"><a href="https://laiweijian.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  关于我
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/lwj1426282929/vue-press-blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/note/" class="nav-link">首页</a></div><div class="nav-item"><a href="/note/docs/" class="nav-link router-link-active">笔记</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title">技术笔记</span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/note/docs/CSS/" class="nav-link">CSS</a></li><li class="dropdown-item"><!----> <a href="/note/docs/HTML/" class="nav-link">HTML</a></li><li class="dropdown-item"><!----> <a href="/note/docs/JavaScript/" class="nav-link router-link-active">JavaScript</a></li><li class="dropdown-item"><!----> <a href="/note/docs/Node/" class="nav-link">Node</a></li><li class="dropdown-item"><!----> <a href="/note/docs/Vue/" class="nav-link">Vue</a></li><li class="dropdown-item"><!----> <a href="/note/docs/其它/" class="nav-link">其它</a></li></ul></div></div><div class="nav-item"><a href="https://laiweijian.com" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  关于我
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <a href="https://github.com/lwj1426282929/vue-press-blog.git" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>CSS</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>HTML</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>JavaScript</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/note/docs/JavaScript/宏任务和微任务.html" class="active sidebar-link">宏任务和微任务</a><ul class="sidebar-sub-headers"></ul></li><li><a href="/note/docs/JavaScript/常用的JS技巧.html" class="sidebar-link">常用的 JS 技巧</a></li><li><a href="/note/docs/JavaScript/页面呈现、重绘和回流.html" class="sidebar-link">页面呈现、重绘和回流</a></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>数据类型</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>数据结构</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>移动开发&amp;混合开发</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable is-sub-group depth-1"><p class="sidebar-heading"><span>算法</span> <span class="arrow right"></span></p> <!----></section></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Node</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>Vue</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>其它</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="宏任务和微任务"><a href="#宏任务和微任务" aria-hidden="true" class="header-anchor">#</a> 宏任务和微任务</h1> <p>宿主环境提供的叫宏任务（<code>macrotask</code>），由语言标准提供的叫微任务（<code>microtask</code>）。</p> <p><strong>宿主环境：</strong></p> <p>简单来说就是能使 JavaScript 完美运行的环境，只要能完美运行 JavaScript 的载体就是 JavaScript 的宿主环境。目前我们常见的两种宿主环境有浏览器和 node。</p> <p>宿主环境内所有的内建或自定义的变量/函数都是 <code>global</code>/<code>window</code> 这个全局对象的属性/方法，而由宿主环境提供的也叫宏任务。主要有：</p> <ul><li>script(主程序代码);</li> <li>setTimeout;</li> <li>setInterval;</li> <li>setImmediate;</li> <li>I/O 操作</li> <li>UI 渲染</li> <li>requestAnimationFrame</li></ul> <p><strong>语言标准：</strong></p> <p>JavaScript 由 ECMA 制定标准，称之为 ECMAScript,所以由语言标准提供的就是微任务，主要有：</p> <ul><li>Promise;</li> <li>MutationObserver;</li> <li>process.nextTick();</li> <li>mutation</li> <li>Object.observe</li></ul> <div class="custom-block warning"><p class="custom-block-title">注意</p> <p>不同浏览器不同环境对于这两个的概念会有不同，相同的代码在不同浏览器执行会有不同的顺序，在不同浏览器可能也会有不同的顺序。</p></div> <p>在挂起任务时，JS 引擎会将所有任务按照类别分到这两个队列中，首先在 <code>macrotask</code> 的队列（这个队列也被叫做 <code>task queue</code>）中取出第一个任务，执行完毕后取出 <code>microtask</code> 队列中的所有任务顺序执行；之后再取 <code>macrotask</code> 任务，周而复始，直至两个队列的任务都取完。</p> <p><img src="/note/assets/img/event_task.9a8bf640.png" alt="事件循环机制"></p> <p>事件循环、宏任务、微任务关系如下：</p> <p><img src="/note/assets/img/macrotask&amp;microtask.854e9333.png" alt="事件循环、宏任务、微任务的关系"></p> <div class="language-js extra-class"><pre class="language-js"><code>document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">'click'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">'click'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">'click'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>
+    <span class="token string">'click'</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token boolean">false</span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>分析：</p> <h3 id="用户手动点击"><a href="#用户手动点击" aria-hidden="true" class="header-anchor">#</a> 用户手动点击</h3> <p>当用户手动点击页面时， 响应的是用户行为，事件触发是异步调用模式，所以四个监听事件全部是异步执行：</p> <ol><li>js 依次将四个异步宏任务入队</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：''
+异步宏任务队列：[click1, click2, click3, click4]
+异步微任务队列：[]
+</code></pre></div><ol start="2"><li>此时主线程为空，取出第一个异步宏任务执行；</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click1 -&gt;
+异步宏任务队列：[click2, click3, click4]
+异步微任务队列：[]
+</code></pre></div><ol start="3"><li>Promise.resolve()为同步，执行完后 then 为异步微任务，放入异步微任务队列中;</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click1 -&gt; Promise
+异步宏任务队列：[click2, click3, click4]
+异步微任务队列：[console.log(1)]
+</code></pre></div><ol start="4"><li>setTimeout 为异步宏任务，放入异步宏任务队列中；</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click1 -&gt; setTimeout
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[console.log(1)]
+</code></pre></div><ol start="5"><li>console.log(3)为同步任务，直接执行，<strong>输出 3</strong>;</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click1 -&gt;console.log(3)
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[console.log(1)]
+</code></pre></div><ol start="6"><li>由于执行完该任务下的所有微任务才能继续执行下一个宏任务，所以将异步微任务中的 console.log(1)取出执行，<strong>输出 1</strong>。</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click1 -&gt; console.log(1)
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[]
+</code></pre></div><ol start="7"><li>该宏异步任务执行完毕，执行下一个宏任务。取出 click2;</li></ol> <div class="language- extra-class"><pre class="language-text"><code>主线程：click2 -&gt; Promise
+异步宏任务队列：[click3, click4, console.log(2)]
+异步微任务队列：[]
+</code></pre></div><p>接下执行顺序同理，所以主线程、宏任务异步队列与微任务异步队列依次为：</p> <div class="language- extra-class"><pre class="language-text"><code>主线程：''
+异步宏任务队列：[]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[click1]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[click1, click2]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[click1, click2, click3]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[click1, click2, click3, click4]
+异步微任务队列：[]
+
+主线程：click1 -&gt; Promise
+异步宏任务队列：[click2, click3, click4]
+异步微任务队列：[console.log(1)]
+
+主线程：click1 -&gt; setTimeout
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[console.log(1)]
+
+主线程：click1 -&gt; console.log(3)
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[console.log(1)]
+
+主线程：click1 -&gt; console.log(1)
+异步宏任务队列：[click2, click3, click4, console.log(2)]
+异步微任务队列：[]
+
+主线程：click2 -&gt; Promise
+异步宏任务队列：[click3, click4, console.log(2)]
+异步微任务队列：[console.log(4)]
+
+主线程：click2 -&gt; setTimeout
+异步宏任务队列：[click3, click4, console.log(2), conosl.elog(5)]
+异步微任务队列：[console.log(4)]
+
+
+主线程：click2 -&gt; console.log(6)
+异步宏任务队列：[click3, click4, console.log(2), conosl.elog(5)]
+异步微任务队列：[console.log(4)]
+
+主线程：click2 -&gt; console.log(4)
+异步宏任务队列：[click3, click4, console.log(2), conosl.elog(5)]
+异步微任务队列：[]
+
+主线程：click3 -&gt; setTimeout
+异步宏任务队列：[click4, console.log(2), conosl.elog(5), console.log(7)]
+异步微任务队列：[]
+
+主线程：click3 -&gt; Promise
+异步宏任务队列：[click4, console.log(2), conosl.elog(5), console.log(7)]
+异步微任务队列：[console.log(8)]
+
+主线程：click3 -&gt; console.log(9)
+异步宏任务队列：[click4, console.log(2), conosl.elog(5), console.log(7)]
+异步微任务队列：[console.log(8)]
+
+主线程：click3 -&gt; console.log(8)
+异步宏任务队列：[click4, console.log(2), conosl.elog(5), console.log(7)]
+异步微任务队列：[]
+
+主线程：click4 -&gt; setTimeout
+异步宏任务队列：[console.log(2), conosl.elog(5), console.log(7), console.log(10)]
+异步微任务队列：[]
+
+主线程：click4 -&gt; Promise
+异步宏任务队列：[console.log(2), conosl.elog(5), console.log(7), console.log(10)]
+异步微任务队列：[setTimeout(() =&gt; { console.log(11) }, 0)]
+
+主线程：click4 -&gt; console.log(12)
+异步宏任务队列：[console.log(2), conosl.elog(5), console.log(7), console.log(10)]
+异步微任务队列：[setTimeout(() =&gt; { console.log(11) }, 0)]
+
+主线程：click4 -&gt; setTimeout(() =&gt; { console.log(11) }, 0)
+异步宏任务队列：[console.log(2), conosl.elog(5), console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：console.log(2)
+异步宏任务队列：[conosl.elog(5), console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：console.log(5)
+异步宏任务队列：[console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：console.log(7)
+异步宏任务队列：[console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：console.log(10)
+异步宏任务队列：[console.log(11)]
+异步微任务队列：[]
+
+主线程：console.log(11)
+异步宏任务队列：[]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[]
+异步微任务队列：[]
+</code></pre></div><p>所以输出出来的顺序为： <code>3 -&gt; 1 -&gt; 6 -&gt; 4 -&gt; 9 -&gt; 8 -&gt; 12 -&gt; 2 -&gt; 5 -&gt; 7 -&gt; 10 -&gt; 11</code>。</p> <h3 id="js-触发"><a href="#js-触发" aria-hidden="true" class="header-anchor">#</a> JS 触发</h3> <p>JS 触发为同步调用，所以四个监听事件同步执行</p> <div class="language- extra-class"><pre class="language-text"><code>主线程：''
+异步宏任务队列：[]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[click1 + click2 + click3 + click4]
+异步微任务队列：[]
+
+主线程：click -&gt; Promise
+异步宏任务队列：[]
+异步微任务队列：[console.log(1)]
+
+主线程：click -&gt; setTimeout
+异步宏任务队列：[console.log(2)]
+异步微任务队列：[console.log(1)]
+
+主线程：click -&gt; console.log(3)
+异步宏任务队列：[console.log(2)]
+异步微任务队列：[console.log(1)]
+
+主线程：click -&gt; Promise
+异步宏任务队列：[console.log(2)]
+异步微任务队列：[console.log(1), console.log(4)]
+
+主线程：click -&gt; setTimeout
+异步宏任务队列：[console.log(2), console.log(5)]
+异步微任务队列：[console.log(1), console.log(4)]
+
+主线程：click -&gt; console.log(6)
+异步宏任务队列：[console.log(2), console.log(5)]
+异步微任务队列：[console.log(1), console.log(4)]
+
+主线程：click -&gt; setTimeout
+异步宏任务队列：[console.log(2), console.log(5), console.log(7)]
+异步微任务队列：[console.log(1), console.log(4)]
+
+主线程：click -&gt; Promise
+异步宏任务队列：[console.log(2), console.log(5), console.log(7)]
+异步微任务队列：[console.log(1), console.log(4), console.log(8)]
+
+主线程：click -&gt; console.log(9)
+异步宏任务队列：[console.log(2), console.log(5), console.log(7)]
+异步微任务队列：[console.log(1), console.log(4), console.log(8)]
+
+主线程：click -&gt; setTimeout
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[console.log(1), console.log(4), console.log(8)]
+
+主线程：click -&gt; Promise
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[console.log(1), console.log(4), console.log(8), setTimeout]
+
+主线程：click -&gt; console.log(12)
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[console.log(1), console.log(4), console.log(8), setTimeout]
+
+主线程：click -&gt; console.log(1)
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[console.log(4), console.log(8), setTimeout]
+
+主线程：click -&gt; console.log(4)
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[console.log(8), setTimeout]
+
+主线程：click -&gt; console.log(8)
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10)]
+异步微任务队列：[setTimeout]
+
+主线程：click -&gt; setTimeout
+异步宏任务队列：[console.log(2), console.log(5), console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：click -&gt; console.log(2)
+异步宏任务队列：[console.log(5), console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：click -&gt; console.log(5)
+异步宏任务队列：[console.log(7), console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：click -&gt; console.log(7)
+异步宏任务队列：[console.log(10), console.log(11)]
+异步微任务队列：[]
+
+主线程：click -&gt; console.log(10)
+异步宏任务队列：[console.log(11)]
+异步微任务队列：[]
+
+主线程：click -&gt; console.log(11)
+异步宏任务队列：[]
+异步微任务队列：[]
+
+主线程：''
+异步宏任务队列：[]
+异步微任务队列：[]
+</code></pre></div><p>所以 JS 调用的输出顺序为：<code>3 -&gt; 6 -&gt; 9 -&gt; 12 -&gt; 1 -&gt; 4 -&gt; 8 -&gt; 2 -&gt; 5 -&gt; 7 -&gt; 10 -&gt; 11</code>。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新: </span> <span class="time">7/1/2020, 1:08:42 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/note/docs/HTML/meta.html" class="prev">
+          meta
+        </a></span> <span class="next"><a href="/note/docs/JavaScript/常用的JS技巧.html">
+          常用的 JS 技巧
+        </a>
+        →
+      </span></p></div> </main></div><div class="global-ui"><!----></div></div>
+    <script src="/note/assets/js/app.7f2852d0.js" defer></script><script src="/note/assets/js/2.690ace21.js" defer></script><script src="/note/assets/js/17.11edac97.js" defer></script>
+  </body>
+</html>
